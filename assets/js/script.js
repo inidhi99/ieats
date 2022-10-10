@@ -3,12 +3,15 @@ var targetCity = 'New York City';
 var googleKey = 'AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg';
 var weatherKey = '66b15a5b3951d15de56c5d2c4e2ddcba';
 var inputEl = document.getElementById('autocomplete')
-
-
+var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
+var weatherWidget= document.querySelector(".weather")
 // DEPENDENCIES
 var autocomplete;
 
-
+function init(){
+  getLatLon(targetCity);
+  getWeather(weatherUrl);
+  };
 // FUNCTIONS
 function getLatLon(city) {
   var geoURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=' + weatherKey;
@@ -19,7 +22,16 @@ function getLatLon(city) {
   }) 
 }
 
-// function initAutocomplete() {
+// function to get weather 
+async function getWeather(weatherUrl){
+  const response = await fetch(weatherUrl);
+  var data = await response.json();
+  console.log(data);
+    var weather= data.main;
+    console.log(weather);
+  }
+
+// function initAutocomplete() { 
   // }
   
   function initGoogle() {
@@ -64,5 +76,7 @@ function getLatLon(city) {
       });
     });
   }
-  
-  getLatLon(targetCity);
+
+
+
+  function init();
