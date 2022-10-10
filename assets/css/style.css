@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+#autocomplete {
+  display: block;
+  height: 75px;
+  width: 1000px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+#map {
+  height: 500px;
+  width: 1000px;
+  margin: 0 auto;
+}
