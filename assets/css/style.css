@@ -77,6 +77,7 @@ body {
   overflow: hidden;
   font-family: Roboto;
   padding: 0;
+  border-radius:15px;
 }
 
 #map-container {
@@ -116,6 +117,7 @@ body {
   font-size: 1.75rem;
   font-weight: 500;
   padding: 6px 12px;
+  
 }
 /* Map Card Styles End */
 
@@ -135,6 +137,7 @@ body {
   width: 1000px;
   margin: 0 auto;
   margin-bottom: 10px;
+
 }
 
 .nav {
@@ -151,4 +154,8 @@ body {
   #map {
     width: 300px;
   }
+}
+
+#weather{
+
 }
