@@ -27,15 +27,15 @@ function getLatLon(city) {
 // function to get weather 
   async function getWeather(weatherUrl){
     const response = await fetch(weatherUrl);
-     var data = await response.json();
+    var data = await response.json();
       console.log(data);
       var temp= data.main.temp;
       var feelsLike= data.main.feels_like;
       var weatherDesc= data.weather[0].main;
-       console.log(feelsLike);
-       console.log(temp);
-       console.log(weatherDesc)
-       document.getElementById('weather').innerHTML= "Temperature: " + temp + " Feels Like: "+ feelsLike + ", Conditions: " + weatherDesc ;
+      console.log(feelsLike);
+      console.log(temp);
+      console.log(weatherDesc)
+      document.getElementById('weather').innerHTML= "Temperature: " + temp + " Feels Like: "+ feelsLike + ", Conditions: " + weatherDesc ;
       }
 
 // function initAutocomplete() { 
