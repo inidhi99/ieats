@@ -1,40 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>InstaGrub</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Document</title>
 </head>
+
 <body>
-    <header><h1>Instagrub</h1></header>
-    <aside style="text-align: right" id="weather">weather widget</aside>
-        <script>
-            async function getWeather(weatherUrl){
-                const response = await fetch(weatherUrl);
-                 var data = await response.json();
-                 console.log(data);
-                    var temp= data.main.temp;
-                    var feelsLike= data.main.feels_like;
-                    var weatherDesc= data.weather[0].main;
-                     console.log(feelsLike);
-                     console.log(temp);
-                     console.log(weatherDesc)
-                     document.getElementById('weather').innerHTML= "Temperature: " + temp + " Feels Like: "+ feelsLike + ", Conditions: " + weatherDesc ;
-                    }
-        </script>
-    <input type="text" id="autocomplete" placeholder="Search for Places">
-    <div id="map">
-    
+
+  <header class="header section red">
+    <h1 class="header-title">Project 1</h1>
+  </header>
+
+
+  <div class="container">
+    <div id="places">
+      <!-- weather widget will go here -->
+      <div id="weather">Temp widget goes here</div>
     </div>
-    <script>
-        src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba"
-    </script>
-    <script src="./assets/js/script.js"></script>
-    <script
-    async defer
+    <!-- Map & Controls Start -->
+    <div class="map-card" id="map-card">
+      <div>
+        <div id="title">Restaurant Finder</div>
+        <div id="type-selector" class="map-controls">
+          <input
+            type="radio"
+            name="type"
+            id="changetype-all"
+            checked="checked"
+          />
+          <label for="changetype-all">All</label>
+
+          <input type="radio" name="type" id="changetype-manhattan" />
+          <label for="changetype-manhattan">Manhattan</label>
+
+          <input type="radio" name="type" id="changetype-brooklyn" />
+          <label for="changetype-brooklyn">Brooklyn</label>
+
+          <input type="radio" name="type" id="changetype-queens" />
+          <label for="changetype-queens">Queens</label>
+        </div>
+        <div id="map-container">
+          <input id="map-input" type="text" placeholder="Search for local restaurants" />
+        </div>
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <span id="place-name" class="title"></span><br />
+      <span id="place-address"></span>
+    </div>
+  </div>
+  <!-- Map Controls End -->
+
+  <nav class="nav red">
+    <div class="nav-wrapper">
+      <!-- <a href="#!" class="nav-links">Nav area</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="">Sass</a></li>
+          <li><a href="">Components</a></li>
+        </ul> -->
+      <a class="waves-effect waves-dark btn">button</a>
+      <a class="waves-effect waves-light btn">button</a>
+      <a class="waves-effect waves-light btn">button</a>
+    </div>
+  </nav>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
+  </script>
+  <script src="./assets/js/script.js"></script>
+  <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
-</script>
+    </script>
+
 </body>
+
 </html>
