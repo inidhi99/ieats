@@ -67,14 +67,14 @@ body {
 
 .map-controls label {
   font-family: Roboto;
-  font-size: 13px;
+  font-size: 1rem;
   font-weight: 300;
 }
 
 #map-input {
   background-color: #fff;
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 1.3rem;
   font-weight: 300;
   margin-left: 12px;
   padding: 0 11px 0 13px;
@@ -89,7 +89,7 @@ body {
 #title {
   color: #fff;
   background-color: #4d90fe;
-  font-size: 25px;
+  font-size: 1.75rem;
   font-weight: 500;
   padding: 6px 12px;
 }
