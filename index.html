@@ -19,12 +19,43 @@
 
   <div class="container">
     <div id="places">
-      <input class="search-bar" id="autocomplete" placeholder="Search for Places">
       <!-- weather widget will go here -->
       <div id="temp">Temp widget goes here</div>
     </div>
+    <!-- Map & Controls Start -->
+    <div class="map-card" id="map-card">
+      <div>
+        <div id="title">Restaurant Finder</div>
+        <div id="type-selector" class="map-controls">
+          <input
+            type="radio"
+            name="type"
+            id="changetype-all"
+            checked="checked"
+          />
+          <label for="changetype-all">All</label>
+
+          <input type="radio" name="type" id="changetype-manhattan" />
+          <label for="changetype-manhattan">Manhattan</label>
+
+          <input type="radio" name="type" id="changetype-brooklyn" />
+          <label for="changetype-brooklyn">Brooklyn</label>
+
+          <input type="radio" name="type" id="changetype-queens" />
+          <label for="changetype-queens">Queens</label>
+        </div>
+        <div id="map-container">
+          <input id="map-input" type="text" placeholder="Search for local restaurants" />
+        </div>
+      </div>
+    </div>
     <div id="map"></div>
+    <div id="infowindow-content">
+      <span id="place-name" class="title"></span><br />
+      <span id="place-address"></span>
+    </div>
   </div>
+  <!-- Map Controls End -->
 
   <nav class="nav red">
     <div class="nav-wrapper">
