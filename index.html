@@ -9,7 +9,7 @@
 </head>
 <body>
     <header><h1>Instagrub</h1></header>
-    <aside style="text-align: right"><span id="weather">weather widget</span></aside>
+    <aside style="text-align: right" id="weather">weather widget</aside>
         <script>
             async function getWeather(weatherUrl){
                 const response = await fetch(weatherUrl);
@@ -28,13 +28,13 @@
     <div id="map">
     
     </div>
-    <script src="./assets/js/script.js"></script>
-    <script
-        async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
-    </script>
     <script>
         src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba"
     </script>
+    <script src="./assets/js/script.js"></script>
+    <script
+    async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
+</script>
 </body>
 </html>
