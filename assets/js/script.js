@@ -8,10 +8,8 @@ var weatherWidget= document.querySelector(".weather")
 // DEPENDENCIES
 var autocomplete;
 
-function init(){
-  getLatLon(targetCity);
-  getWeather(weatherUrl);
-  };
+ 
+
 // FUNCTIONS
 function getLatLon(city) {
   var geoURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=' + weatherKey;
@@ -23,13 +21,15 @@ function getLatLon(city) {
 }
 
 // function to get weather 
-async function getWeather(weatherUrl){
-  const response = await fetch(weatherUrl);
-  var data = await response.json();
-  console.log(data);
-    var weather= data.main;
-    console.log(weather);
-  }
+// async function getWeather(weatherUrl){
+//   const response = await fetch(weatherUrl);
+//   var data = await response.json();
+//   console.log(data);
+//     var weather= data.main;
+//     console.log(weather);
+//     document.getElementById('weather').innerHTML= weather;
+    
+//   }
 
 // function initAutocomplete() { 
   // }
@@ -78,5 +78,5 @@ async function getWeather(weatherUrl){
   }
 
 
-
-  function init();
+  getLatLon(targetCity);
+  getWeather(weatherUrl);
