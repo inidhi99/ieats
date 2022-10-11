@@ -4,15 +4,13 @@
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
 #map {
   height: 50%;
 }
 
 html {
-=======
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
-
+}
 :root {
   --montserratfont: 'Montserrat Alternates', sans-serif;
 
@@ -36,24 +34,20 @@ html {
 
 html,
 body {
->>>>>>> 01957c4125c002ea30d5e16f8d581d66edb3b4c7
   width: 100%;
   overflow-y: hidden;
-}
-
-<<<<<<< HEAD
-html,
-body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-body {
+/* Evince, this is something you'll want to adjust, these settings are for my testing */
+body { 
   width: 80%;
   margin: 0 auto;
 }
 
+/* Map Card Styles Start */
 #description {
   font-family: Roboto;
   font-size: 15px;
@@ -122,21 +116,13 @@ body {
   font-size: 1.75rem;
   font-weight: 500;
   padding: 6px 12px;
-=======
+}
+/* Map Card Styles End */
+
+
 #places {
   display: flex;
   flex-direction: row;
-}
-
-
-#autocomplete {
-  height: 75px;
-  width: 125px;
-  margin: 0 auto;
-  padding: 0 50px;
-  margin-left: 25px;
-  background-color: rgb(143, 143, 147);
-  margin-bottom: 10px;
 }
 
 #temp {
@@ -165,5 +151,4 @@ body {
   #map {
     width: 300px;
   }
->>>>>>> 01957c4125c002ea30d5e16f8d581d66edb3b4c7
 }

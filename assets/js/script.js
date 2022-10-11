@@ -68,7 +68,7 @@ function initGoogle() {
     });
     
   // Listen for autocomplete selection  
-  varautocomplete.addListener('place_changed', () => {
+  autocomplete.addListener('place_changed', () => {
     var place = autocomplete.getPlace();
     placeMarker = new google.maps.Marker({
       placeId: place.place_id,
