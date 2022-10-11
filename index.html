@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Document</title>
 </head>
+
 <body>
-    <input type="text" id="autocomplete" placeholder="Search for Places">
-    <div id="map">
-        
+
+  <header class="header section red">
+    <h1 class="header-title">Project 1</h1>
+  </header>
+
+
+  <div class="container">
+    <div id="places">
+      <input class="search-bar" id="autocomplete" placeholder="Search for Places">
+      <!-- weather widget will go here -->
+      <div id="temp">Temp widget goes here</div>
     </div>
-    <script src="./assets/js/script.js"></script>
-    <script
-        async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
+    <div id="map"></div>
+  </div>
+
+  <nav class="nav red">
+    <div class="nav-wrapper">
+      <!-- <a href="#!" class="nav-links">Nav area</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="">Sass</a></li>
+          <li><a href="">Components</a></li>
+        </ul> -->
+      <a class="waves-effect waves-dark btn">button</a>
+      <a class="waves-effect waves-light btn">button</a>
+      <a class="waves-effect waves-light btn">button</a>
+    </div>
+  </nav>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
     </script>
+
 </body>
+
 </html>
