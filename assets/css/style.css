@@ -135,7 +135,7 @@ body {
 }
 
 #map {
-  height: 667px;
+  height: 75%;
   width: 1000px;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -144,7 +144,8 @@ body {
 .nav {
   display: flex;
   justify-content: center;
-  height: 60px;
+  /* height: 50px; */
+  min-height: 100vh;
   margin-bottom: 20px;
   margin-top: 25px;
 }
