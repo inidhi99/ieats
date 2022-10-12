@@ -5,25 +5,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--styling sheet -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>iEat</title>
 </head>
 
-
-
 <body>
-<!-- header -->
+
   <header class="header section blue">
-    <h1 class="header-title">iEats</h1>
+    <h1 class="header-title">iEat</h1>
   </header>
-<!-- header ends -->   
 
-
-
-  <!-- weather widget -->
 
   <div class="container">
     <aside id="places">
@@ -31,11 +24,6 @@
       <div class="widget" id="weather">Temp widget goes here</div>
       <div class="widget" id="forecast"> Forecast pops up here</div>
     </aside>
-
-  <!-- weather widget ends -->
-
-
-
     <!-- Map & Controls Start -->
     <div class="map-card" id="map-card">
       <div>
@@ -67,9 +55,6 @@
   </div>
   </div>
   <!-- Map Controls End -->
-
-
-  
   <div id="modalBox">
     MODAL GOES HERE
     <!-- <div class="cards">Modals may be placed here w/ flexbox container</div> -->
@@ -82,27 +67,41 @@
           <li><a href="">Sass</a></li>
           <li><a href="">Components</a></li>
         </ul> -->
-      <a class="waves-effect waves-dark btn" href="#about">About</a>
-      <a class="waves-effect waves-light btn" href="#contact">Contact</a>
-      <a class="waves-effect waves-light btn" href="#map">Search</a>
+      
+      <a class="waves-effect waves-light btn modal-trigger" href="#about"> About</a>
+      <a class="waves-effect waves-light btn modal-trigger" href="#contact"> Contact</a>
+      <a class="waves-effect waves-light btn modal-trigger" href="#map"> Search</a>
   </div>
   </nav>
 
 
 
- 
-<!--end of nav bar-->
+
+<!-- my changes -->
+    <!-- Modal Trigger -->
+
+    <!-- Modal Structure -->
 
 
-<!--script link-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script
-    src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
-    </script>
-  <script src="./assets/js/script.js"></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
-    </script>
+   
+
+
+    <div id="about" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4>About </h4>
+        <p>all the about tag will go here </p>
+      </div>
+      <div class="modal-footer">
+        <a href="#about" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
+            
+
+    <!-- end of my changes -->
+
+
+
+<!-- 
 
   <section id="about">
     <h2>ABOUT</h2>
@@ -116,7 +115,19 @@
     <form>
 
     </form>
-  </section>
+  </section> -->
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script
+    src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
+    </script>
+  <script src="./assets/js/script.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
+    </script>
+
 
 </body>
 
