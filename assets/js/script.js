@@ -34,10 +34,10 @@ function getLatLon(city) {
       var city= data.name
       var feelsLike= data.main.feels_like;
       var weatherDesc= data.weather[0].main;
-       console.log(feelsLike);
-       console.log(temp);
-       console.log(weatherDesc)
-       document.getElementById('weather').innerHTML= city +  "\nTemperature: " + temp + " \nFeels Like: "+ feelsLike + " \nConditions: " + weatherDesc ;
+      console.log(feelsLike);
+      console.log(temp);
+      console.log(weatherDesc)
+      document.getElementById('weather').innerHTML= city +  "<br>Temperature: " + temp + " <br>Feels Like: "+ feelsLike + " <br>Conditions: " + weatherDesc ;
       }
 
 //get forecast function
@@ -47,7 +47,7 @@ function getLatLon(city) {
         console.log(data);
         var forecastData= [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
         console.log (forecastData);
-        document.getElementById('forecast').innerHTML = "In 3 Hours the forecast for " + forecastData[3] + "\nTemperature: " + forecastData[0] + " \nFeels Like: " + forecastData[1] + " \nWeather conditions: " + forecastData[2] ; 
+        document.getElementById('forecast').innerHTML = "In 3 Hours the forecast for " + forecastData[3] + "<br>Temperature: " + forecastData[0] + "<br>Feels Like: " + forecastData[1] + " <br>Weather conditions: " + forecastData[2] ; 
       }
 
 // function initAutocomplete() { 
