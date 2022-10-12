@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
-/* html {
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
-} */
+#map {
+  height: 50%;
+}
 
+html {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
+}
 :root {
   --montserratfont: 'Montserrat Alternates', sans-serif;
 
@@ -76,17 +76,17 @@ body {
   font: 400 18px Roboto, Arial, sans-serif;
   overflow: hidden;
   font-family: Roboto;
-  border-radius:15px;
+  padding: 0;
 }
 
 #map-container {
   padding-bottom: 12px;
-
+  margin-right: 12px;
 }
 
 .map-controls {
-   display: inline-block;
-  padding: 5px 11px; 
+  display: inline-block;
+  padding: 5px 11px;
 }
 
 .map-controls label {
@@ -116,7 +116,6 @@ body {
   font-size: 1.75rem;
   font-weight: 500;
   padding: 6px 12px;
-  
 }
 
 #changetype-all,
@@ -142,7 +141,7 @@ body {
 
 #map {
   height: 600px;
-  width: 100%;
+  width: 1000px;
   margin: 0 auto;
   margin-bottom: 10px;
 }
@@ -154,20 +153,11 @@ body {
   margin-bottom: 10px;
   margin-top: 25px;
 
+
 }
 
 @media screen and (max-width: 768px) {
   #map {
     width: 300px;
   }
-}
-
-.widget{
-  height: 200px;
-  width: 400px;
-  background-color: lightblue;
-  text-align: center;
-  color: black;
-  margin: auto;
-  border-radius: 15px;
 }
