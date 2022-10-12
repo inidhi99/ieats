@@ -1,11 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
 
-#map {
-  height: 50%;
 }
 
 html {
@@ -79,12 +78,12 @@ body {
   font: 400 18px Roboto, Arial, sans-serif;
   overflow: hidden;
   font-family: Roboto;
-  padding: 0;
+  border-radius: 15px;
 }
 
 #map-container {
   padding-bottom: 12px;
-  margin-right: 12px;
+
 }
 
 .map-controls {
@@ -135,8 +134,8 @@ body {
 }
 
 #map {
-  height: 75%;
-  width: 1000px;
+  height: 55%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 10px;
 }
@@ -144,8 +143,8 @@ body {
 .nav {
   display: flex;
   justify-content: center;
-  /* height: 50px; */
-  min-height: 100vh;
+  height: 60px;
+  /* min-height: 100vh; */
   margin-bottom: 20px;
   margin-top: 25px;
 }
@@ -154,12 +153,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* height: 25%; */
-  /* width: 1000px; */
+
 }
 
 @media screen and (max-width: 768px) {
   #map {
     width: 300px;
   }
+}
+
+.widget {
+  height: 200px;
+  width: 400px;
+  background-color: lightblue;
+  text-align: center;
+  color: black;
+  margin: auto;
+  border-radius: 15px;
 }

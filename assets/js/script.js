@@ -113,6 +113,5 @@ function initGoogle() {
     });
   });
 }
-//Tutor recommendation Add element tags in placeMarker section..in ref to image, open hours, price range//
-getLatLon(targetCity);
+
 getWeather(weatherUrl);
