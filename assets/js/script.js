@@ -114,5 +114,4 @@ function initGoogle() {
   });
 }
 
-getLatLon(targetCity);
 getWeather(weatherUrl);
