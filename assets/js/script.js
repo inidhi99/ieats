@@ -20,19 +20,15 @@ var mapContainerEl= document.querySelector('.map-card');
 
 // FUNCTIONS
 
-// function to get weather 
-async function getWeather(weatherUrl) {
+// function to get weather
+async function getWeather(lat, lon) {
+  var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
   const response = await fetch(weatherUrl);
   var data = await response.json();
-  console.log(data);
   var temp = data.main.temp;
   var city = data.name
   var feelsLike = data.main.feels_like;
   var weatherDesc = data.weather[0].main;
-  console.log(feelsLike);
-  console.log(temp);
-  console.log(weatherDesc)
-  // document.getElementById('weather').innerHTML = city + "<br>Temperature: " + temp + " <br>Feels Like: " + feelsLike + " <br>Conditions: " + weatherDesc;
   document.getElementById('weather').innerHTML =
   `
   <h3>${city}</h3>
@@ -41,16 +37,13 @@ async function getWeather(weatherUrl) {
   <p>Weather Condition: ${weatherDesc}</p>
   `;
 }
-
 //get forecast function
-async function getForecast(forecastUrl) {
+async function getForecast(lat, lon) {
+  var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
+  console.log(forecastUrl);
   const response = await fetch(forecastUrl);
   var data = await response.json();
-  console.log(data);
   var forecastData = [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
-  console.log(forecastData);
-  // document.getElementById('forecast').innerHTML = "In 3 Hours the forecast for " + "<br>" + forecastData[3] + "<br>Temperature: " + forecastData[0] + "<br>Feels Like: " + forecastData[1] + " <br>Weather conditions: " + forecastData[2];
-
   document.getElementById('forecast').innerHTML =
   `
   <h3>In 3 hours for ${forecastData[3]}</h3>
@@ -151,8 +144,8 @@ function toggleSearchCardDisplay(){
 
 
 
-getWeather(weatherUrl);
-getForecast(forecastUrl);
+getWeather(40.7127281, -74.0060152);
+getForecast(40.7127281, -74.0060152);
 
 
  //add modal for search menu when screen gets larger
