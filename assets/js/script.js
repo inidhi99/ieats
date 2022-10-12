@@ -8,11 +8,11 @@ var weatherWidget= document.querySelector(".weather")
 var markers = [];
 var placeMarker;
 
+// get name, ratings, reviews, seating options, price-range
+
 
 // DEPENDENCIES
 var autocomplete;
-
- 
 
 // FUNCTIONS
 function getLatLon(city) {
@@ -99,15 +99,18 @@ function initGoogle() {
     });
 
     var placeInfoWindow = new google.maps.InfoWindow({
-      content: 
-      `
-        <h2>${placeMarker.title}</h2>
-        <p>${placeMarker.address}</p>
-      `
+      // content: 
+      // `
+      //   <div style = "z-index: 99">
+      //     <h5>${placeMarker.title}</h5>
+      //     <p>${placeMarker.address}</p>
+      //   </div>
+      // `
     })
     placeMarker.addListener('click', function(){
       placeInfoWindow.open(map, placeMarker); 
     });
+    placeMarker.disabled = true;
   });
 }
 

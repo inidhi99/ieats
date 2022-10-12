@@ -117,6 +117,15 @@ body {
   font-weight: 500;
   padding: 6px 12px;
 }
+
+#changetype-all,
+#changetype-manhattan,
+#changetype-brooklyn,
+#changetype-queens {
+  position: relative;
+  opacity: 1;
+  pointer-events: all;
+}
 /* Map Card Styles End */
 
 
