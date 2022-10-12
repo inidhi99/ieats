@@ -13,8 +13,7 @@ var placeMarker;
 
 // DEPENDENCIES
 var autocomplete;
-var weatherWidget = document.querySelector(".weather")
-var inputEl = document.getElementById('autocomplete')
+var weatherWidget = document.querySelector(".weather");
 var searchBtnEl = document.getElementById('search-btn');
 var mapContainerEl= document.querySelector('.map-card');
 
@@ -57,18 +56,23 @@ async function getForecast(lat, lon) {
 // }
 
 function initGoogle() {
+  // variable for initial center of map
   var newYorkLatLon = { lat: 40.7127281, lng: -74.0060152 }
+  // options for google map
   var options = {
     zoom: 12,
     center: newYorkLatLon,
-    mapTypeControl: false
+    mapTypeControl: false // remove Map/Satellite buttons
   }
   // New map
   const map = new google.maps.Map(document.getElementById("map"), options);
 
+  // lat and lon for specific search areas
   var manhattanLatLon = { lat: 40.7831, lng: -73.9712 }
   var brooklynLatLon = { lat: 40.6782, lng: -73.9442 }
   var queensLatLon = { lat: 40.7282, lng: -73.7949 }
+
+  // need function to change default bounds based on which LatLon variable is passed
   var defaultBounds = {
     north: newYorkLatLon.lat + 0.1,
     south: newYorkLatLon.lat - 0.1,
@@ -76,37 +80,48 @@ function initGoogle() {
     west: newYorkLatLon.lng - 0.1,
   };
 
+  // get the card with custom map controls and search bar
   const card = document.getElementById('map-card');
-  const input = document.getElementById('map-input');
+  // get the search bar element
+  const inputEl = document.getElementById('map-input');
 
+  // put custom map controls inside the map
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
 
 
-  // Add marker
+  // Add marker at default center
   var newYorkMarker = new google.maps.Marker({
     position: newYorkLatLon,
     map: map,
     icon: './assets/images/icons/blue-dot.png'
   });
 
-  // Add event listener to marker
-  newYorkMarker.addListener('click', function () {
-    infoWindow.open(map, newYorkMarker);
-  });
+  // change event function for radio buttons on custom map controls
+    // function needs to move the center based on which option is selected All, Manhattan, Brooklyn or Queens
+    // function needs to change default bounds based on selection for autocomplete purposes
 
+  /* Code not currently needed
+  // Add event listener to marker
+  // newYorkMarker.addListener('click', function () {
+  //   infoWindow.open(map, newYorkMarker);
+  // });
+  */
+
+  // add autocomplete to search bar element
   autocomplete = new google.maps.places.Autocomplete(
-    input,
+    inputEl,
     {
       bounds: defaultBounds,
       componentRestrictions: { 'country': ['us'] },
       fields: ['place_id', 'geometry', 'name', 'adr_address'],
-      types: ['restaurant', 'cafe'] // types: ['restaurant', 'cafe'], types: ['establishment']
+      types: ['restaurant', 'cafe'] // specific types: ['restaurant', 'cafe'], general type: ['establishment']
     });
 
 
 
   // Listen for autocomplete selection  
   autocomplete.addListener('place_changed', () => {
+    // store place data gathered from autocomplete
     var place = autocomplete.getPlace();
     console.log(place)
     placeMarker = new google.maps.Marker({
@@ -117,7 +132,8 @@ function initGoogle() {
       map: map
     });
     console.log(placeMarker)
-    var placeInfoWindow = new google.maps.InfoWindow({
+    //removed content while I work on functionality may remove this infoWindow entirely
+    var placeInfoWindow = new google.maps.InfoWindow({ 
       // content: 
       // `
       //   <div style = "z-index: 99">
@@ -126,11 +142,15 @@ function initGoogle() {
       //   </div>
       // `
     })
+    // may remove this entirely
     placeMarker.addListener('click', function () {
       placeInfoWindow.open(map, placeMarker);
     });
-    placeMarker.disabled = true;
+    placeMarker.disabled = true; // didn't work as expexted need to improve or remove
   });
+
+  // need function to render place data in flex-item cards
+    // need to append generated flex-item cards to #modal-box div (ask Evince to change id to #restaurant-container)
 }
 
 function toggleSearchCardDisplay(){
