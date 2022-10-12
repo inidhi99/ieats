@@ -4,6 +4,7 @@ var googleKey = 'AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg';
 var weatherKey = '66b15a5b3951d15de56c5d2c4e2ddcba';
 var inputEl = document.getElementById('autocomplete')
 var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
+var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
 var weatherWidget= document.querySelector(".weather")
 var markers = [];
 var placeMarker;
@@ -30,12 +31,23 @@ function getLatLon(city) {
      var data = await response.json();
       console.log(data);
       var temp= data.main.temp;
+      var city= data.name
       var feelsLike= data.main.feels_like;
       var weatherDesc= data.weather[0].main;
        console.log(feelsLike);
        console.log(temp);
        console.log(weatherDesc)
-       document.getElementById('weather').innerHTML= "Temperature: " + temp + " Feels Like: "+ feelsLike + ", Conditions: " + weatherDesc ;
+       document.getElementById('weather').innerHTML= city +  "\nTemperature: " + temp + " \nFeels Like: "+ feelsLike + " \nConditions: " + weatherDesc ;
+      }
+
+//get forecast function
+      async function getForecast (forecastUrl) {
+        const response= await fetch (forecastUrl);
+        var data= await response.json();
+        console.log(data);
+        var forecastData= [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
+        console.log (forecastData);
+        document.getElementById('forecast').innerHTML = "In 3 Hours the forecast for " + forecastData[3] + "\nTemperature: " + forecastData[0] + " \nFeels Like: " + forecastData[1] + " \nWeather conditions: " + forecastData[2] ; 
       }
 
 // function initAutocomplete() { 
@@ -112,3 +124,4 @@ function initGoogle() {
 }
 
 getWeather(weatherUrl);
+getForecast(forecastUrl);
