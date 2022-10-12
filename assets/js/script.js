@@ -42,8 +42,11 @@ function getLatLon(city) {
 //get forecast function
       async function getForecast (forecastUrl) {
         const response= await fetch (forecastUrl);
-        var forecastData= await response.json();
-        console.log(forecastData);
+        var data= await response.json();
+        console.log(data);
+        var forecastData= [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main]
+        console.log (forecastData);
+        document.getElementById('forecast').innerHTML = "In 3 Hours the forecast will be:  Temperature: " + forecastData[0] + " Feels Like: " + forecastData[1] + " Weather conditions: " + forecastData[2] ; 
       }
 
 // function initAutocomplete() { 
@@ -121,4 +124,4 @@ function initGoogle() {
 
 getLatLon(targetCity);
 getWeather(weatherUrl);
-getForecast(weatherUrl);
+getForecast(forecastUrl);
