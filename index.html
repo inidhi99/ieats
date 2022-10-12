@@ -19,7 +19,7 @@
   <header class="header section blue">
     <h1 class="header-title">iEats</h1>
   </header>
-<!-- end of header-->   
+<!-- header ends -->   
 
 
 
@@ -32,7 +32,7 @@
       <div class = "widget" id="forecast"> Forecast pops up here</div>
     </aside>
 
-
+  <!-- weather widget ends -->
 
 
 
@@ -45,17 +45,18 @@
             type="radio"
             name="type"
             id="changetype-all"
+            class="radio-btn"
             checked="checked"
           />
           <label for="changetype-all">All</label>
 
-          <input type="radio" name="type" id="changetype-manhattan" />
+          <input type="radio" name="type" id="changetype-manhattan" value />
           <label for="changetype-manhattan">Manhattan</label>
 
-          <input type="radio" name="type" id="changetype-brooklyn" />
+          <input type="radio" name="type" id="changetype-brooklyn" class="radio-btn"/>
           <label for="changetype-brooklyn">Brooklyn</label>
 
-          <input type="radio" name="type" id="changetype-queens" />
+          <input type="radio" name="type" id="changetype-queens" class="radio-btn" />
           <label for="changetype-queens">Queens</label>
         </div>
         <div id="map-container">
@@ -95,6 +96,10 @@
       <a class="waves-effect waves-light btn" href="#map">Search</a>
     </div>
   </nav>
+
+
+
+ 
 <!--end of nav bar-->
 
 
@@ -106,6 +111,7 @@
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
     </script>
+
 
 <section id="about">
   <h2>ABOUT</h2>

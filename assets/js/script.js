@@ -9,11 +9,11 @@ var weatherWidget= document.querySelector(".weather")
 var markers = [];
 var placeMarker;
 
+// get name, ratings, reviews, seating options, price-range
+
 
 // DEPENDENCIES
 var autocomplete;
-
- 
 
 // FUNCTIONS
 function getLatLon(city) {
@@ -28,16 +28,16 @@ function getLatLon(city) {
 // function to get weather 
   async function getWeather(weatherUrl){
     const response = await fetch(weatherUrl);
-     var data = await response.json();
+    var data = await response.json();
       console.log(data);
       var temp= data.main.temp;
       var city= data.name
       var feelsLike= data.main.feels_like;
       var weatherDesc= data.weather[0].main;
-       console.log(feelsLike);
-       console.log(temp);
-       console.log(weatherDesc)
-       document.getElementById('weather').innerHTML= city +  "\nTemperature: " + temp + " \nFeels Like: "+ feelsLike + " \nConditions: " + weatherDesc ;
+      console.log(feelsLike);
+      console.log(temp);
+      console.log(weatherDesc)
+      document.getElementById('weather').innerHTML= city +  "<br>Temperature: " + temp + " <br>Feels Like: "+ feelsLike + " <br>Conditions: " + weatherDesc ;
       }
 
 //get forecast function
@@ -47,7 +47,7 @@ function getLatLon(city) {
         console.log(data);
         var forecastData= [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
         console.log (forecastData);
-        document.getElementById('forecast').innerHTML = "In 3 Hours the forecast for " + forecastData[3] + "\nTemperature: " + forecastData[0] + " \nFeels Like: " + forecastData[1] + " \nWeather conditions: " + forecastData[2] ; 
+        document.getElementById('forecast').innerHTML = "In 3 Hours the forecast for " + forecastData[3] + "<br>Temperature: " + forecastData[0] + "<br>Feels Like: " + forecastData[1] + " <br>Weather conditions: " + forecastData[2] ; 
       }
 
 // function initAutocomplete() { 
@@ -111,15 +111,18 @@ function initGoogle() {
     });
 
     var placeInfoWindow = new google.maps.InfoWindow({
-      content: 
-      `
-        <h2>${placeMarker.title}</h2>
-        <p>${placeMarker.address}</p>
-      `
+      // content: 
+      // `
+      //   <div style = "z-index: 99">
+      //     <h5>${placeMarker.title}</h5>
+      //     <p>${placeMarker.address}</p>
+      //   </div>
+      // `
     })
     placeMarker.addListener('click', function(){
       placeInfoWindow.open(map, placeMarker); 
     });
+    placeMarker.disabled = true;
   });
 }
 
