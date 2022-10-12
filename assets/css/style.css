@@ -1,16 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
-#map {
-  height: 50%;
-}
+/* html {
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
+} */
 
-html {
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
-}
 :root {
   --montserratfont: 'Montserrat Alternates', sans-serif;
 
@@ -76,7 +76,6 @@ body {
   font: 400 18px Roboto, Arial, sans-serif;
   overflow: hidden;
   font-family: Roboto;
-  padding: 0;
   border-radius:15px;
 }
 
@@ -146,7 +145,6 @@ body {
   margin-bottom: 10px;
   margin-top: 25px;
 
-
 }
 
 @media screen and (max-width: 768px) {
@@ -155,4 +153,12 @@ body {
   }
 }
 
-
+.widget{
+  height: 200px;
+  width: 400px;
+  background-color: lightblue;
+  text-align: center;
+  color: black;
+  margin: auto;
+  border-radius: 15px;
+}
