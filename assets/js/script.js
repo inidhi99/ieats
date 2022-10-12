@@ -4,15 +4,16 @@ var googleKey = 'AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg';
 var weatherKey = '66b15a5b3951d15de56c5d2c4e2ddcba';
 var inputEl = document.getElementById('autocomplete')
 var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
+var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
 var weatherWidget = document.querySelector(".weather")
 var markers = [];
 var placeMarker;
 
+// get name, ratings, reviews, seating options, price-range
+
 
 // DEPENDENCIES
 var autocomplete;
-
-
 
 // FUNCTIONS
 function getLatLon(city) {
@@ -30,12 +31,23 @@ async function getWeather(weatherUrl) {
   var data = await response.json();
   console.log(data);
   var temp = data.main.temp;
+  var city = data.name
   var feelsLike = data.main.feels_like;
   var weatherDesc = data.weather[0].main;
   console.log(feelsLike);
   console.log(temp);
   console.log(weatherDesc)
-  document.getElementById('weather').innerHTML = "Temperature: " + temp + " Feels Like: " + feelsLike + ", Conditions: " + weatherDesc;
+  document.getElementById('weather').innerHTML = city + "<br>Temperature: " + temp + " <br>Feels Like: " + feelsLike + " <br>Conditions: " + weatherDesc;
+}
+
+//get forecast function
+async function getForecast(forecastUrl) {
+  const response = await fetch(forecastUrl);
+  var data = await response.json();
+  console.log(data);
+  var forecastData = [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
+  console.log(forecastData);
+  document.getElementById('forecast').innerHTML = "In 3 Hours the forecast for " + forecastData[3] + "<br>Temperature: " + forecastData[0] + "<br>Feels Like: " + forecastData[1] + " <br>Weather conditions: " + forecastData[2];
 }
 
 // function initAutocomplete() { 
@@ -100,18 +112,20 @@ function initGoogle() {
     });
     console.log(placeMarker)
     var placeInfoWindow = new google.maps.InfoWindow({
-      content:
-        `
-        <h2>${placeMarker.title}</h2>
-        <p>${placeMarker.address}</p>
-        
-        
-      `
+      // content: 
+      // `
+      //   <div style = "z-index: 99">
+      //     <h5>${placeMarker.title}</h5>
+      //     <p>${placeMarker.address}</p>
+      //   </div>
+      // `
     })
     placeMarker.addListener('click', function () {
       placeInfoWindow.open(map, placeMarker);
     });
+    placeMarker.disabled = true;
   });
 }
 
 getWeather(weatherUrl);
+getForecast(forecastUrl);

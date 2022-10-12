@@ -8,41 +8,42 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Document</title>
+  <title>iEat</title>
 </head>
 
 <body>
 
   <header class="header section blue">
-    <h1 class="header-title">Project 1</h1>
+    <h1 class="header-title">iEat</h1>
   </header>
 
 
+  <div class="container">
+    <aside id="places">
+      <!-- weather widget will go here -->
+      <div class="widget" id="weather">Temp widget goes here</div>
+      <div class="widget" id="forecast"> Forecast pops up here</div>
+    </aside>
+    <!-- Map & Controls Start -->
+    <div class="map-card" id="map-card">
+      <div>
+        <div id="title">Restaurant Finder</div>
+        <div id="type-selector" class="map-controls">
+          <input type="radio" name="type" id="changetype-all" class="radio-btn" checked="checked" />
+          <label for="changetype-all">All</label>
 
+          <input type="radio" name="type" id="changetype-manhattan" value />
+          <label for="changetype-manhattan">Manhattan</label>
 
+          <input type="radio" name="type" id="changetype-brooklyn" class="radio-btn" />
+          <label for="changetype-brooklyn">Brooklyn</label>
 
-
-  <div class="widget" id="weather"></div>
-  <!-- Map & Controls Start -->
-
-  <div class="map-card" id="map-card">
-    <div>
-      <div id="title">Restaurant Finder</div>
-      <div id="type-selector" class="map-controls">
-        <input type="radio" name="type" id="changetype-all" checked="checked" />
-        <label for="changetype-all">All</label>
-
-        <input type="radio" name="type" id="changetype-manhattan" />
-        <label for="changetype-manhattan">Manhattan</label>
-
-        <input type="radio" name="type" id="changetype-brooklyn" />
-        <label for="changetype-brooklyn">Brooklyn</label>
-
-        <input type="radio" name="type" id="changetype-queens" />
-        <label for="changetype-queens">Queens</label>
-      </div>
-      <div id="map-container">
-        <input id="map-input" type="text" placeholder="Search for local restaurants" />
+          <input type="radio" name="type" id="changetype-queens" class="radio-btn" />
+          <label for="changetype-queens">Queens</label>
+        </div>
+        <div id="map-container">
+          <input id="map-input" type="text" placeholder="Search for local restaurants" />
+        </div>
       </div>
     </div>
   </div>
@@ -66,15 +67,11 @@
           <li><a href="">Sass</a></li>
           <li><a href="">Components</a></li>
         </ul> -->
-      <a class="waves-effect waves-dark btn">button</a>
-      <a class="waves-effect waves-light btn">button</a>
-      <a class="waves-effect waves-light btn">button</a>
-    </nav>
+      <a class="waves-effect waves-dark btn" href="#about">About</a>
+      <a class="waves-effect waves-light btn" href="#contact">Contact</a>
+      <a class="waves-effect waves-light btn" href="#map">Search</a>
   </div>
-
-
-
-
+  </nav>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -85,6 +82,20 @@
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
     </script>
+
+  <section id="about">
+    <h2>ABOUT</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque earum aspernatur adipisci, ratione unde culpa
+      illo doloremque quod aut voluptates officiis architecto excepturi, animi exercitationem ipsum, mollitia facilis
+      natus illum.</p>
+  </section>
+
+  <section id="contact">
+    <h2>CONTACT</h2>
+    <form>
+
+    </form>
+  </section>
 
 </body>
 
