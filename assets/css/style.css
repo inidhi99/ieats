@@ -1,16 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-#map {
-  height: 50%;
-}
 
-html {
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
-}
 :root {
   --montserratfont: 'Montserrat Alternates', sans-serif;
 
