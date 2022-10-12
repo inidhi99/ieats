@@ -123,6 +123,5 @@ function initGoogle() {
   });
 }
 
-getLatLon(targetCity);
 getWeather(weatherUrl);
 getForecast(forecastUrl);
