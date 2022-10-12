@@ -161,3 +161,15 @@ body {
     width: 300px;
   }
 }
+
+.widget{
+  font-size: 20px;
+  font-style: bold;
+  height: 200px;
+  width: 400px;
+  background-color: lightblue;
+  text-align: center;
+  color: black;
+  margin: auto;
+  border-radius: 15px;
+}
