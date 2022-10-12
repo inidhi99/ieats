@@ -2,10 +2,8 @@
 var targetCity = 'New York City';
 var googleKey = 'AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg';
 var weatherKey = '66b15a5b3951d15de56c5d2c4e2ddcba';
-var inputEl = document.getElementById('autocomplete')
 var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
 var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
-var weatherWidget = document.querySelector(".weather")
 var markers = [];
 var placeMarker;
 
@@ -15,19 +13,12 @@ var placeMarker;
 
 // DEPENDENCIES
 var autocomplete;
+var weatherWidget = document.querySelector(".weather")
+var inputEl = document.getElementById('autocomplete')
 var searchBtnEl = document.getElementById('search-btn');
-console.dir(searchBtnEl);
-var mapContainerEl= document.querySelector('.map-container');
+var mapContainerEl= document.querySelector('.map-card');
 
 // FUNCTIONS
-function getLatLon(city) {
-  var geoURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=' + weatherKey;
-  fetch(geoURL).then(response => {
-    return response.json()
-  }).then(data => {
-    console.log(data);
-  })
-}
 
 // function to get weather 
 async function getWeather(weatherUrl) {
@@ -149,9 +140,12 @@ function initGoogle() {
   });
 }
 
-function displayElement(){
-  mapContainerEl.style.display = "block"
-  console.log('Hi')
+function toggleSearchCardDisplay(){
+  var cardDisplay = mapContainerEl.style.display;
+  if (mapContainerEl.style.display === 'none')
+  mapContainerEl.style.display = 'block';
+  else
+  mapContainerEl.style.display = 'none';
 }
 
 
@@ -162,4 +156,4 @@ getForecast(forecastUrl);
 
 
  //add modal for search menu when screen gets larger
-searchBtnEl.addEventListener('click', displayElement)
+searchBtnEl.addEventListener('click', toggleSearchCardDisplay)

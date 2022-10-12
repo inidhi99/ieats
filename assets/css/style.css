@@ -38,10 +38,7 @@
 html,
 body {
   width: 100%;
-<<<<<<< HEAD
-=======
   /* overflow-y: hidden; */
->>>>>>> 20accd40e212cdc437dbe0d30da0861a6d6806d3
   overflow-x: hidden;
   height: 100%;
   margin: 0;
