@@ -51,6 +51,10 @@ body {
 } */
 
 /* Map Card Styles Start */
+.map-container {
+  margin: 5px 0;
+}
+
 #description {
   font-family: Roboto;
   font-size: 15px;
@@ -82,7 +86,7 @@ body {
   border-radius: 15px;
 }
 
-#map-container {
+#search-container {
   padding-bottom: 12px;
   margin-right: 12px;
 }
