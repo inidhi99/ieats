@@ -4,6 +4,7 @@ var googleKey = 'AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg';
 var weatherKey = '66b15a5b3951d15de56c5d2c4e2ddcba';
 var inputEl = document.getElementById('autocomplete')
 var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
+var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
 var weatherWidget= document.querySelector(".weather")
 var markers = [];
 var placeMarker;
@@ -36,6 +37,13 @@ function getLatLon(city) {
        console.log(temp);
        console.log(weatherDesc)
        document.getElementById('weather').innerHTML= "Temperature: " + temp + " Feels Like: "+ feelsLike + ", Conditions: " + weatherDesc ;
+      }
+
+//get forecast function
+      async function getForecast (forecastUrl) {
+        const response= await fetch (forecastUrl);
+        var forecastData= await response.json();
+        console.log(forecastData);
       }
 
 // function initAutocomplete() { 
@@ -113,3 +121,4 @@ function initGoogle() {
 
 getLatLon(targetCity);
 getWeather(weatherUrl);
+getForecast(weatherUrl);
