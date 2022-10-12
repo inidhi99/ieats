@@ -5,24 +5,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--styling sheet -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>Document</title>
 </head>
 
-<body>
 
+
+<body>
+<!-- header -->
   <header class="header section blue">
     <h1 class="header-title">Project 1</h1>
   </header>
-      
+<!-- end of header-->   
 
 
 
-
-
+  <!-- weather widget -->
     <div class="widget"  id="weather"></div>
+
+<!-- end of weather widgets-->
+
+
+
     <!-- Map & Controls Start -->
     <div class="map-card" id="map-card">
       <div>
@@ -58,6 +65,18 @@
   </div>
   <!-- Map Controls End -->
 
+
+
+
+  <!--modal -->
+<div id="modal">
+  modal goes here 
+</div>
+<!--end of modal-->
+
+
+
+<!--nav bar-->
   <nav class="nav blue">
     <div class="nav-wrapper">
       <!-- <a href="#!" class="nav-links">Nav area</a>
@@ -70,8 +89,10 @@
       <a class="waves-effect waves-light btn" href="#map">Search</a>
     </div>
   </nav>
+<!--end of nav bar-->
 
 
+<!--script link-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
   </script>
