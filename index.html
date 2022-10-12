@@ -59,20 +59,34 @@
     MODAL GOES HERE
     <!-- <div class="cards">Modals may be placed here w/ flexbox container</div> -->
   </div>
+  <footer>
+    <div class="nav-wrapper">
 
-  <div class="nav-wrapper">
-    <nav class="nav blue">
-      <!-- <a href="#!" class="nav-links">Nav area</a>
+      <nav class="nav blue">
+        <!-- <a href="#!" class="nav-links">Nav area</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="">Sass</a></li>
           <li><a href="">Components</a></li>
         </ul> -->
-      <a class="waves-effect waves-dark btn" href="#about">About</a>
-      <a class="waves-effect waves-light btn" href="#contact">Contact</a>
-      <a class="waves-effect waves-light btn" href="#map">Search</a>
-  </div>
-  </nav>
+        <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a>
+        <div class="modal" id="about">
+          <div class="modal-content">
+            <h5 class="black-text">About</h5>
+            <p>Write about section</p>
+          </div>
+          <div class="modal-footer">
+            <a href="" class="modal-close btn waves-light">Close</a>
+          </div>
+        </div>
+        <!-- <a class="waves-effect waves-dark btn" href="#about">About</a> -->
+        <a class="waves-effect waves-light btn" href="#contact">Contact</a>
+        <a class="waves-effect waves-light btn" href="#map">Search</a>
+    </div>
+    </nav>
+  </footer>
 
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script
@@ -83,12 +97,16 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
     </script>
 
-  <section id="about">
+  <script>$(document).ready(function () {
+      $('.modal').modal();
+    });
+  </script>
+  <!-- <section id="about">
     <h2>ABOUT</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque earum aspernatur adipisci, ratione unde culpa
       illo doloremque quod aut voluptates officiis architecto excepturi, animi exercitationem ipsum, mollitia facilis
       natus illum.</p>
-  </section>
+  </section> -->
 
   <section id="contact">
     <h2>CONTACT</h2>
