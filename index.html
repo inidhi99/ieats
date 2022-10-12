@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>iEat</title>
@@ -59,27 +60,36 @@
     MODAL GOES HERE
     <!-- <div class="cards">Modals may be placed here w/ flexbox container</div> -->
   </div>
+
   <footer>
     <div class="nav-wrapper">
 
-      <nav class="nav blue">
-        <!-- <a href="#!" class="nav-links">Nav area</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="">Sass</a></li>
-          <li><a href="">Components</a></li>
-        </ul> -->
-        <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a>
-        <div class="modal" id="about">
-          <div class="modal-content">
-            <h5 class="black-text">About</h5>
-            <p>Write about section</p>
-          </div>
-          <div class="modal-footer">
-            <a href="" class="modal-close btn waves-light">Close</a>
-          </div>
+      <!-- About modal -->
+      <div class="modal" id="about">
+        <div class="modal-content">
+
+          <h5 class="black-text">About</h5>
+          <p>Write about section</p>
         </div>
-        <!-- <a class="waves-effect waves-dark btn" href="#about">About</a> -->
-        <a class="waves-effect waves-light btn" href="#contact">Contact</a>
+        <div class="modal-footer">
+          <a href="" class="modal-close btn waves-light">Close</a>
+        </div>
+      </div>
+
+      <!-- rating form modal -->
+      <div class="modal" id="review">
+        <div class="modal-content">
+          <h5 class="black-text">Ratings</h5>
+          <p>Review</p>
+        </div>
+        <div class="modal-footer">
+          <a href="" class="modal-close btn waves-light">Close</a>
+        </div>
+      </div>
+      <nav class="nav blue">
+
+        <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a>
+        <a href="#ratings" class="waves-effect waves-light btn modal-trigger">Ratings</a>
         <a class="waves-effect waves-light btn" href="#map">Search</a>
     </div>
     </nav>
@@ -101,12 +111,7 @@
       $('.modal').modal();
     });
   </script>
-  <!-- <section id="about">
-    <h2>ABOUT</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque earum aspernatur adipisci, ratione unde culpa
-      illo doloremque quod aut voluptates officiis architecto excepturi, animi exercitationem ipsum, mollitia facilis
-      natus illum.</p>
-  </section> -->
+
 
   <section id="contact">
     <h2>CONTACT</h2>

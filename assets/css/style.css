@@ -185,3 +185,13 @@ body {
   margin: auto;
   border-radius: 15px;
 }
+
+
+/* #about {
+  position: absolute;
+  top: 0;
+} */
+
+.nav-wrapper {
+  position: relative;
+}
