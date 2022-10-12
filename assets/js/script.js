@@ -9,11 +9,15 @@ var weatherWidget = document.querySelector(".weather")
 var markers = [];
 var placeMarker;
 
+
 // get name, ratings, reviews, seating options, price-range
 
 
 // DEPENDENCIES
 var autocomplete;
+var searchBtnEl = document.getElementById('search-btn');
+console.dir(searchBtnEl);
+var mapContainerEl= document.querySelector('.map-container');
 
 // FUNCTIONS
 function getLatLon(city) {
@@ -37,7 +41,14 @@ async function getWeather(weatherUrl) {
   console.log(feelsLike);
   console.log(temp);
   console.log(weatherDesc)
-  document.getElementById('weather').innerHTML = city + "<br>Temperature: " + temp + " <br>Feels Like: " + feelsLike + " <br>Conditions: " + weatherDesc;
+  // document.getElementById('weather').innerHTML = city + "<br>Temperature: " + temp + " <br>Feels Like: " + feelsLike + " <br>Conditions: " + weatherDesc;
+  document.getElementById('weather').innerHTML =
+  `
+  <h3>${city}</h3>
+  <p>Temperature: ${temp}</p>
+  <p>Feels Like: ${feelsLike}</p>
+  <p>Weather Condition: ${weatherDesc}</p>
+  `;
 }
 
 //get forecast function
@@ -47,7 +58,15 @@ async function getForecast(forecastUrl) {
   console.log(data);
   var forecastData = [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
   console.log(forecastData);
-  document.getElementById('forecast').innerHTML = "In 3 Hours the forecast for " + forecastData[3] + "<br>Temperature: " + forecastData[0] + "<br>Feels Like: " + forecastData[1] + " <br>Weather conditions: " + forecastData[2];
+  // document.getElementById('forecast').innerHTML = "In 3 Hours the forecast for " + "<br>" + forecastData[3] + "<br>Temperature: " + forecastData[0] + "<br>Feels Like: " + forecastData[1] + " <br>Weather conditions: " + forecastData[2];
+
+  document.getElementById('forecast').innerHTML =
+  `
+  <h3>In 3 hours for ${forecastData[3]}</h3>
+  <p>Temperature: ${forecastData[0]}</p>
+  <p>Feels Like: ${forecastData[1]}</p>
+  <p>Weather Conditions: ${forecastData[2]}</p>
+  `;
 }
 
 // function initAutocomplete() { 
@@ -78,6 +97,7 @@ function initGoogle() {
 
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
 
+
   // Add marker
   var newYorkMarker = new google.maps.Marker({
     position: newYorkLatLon,
@@ -98,6 +118,8 @@ function initGoogle() {
       fields: ['place_id', 'geometry', 'name', 'adr_address'],
       types: ['restaurant', 'cafe'] // types: ['restaurant', 'cafe'], types: ['establishment']
     });
+
+
 
   // Listen for autocomplete selection  
   autocomplete.addListener('place_changed', () => {
@@ -127,5 +149,17 @@ function initGoogle() {
   });
 }
 
+function displayElement(){
+  mapContainerEl.style.display = "block"
+  console.log('Hi')
+}
+
+
+
+
 getWeather(weatherUrl);
 getForecast(forecastUrl);
+
+
+ //add modal for search menu when screen gets larger
+searchBtnEl.addEventListener('click', displayElement)
