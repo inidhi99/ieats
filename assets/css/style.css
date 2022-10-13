@@ -15,7 +15,8 @@
 
 :root {
   --montserratfont: 'Montserrat Alternates', sans-serif;
-
+  --blue: #4d90fe;
+  --ltblue: lightblue;
 }
 
 .header {
@@ -37,6 +38,7 @@
 html,
 body {
   width: 100%;
+  /* overflow-y: hidden; */
   overflow-x: hidden;
   height: 100%;
   margin: 0;
@@ -80,6 +82,11 @@ body {
   overflow: hidden;
   font-family: Roboto;
   border-radius: 15px;
+  display:none;
+}
+
+.map-card #title{
+  font-size: 18px;
 }
 
 #map-container {
@@ -110,12 +117,12 @@ body {
 }
 
 #map-input:focus {
-  border-color: #4d90fe;
+  border-color: var(--blue);
 }
 
 #title {
   color: #fff;
-  background-color: #4d90fe;
+  background-color:var(--blue);
   font-size: 1.75rem;
   font-weight: 500;
   padding: 6px 12px;
@@ -135,7 +142,7 @@ body {
 
 #places {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 #temp {
@@ -145,9 +152,10 @@ body {
 
 #map {
   height: 55%;
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
   margin-bottom: 10px;
+  min-width:360px;
 }
 
 .nav {
@@ -167,20 +175,49 @@ body {
 
 }
 
-@media screen and (max-width: 768px) {
-  #map {
-    width: 300px;
-  }
-}
 
 .widget {
-  font-size: 20px;
+  /* block-size: fit-content; */
   font-style: bold;
-  height: 200px;
-  width: 400px;
-  background-color: lightblue;
+  height: 125px;
+  min-width: 300px;
+  background-color: var(--ltblue);
   text-align: center;
   color: black;
   margin: auto;
   border-radius: 15px;
+  border: 5px solid black;
+}
+
+#weather h3{
+  margin: 10px;
+  font-size: 20px;
+  font-style: bold;
+  font-weight: 750;
+}
+
+#weather p {
+  font-size: 15px;
+}
+
+#forecast h3{
+margin: 10px;
+font-size: 20px;
+font-style: bold;
+font-weight: 750;
+}
+
+#forecast p{
+font-size: 15px;
+}
+
+@media screen and (min-width: 400px) {
+.map-card{
+  display:block;
+}
+
+  #places {
+    flex-direction: row;
+  }
+
 }
