@@ -34,7 +34,7 @@ async function getWeather(lat, lon) {
   <p>Temperature: ${temp}</p>
   <p>Feels Like: ${feelsLike}</p>
   <p>Weather Condition: ${weatherDesc}</p>
-  `; add
+  `; 
 }
 //get forecast function
 async function getForecast(lat, lon) {
@@ -51,6 +51,14 @@ async function getForecast(lat, lon) {
   <p>Weather Conditions: ${forecastData[2]}</p>
   `;
 }
+
+//get time
+setInterval(function getTime(){
+var time = moment().format("hh:mm:ss");
+  $("#time").text(time);
+  document.getElementById('time').innerHTML=time.toString();
+}, 1000)
+
 
 // function initAutocomplete() { 
 // }
