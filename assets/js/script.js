@@ -17,6 +17,7 @@ var weatherWidget = document.querySelector(".weather");
 var searchBtnEl = document.getElementById('search-btn');
 var mapContainerEl= document.querySelector('.map-card');
 var locationSelectorContainerEl = document.getElementById('location-selector');
+var restaurantContainerEl = document.getElementById('restaurant-container')
 
 // FUNCTIONS
 
@@ -145,12 +146,12 @@ function initGoogle() {
     inputEl,
     {
       componentRestrictions: { 'country': ['us'] },
-      fields: ['place_id', 'geometry', 'name', 'adr_address'],
+      fields: ['place_id', 'geometry', 'name', 'adr_address', 'photo' ],
       types: ['restaurant', 'cafe'] // specific types: ['restaurant', 'cafe'], general type: ['establishment']
     });
 
-    // restric the bounds of the search to the area visible on the map
-    autocomplete.bindTo('bounds', map);
+  // restric the bounds of the search to the area visible on the map
+  autocomplete.bindTo('bounds', map);
 
   // Listen for autocomplete selection  
   autocomplete.addListener('place_changed', () => {
@@ -160,30 +161,41 @@ function initGoogle() {
     placeMarker = new google.maps.Marker({
       placeId: place.place_id,
       address: place.adr_address,
-      position: place.geometry.location,
       title: place.name,
+      position: place.geometry.location,
       map: map
     });
 
-    //removed content while I work on functionality may remove this infoWindow entirely
+    // info Window for search result marker
     var placeInfoWindow = new google.maps.InfoWindow({ 
-      // content: 
-      // `
-      //   <div style = "z-index: 99">
-      //     <h5>${placeMarker.title}</h5>
-      //     <p>${placeMarker.address}</p>
-      //   </div>
-      // `
+      content: 
+      `
+        <div>
+          <h5>${placeMarker.title}</h5>
+          <p>${placeMarker.address}</p>
+        </div>
+      `
     })
     // may remove this entirely
     placeMarker.addListener('click', function () {
+      toggleSearchCardDisplay();
       placeInfoWindow.open(map, placeMarker);
     });
     placeMarker.disabled = true; // didn't work as expexted need to improve or remove
-  });
 
-  // need function to render place data in flex-item cards
-    // need to append generated flex-item cards to #modal-box div (ask Evince to change id to #restaurant-container)
+    //render place data in flex-item cards
+    restaurantContainerEl.innerHTML += 
+    `
+    <div class="restaurant-card">
+      <figure class="img-container">
+          Photos Coming Soon!
+      </figure>
+      <h3>${place.name}</h3>
+      <p class="address">${place.adr_address}</p>
+      <p class="seating">Feature coming soon!</p>
+    </div>
+    `;
+  });
 }
 
 function toggleSearchCardDisplay(){
