@@ -218,6 +218,7 @@ body {
   font-size: 10px;
 }
 
+/*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
   .map-card {
     display: block;
