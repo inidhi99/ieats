@@ -44,7 +44,7 @@ async function getWeather(lat, lon) {
   <p>Temperature: ${temp}</p>
   <p>Feels Like: ${feelsLike}</p>
   <p>Weather Condition: ${weatherDesc}</p>
-  `;
+  `;add 
 }
 
 //get forecast function
