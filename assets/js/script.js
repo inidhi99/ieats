@@ -4,6 +4,8 @@ var googleKey = 'AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg';
 var weatherKey = '66b15a5b3951d15de56c5d2c4e2ddcba';
 var markers = [];
 var placeMarker;
+var cityZoom = 11;
+var boroughZoom = 12;
 
 
 // get name, ratings, reviews, seating options, price-range
@@ -29,7 +31,7 @@ async function getWeather(lat, lon) {
   var feelsLike = data.main.feels_like;
   var weatherDesc = data.weather[0].main;
   document.getElementById('weather').innerHTML =
-    `
+  `
   <h3>${city}</h3>
   <p>Temperature: ${temp}</p>
   <p>Feels Like: ${feelsLike}</p>
@@ -44,7 +46,7 @@ async function getForecast(lat, lon) {
   var data = await response.json();
   var forecastData = [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
   document.getElementById('forecast').innerHTML =
-    `
+  `
   <h3>3 hours in ${forecastData[3]}</h3>
   <p>Temperature: ${forecastData[0]}</p>
   <p>Feels Like: ${forecastData[1]}</p>
@@ -52,6 +54,24 @@ async function getForecast(lat, lon) {
   `;
 }
 
+function getZoom() {
+  var desktopQuery = window.matchMedia("(min-width: 992px)");
+  var tabletQuery = window.matchMedia("(min-width: 768px)");
+  // console.log("Is it big screen?", desktopQuery);
+  // console.log("Is it tablet screen?", tabletQuery);
+  if (desktopQuery.matches) {
+    console.log(desktopQuery)
+    cityZoom = 13;
+    boroughZoom = 14;
+  } else if (tabletQuery.matches && (!desktopQuery.matches)) {
+    console.log("Is it tablet screen?", tabletQuery);
+    cityZoom = 13;
+    boroughZoom = 14;
+  } else {
+    cityZoom = 11;
+    boroughZoom = 12;
+  }
+}
 //get time
 setInterval(function getTime(){
 var time = moment().format("hh:mm:ss");
@@ -61,13 +81,10 @@ var time = moment().format("hh:mm:ss");
 
 
 // function initAutocomplete() { 
-// }
-
+// 
 function initGoogle() {
   // variable for initial center of map
   var newYorkLatLon = { lat: 40.7127281, lng: -74.0060152 };
-  var cityZoom = 11;
-  var boroughZoom = 12;
   // options for google map
   var options = {
     zoom: cityZoom,
@@ -139,11 +156,6 @@ function initGoogle() {
         centerMarker.setPosition(new google.maps.LatLng(queensLatLon.lat, queensLatLon.lng));
         map.setZoom(boroughZoom);
         break;
-      default:
-        // default to New York City settings
-        map.setCenter({ lat: newYorkLatLon.lat, lng: newYorkLatLon.lng, cityZoom });
-        centerMarker.setPosition(new google.maps.LatLng(newYorkLatLon.lat, newYorkLatLon.lng));
-        map.setZoom(cityZoom);
     }
   })
 
@@ -220,4 +232,6 @@ getForecast(40.7127281, -74.0060152);
 
 
 //add modal for search menu when screen gets larger
+document.addEventListener('DOMContentLoaded', getZoom);
+// window.onresize(getZoom);
 searchBtnEl.addEventListener('click', toggleSearchCardDisplay)
