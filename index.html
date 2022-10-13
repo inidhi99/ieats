@@ -17,6 +17,9 @@
 
   <header class="header section blue">
     <h1 class="header-title">iEats</h1>
+    <div>
+      <div class="timewidget" id="time">Time widget goes here</div>
+    </div>
     <div class="weatherwidget">
       <div class="widget" id="weather">Temp widget goes here</div>
       <div class="widget" id="forecast"> Forecast pops up here</div>
@@ -61,50 +64,10 @@
   </div>
   </div>
 
-
-
   <!-- Map Controls End -->
   <div id="restaurant-container">
     <!-- restaurant cards rendered here -->
-    <div class="row">
-      <div class="col s12 m7">
-        <div class="card">
-          <div class="card-image">
-            <img src="images/sample-1.jpg"> 
-            <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
-    </div> 
-
-<!-- card reveal -->
-  <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/office.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-      <p><a href="#">This is a link</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
   </div>
-          
-  
-
-
-  </div>
-
-
 
 
   <div class="nav-wrapper">
@@ -156,17 +119,14 @@
 
 
 
-
+  <footer>
     <nav class="nav blue">
       <ul>
         <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
         <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
         <li> <a id="search-btn" class="waves-effect waves-light btn">Search</a></li>
       </ul>
-  </div>
-  </nav>
-  </div>
-  </nav>
+    </nav>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -177,6 +137,10 @@
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+></script>
   <script
     src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
     </script>
