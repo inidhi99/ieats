@@ -21,15 +21,15 @@
 
 .header {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   min-height: 70px;
   margin-bottom: 10px;
   padding-top: 5px;
   padding-left: 10px;
 }
 
-.weatherwidget{
-  display:flex;
+.weatherwidget {
+  display: flex;
   padding-right: 10px;
 }
 
@@ -38,8 +38,8 @@
   font-size: 30px;
   font-weight: bold;
   color: white;
-  margin:0px;
-  margin-top:9px;
+  margin: 0px;
+  margin-top: 9px;
 }
 
 html,
@@ -93,7 +93,7 @@ body {
   overflow: hidden;
   font-family: Roboto;
   border-radius: 15px;
-  display:none;
+  display: none;
   max-width: 90%;
   padding:0px;
 }
@@ -102,7 +102,7 @@ body {
   display: none;
 }
 
-.map-card #title{
+.map-card #title {
   font-size: 18px;
 }
 
@@ -139,7 +139,7 @@ body {
 
 #title {
   color: #fff;
-  background-color:var(--blue);
+  background-color: var(--blue);
   font-size: 1.75rem;
   font-weight: 500;
   padding: 6px 12px;
@@ -172,7 +172,7 @@ body {
   width: 95%;
   margin: 0 auto;
   margin-bottom: 10px;
-  min-width:360px;
+  min-width: 360px;
 }
 
 .nav {
@@ -205,7 +205,7 @@ body {
   border-radius: 15px;
 }
 
-#weather h3{
+#weather h3 {
   margin: 2px;
   font-size: 15px;
   font-style: bold;
@@ -216,51 +216,72 @@ body {
   font-size: 10px;
 }
 
-#forecast h3{
-margin: 2px;
-font-size: 15px;
-font-style: bold;
-font-weight: 750;
+#forecast h3 {
+  margin: 2px;
+  font-size: 15px;
+  font-style: bold;
+  font-weight: 750;
 }
 
-#forecast p{
-font-size: 10px;
+#forecast p {
+  font-size: 10px;
 }
 
+/*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
-  .header-title {
-    justify-content:space-between;
+  .map-card {
+    display: block;
   }
-  
-  .weatherwidget{
-    justify-content:flex-end;
-  }
-.map-card{
-  display:block;
 }
+
+/*(tablets and large phones, 600px and up) */
+@media only screen and (min-width: 768px) {
+  .map-card {
+    display: block;
+  }
+}
+
+/* (laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 992px) {
+  .map-card {
+    display: block;
+  }
+
+
+  .header-title {
+    justify-content: space-between;
+  }
+
+  .weatherwidget {
+    justify-content: flex-end;
+  }
+
+  .map-card {
+    display: block;
+  }
 
 
   /* #places {
     flex-direction: row;
   } */
 
-}
+
+  .heading {
+    font-size: 50px;
+    margin-right: 25px;
+  }
+
+  .fa {
+    font-size: 50px;
+  }
+
+  .checked {
+    color: orange;
+  }
 
 
-.heading {
-  font-size: 50px;
-  margin-right: 25px;
-}
-.fa{
-  font-size: 50px;
-}
-
-.checked{
-  color: orange;
-}
-
-
-.validate{
-  font-size: larger;
-  color: red;
+  .validate {
+    font-size: larger;
+    color: red;
+  }
 }

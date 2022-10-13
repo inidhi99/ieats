@@ -13,7 +13,7 @@ var placeMarker;
 var autocomplete;
 var weatherWidget = document.querySelector(".weather");
 var searchBtnEl = document.getElementById('search-btn');
-var mapContainerEl= document.querySelector('.map-card');
+var mapContainerEl = document.querySelector('.map-card');
 var locationSelectorContainerEl = document.getElementById('location-selector');
 var restaurantContainerEl = document.getElementById('restaurant-container')
 
@@ -29,7 +29,7 @@ async function getWeather(lat, lon) {
   var feelsLike = data.main.feels_like;
   var weatherDesc = data.weather[0].main;
   document.getElementById('weather').innerHTML =
-  `
+    `
   <h3>${city}</h3>
   <p>Temperature: ${temp}</p>
   <p>Feels Like: ${feelsLike}</p>
@@ -44,7 +44,7 @@ async function getForecast(lat, lon) {
   var data = await response.json();
   var forecastData = [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
   document.getElementById('forecast').innerHTML =
-  `
+    `
   <h3>3 hours in ${forecastData[3]}</h3>
   <p>Temperature: ${forecastData[0]}</p>
   <p>Feels Like: ${forecastData[1]}</p>
@@ -110,39 +110,39 @@ function initGoogle() {
   });
 
   // click event for radio buttons on custom map controls
-  locationSelectorContainerEl.addEventListener( 'click', (e) => {
-    switch ( e.target.id ) {
+  locationSelectorContainerEl.addEventListener('click', (e) => {
+    switch (e.target.id) {
       case 'changetype-all':
         // move the center of the map to New York City's lattitude and longitude
         map.setCenter({ lat: newYorkLatLon.lat, lng: newYorkLatLon.lng });
         // match the marker location with the new map center
-        centerMarker.setPosition( new google.maps.LatLng( newYorkLatLon.lat, newYorkLatLon.lng ));
+        centerMarker.setPosition(new google.maps.LatLng(newYorkLatLon.lat, newYorkLatLon.lng));
         // zoom out for view of whole city
         map.setZoom(cityZoom);
         break;
       case 'changetype-manhattan':
         // move the center of the map to Manhattan's lattitude and longitude
         map.setCenter({ lat: manhattanLatLon.lat, lng: manhattanLatLon.lng, boroughZoom });
-        centerMarker.setPosition( new google.maps.LatLng( manhattanLatLon.lat, manhattanLatLon.lng ));
+        centerMarker.setPosition(new google.maps.LatLng(manhattanLatLon.lat, manhattanLatLon.lng));
         // zoom in for view of individual boroughs
         map.setZoom(boroughZoom);
         break;
       case 'changetype-brooklyn':
         // move the center of the map to Brooklyn's lattitude and longitude
         map.setCenter({ lat: brooklynLatLon.lat, lng: brooklynLatLon.lng, boroughZoom });
-        centerMarker.setPosition( new google.maps.LatLng( brooklynLatLon.lat, brooklynLatLon.lng ));
+        centerMarker.setPosition(new google.maps.LatLng(brooklynLatLon.lat, brooklynLatLon.lng));
         map.setZoom(boroughZoom);
         break;
       case 'changetype-queens':
         // move the center of the map to Queens' lattitude and longitude
         map.setCenter({ lat: queensLatLon.lat, lng: queensLatLon.lng, boroughZoom });
-        centerMarker.setPosition( new google.maps.LatLng( queensLatLon.lat, queensLatLon.lng ));
+        centerMarker.setPosition(new google.maps.LatLng(queensLatLon.lat, queensLatLon.lng));
         map.setZoom(boroughZoom);
         break;
       default:
         // default to New York City settings
         map.setCenter({ lat: newYorkLatLon.lat, lng: newYorkLatLon.lng, cityZoom });
-        centerMarker.setPosition( new google.maps.LatLng( newYorkLatLon.lat, newYorkLatLon.lng ));
+        centerMarker.setPosition(new google.maps.LatLng(newYorkLatLon.lat, newYorkLatLon.lng));
         map.setZoom(cityZoom);
     }
   })
@@ -152,7 +152,7 @@ function initGoogle() {
     inputEl,
     {
       componentRestrictions: { 'country': ['us'] },
-      fields: ['place_id', 'geometry', 'name', 'adr_address', 'photo' ],
+      fields: ['place_id', 'geometry', 'name', 'adr_address', 'photo'],
       types: ['restaurant', 'cafe'] // specific types: ['restaurant', 'cafe'], general type: ['establishment']
     });
 
@@ -173,9 +173,9 @@ function initGoogle() {
     });
 
     // info Window for search result marker
-    var placeInfoWindow = new google.maps.InfoWindow({ 
-      content: 
-      `
+    var placeInfoWindow = new google.maps.InfoWindow({
+      content:
+        `
         <div>
           <h5>${placeMarker.title}</h5>
           <p>${placeMarker.address}</p>
@@ -190,8 +190,8 @@ function initGoogle() {
     placeMarker.disabled = true; // didn't work as expexted need to improve or remove
 
     //render place data in flex-item cards
-    restaurantContainerEl.innerHTML += 
-    `
+    restaurantContainerEl.innerHTML +=
+      `
     <div class="restaurant-card">
       <figure class="img-container">
           Photos Coming Soon!
@@ -204,12 +204,12 @@ function initGoogle() {
   });
 }
 
-function toggleSearchCardDisplay(){
+function toggleSearchCardDisplay() {
   var cardDisplay = mapContainerEl.style.display;
   if (mapContainerEl.style.display === 'none')
-  mapContainerEl.style.display = 'block';
+    mapContainerEl.style.display = 'block';
   else
-  mapContainerEl.style.display = 'none';
+    mapContainerEl.style.display = 'none';
 }
 
 
@@ -219,5 +219,5 @@ getWeather(40.7127281, -74.0060152);
 getForecast(40.7127281, -74.0060152);
 
 
- //add modal for search menu when screen gets larger
+//add modal for search menu when screen gets larger
 searchBtnEl.addEventListener('click', toggleSearchCardDisplay)

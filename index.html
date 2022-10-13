@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -68,7 +69,7 @@
     <!-- restaurant cards rendered here -->
   </div>
 
-  
+
   <div class="nav-wrapper">
     <!--about modal -->
     <div class="modal" id="about">
@@ -79,42 +80,42 @@
           <a href="" class="modal-close btn waves-light">Close</a>
         </div>
       </div>
-      
+
     </div>
- <!-- end of about modal  -->
+    <!-- end of about modal  -->
 
 
     <!--contact modal -->
     <div class="modal" id="rating">
       <div class="modal-content">
-      
+
         <!--rating  -->
-          <span class="heading">User Rating:</span>
-          <span class="fa fa-star checked "></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
+        <span class="heading">User Rating:</span>
+        <span class="fa fa-star checked "></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
 
-          <div class="First-Name" >
-            <div class="input-field col s6">
-              <i class="material-icons prefix ">account_circle</i>
-              <input id="icon_prefix" type="text" class="validate">
-              <label for="icon_prefix fa-text-size"> Name</label>
-            </div>
-            </div>
-
-            <div class="input-field col s6">
-            <i class="material-icons prefix">mode_edit</i>
-            <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-            <label for="icon_prefix2">Review</label>
+        <div class="First-Name">
+          <div class="input-field col s6">
+            <i class="material-icons prefix ">account_circle</i>
+            <input id="icon_prefix" type="text" class="validate">
+            <label for="icon_prefix fa-text-size"> Name</label>
           </div>
+        </div>
+
+        <div class="input-field col s6">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+          <label for="icon_prefix2">Review</label>
+        </div>
         <!--end of rating  -->
-        
+
 
       </div>
     </div>
- <!-- end of review  modal  -->
+    <!-- end of review  modal  -->
 
 
 
@@ -127,12 +128,17 @@
       </ul>
   </div>
   </nav>
+  </div>
+  </nav>
+  </footer>
 
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
 
 
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script
   type="text/javascript"
@@ -141,13 +147,13 @@
   <script
     src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
     </script>
-  
+
   <script src="./assets/js/script.js"></script>
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
     </script>
 
-    <script>$(document).ready(function () {
+  <script>$(document).ready(function () {
       $('.modal').modal();
     });
   </script>
