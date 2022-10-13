@@ -21,7 +21,7 @@ var restaurantContainerEl = document.getElementById('restaurant-container')
 
 // FUNCTIONS
 
-// function to get weather
+// function to get weather 
 async function getWeather(lat, lon) {
   var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
   const response = await fetch(weatherUrl);

@@ -7,14 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>iEat</title>
+  <title>iEats</title>
 </head>
 
 <body>
 
   <header class="header section blue">
-    <h1 class="header-title">iEat</h1>
+    <h1 class="header-title">iEats</h1>
   </header>
 
   <aside id="places">
@@ -55,47 +56,92 @@
     <span id="place-address"></span>
   </div>
   </div>
+
   <!-- Map Controls End -->
   <div id="restaurant-container">
     <!-- restaurant cards rendered here -->
   </div>
 
+  
   <div class="nav-wrapper">
+    <!--about modal -->
+    <div class="modal" id="about">
+      <div class="modal-content">
+        <h5 class="black-text">About</h5>
+        <p>Write about section</p>
+        <div class="modal-footer">
+          <a href="" class="modal-close btn waves-light">Close</a>
+        </div>
+      </div>
+      
+    </div>
+ <!-- end of about modal  -->
+
+
+    <!--contact modal -->
+    <div class="modal" id="rating">
+      <div class="modal-content">
+      
+        <!--rating  -->
+          <span class="heading">User Rating:</span>
+          <span class="fa fa-star checked "></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+
+          <div class="First-Name" >
+            <div class="input-field col s6">
+              <i class="material-icons prefix ">account_circle</i>
+              <input id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix fa-text-size"> Name</label>
+            </div>
+            </div>
+
+            <div class="input-field col s6">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+            <label for="icon_prefix2">Review</label>
+          </div>
+        <!--end of rating  -->
+        
+
+      </div>
+    </div>
+ <!-- end of review  modal  -->
+
+
+
+
     <nav class="nav blue">
-      <!-- <a href="#!" class="nav-links">Nav area</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="">Sass</a></li>
-          <li><a href="">Components</a></li>
-        </ul> -->
-      <a class="waves-effect waves-dark btn" href="#about">About</a>
-      <a class="waves-effect waves-light btn" href="#contact">Contact</a>
-      <a class="waves-effect waves-light btn" id="search-btn">Search</a>
+      <ul>
+        <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
+        <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
+        <li> <a href="#map"class="waves-effect waves-light btn">Search</a></li>
+      </ul>
   </div>
   </nav>
 
 
+
+
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script
     src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
     </script>
+  
   <script src="./assets/js/script.js"></script>
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
     </script>
 
-  <section id="about">
-    <h2>ABOUT</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque earum aspernatur adipisci, ratione unde culpa
-      illo doloremque quod aut voluptates officiis architecto excepturi, animi exercitationem ipsum, mollitia facilis
-      natus illum.</p>
-  </section>
+    <script>$(document).ready(function () {
+      $('.modal').modal();
+    });
+  </script>
 
-  <section id="contact">
-    <h2>CONTACT</h2>
-    <form>
-
-    </form>
-  </section>
 
 </body>
 
