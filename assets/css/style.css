@@ -50,6 +50,9 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  /* sticky footer styling edit */
+  min-height: 100vh;
+
 }
 
 /* Evince, this is something you'll want to adjust, these settings are for my testing */
@@ -181,6 +184,8 @@ body {
 
 }
 
+
+
 #modalBox {
   display: flex;
   flex-wrap: wrap;
@@ -220,6 +225,13 @@ body {
 
 #forecast p {
   font-size: 10px;
+}
+
+
+/* sticky footer styling */
+.sticky-footer {
+  position: sticky;
+  top: 100%;
 }
 
 /*(phones, 400px and up) */
