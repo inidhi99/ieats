@@ -16,6 +16,7 @@ var autocomplete;
 var weatherWidget = document.querySelector(".weather");
 var searchBtnEl = document.getElementById('search-btn');
 var mapContainerEl= document.querySelector('.map-card');
+var locationSelectorContainerEl = document.getElementById('location-selector');
 
 // FUNCTIONS
 
@@ -57,20 +58,25 @@ async function getForecast(lat, lon) {
 
 function initGoogle() {
   // variable for initial center of map
-  var newYorkLatLon = { lat: 40.7127281, lng: -74.0060152 }
+  var newYorkLatLon = { lat: 40.7127281, lng: -74.0060152 };
+  var cityZoom = 11;
+  var boroughZoom = 12;
   // options for google map
   var options = {
-    zoom: 12,
+    zoom: cityZoom,
     center: newYorkLatLon,
-    mapTypeControl: false // remove Map/Satellite buttons
-  }
+    mapTypeControl: false, // remove Map/Satellite buttons
+    zoomControl: false,
+    fullscreenControl: false,
+    draggable: false
+  };
   // New map
   const map = new google.maps.Map(document.getElementById("map"), options);
 
   // lat and lon for specific search areas
-  var manhattanLatLon = { lat: 40.7831, lng: -73.9712 }
-  var brooklynLatLon = { lat: 40.6782, lng: -73.9442 }
-  var queensLatLon = { lat: 40.7282, lng: -73.7949 }
+  var manhattanLatLon = { lat: 40.7831, lng: -73.9712 };
+  var brooklynLatLon = { lat: 40.6782, lng: -73.9442 };
+  var queensLatLon = { lat: 40.7282, lng: -73.7949 };
 
   // need function to change default bounds based on which LatLon variable is passed
   var defaultBounds = {
@@ -90,40 +96,67 @@ function initGoogle() {
 
 
   // Add marker at default center
-  var newYorkMarker = new google.maps.Marker({
+  var centerMarker = new google.maps.Marker({
     position: newYorkLatLon,
     map: map,
     icon: './assets/images/icons/blue-dot.png'
   });
 
-  // change event function for radio buttons on custom map controls
-    // function needs to move the center based on which option is selected All, Manhattan, Brooklyn or Queens
-    // function needs to change default bounds based on selection for autocomplete purposes
-
-  /* Code not currently needed
-  // Add event listener to marker
-  // newYorkMarker.addListener('click', function () {
-  //   infoWindow.open(map, newYorkMarker);
-  // });
-  */
+  // click event for radio buttons on custom map controls
+  locationSelectorContainerEl.addEventListener( 'click', (e) => {
+    switch ( e.target.id ) {
+      case 'changetype-all':
+        // move the center of the map to New York City's lattitude and longitude
+        map.setCenter({ lat: newYorkLatLon.lat, lng: newYorkLatLon.lng });
+        // match the marker location with the new map center
+        centerMarker.setPosition( new google.maps.LatLng( newYorkLatLon.lat, newYorkLatLon.lng ));
+        // zoom out for view of whole city
+        map.setZoom(cityZoom);
+        break;
+      case 'changetype-manhattan':
+        // move the center of the map to Manhattan's lattitude and longitude
+        map.setCenter({ lat: manhattanLatLon.lat, lng: manhattanLatLon.lng, boroughZoom });
+        centerMarker.setPosition( new google.maps.LatLng( manhattanLatLon.lat, manhattanLatLon.lng ));
+        // zoom in for view of individual boroughs
+        map.setZoom(boroughZoom);
+        break;
+      case 'changetype-brooklyn':
+        // move the center of the map to Brooklyn's lattitude and longitude
+        map.setCenter({ lat: brooklynLatLon.lat, lng: brooklynLatLon.lng, boroughZoom });
+        centerMarker.setPosition( new google.maps.LatLng( brooklynLatLon.lat, brooklynLatLon.lng ));
+        map.setZoom(boroughZoom);
+        break;
+      case 'changetype-queens':
+        // move the center of the map to Queens' lattitude and longitude
+        map.setCenter({ lat: queensLatLon.lat, lng: queensLatLon.lng, boroughZoom });
+        centerMarker.setPosition( new google.maps.LatLng( queensLatLon.lat, queensLatLon.lng ));
+        map.setZoom(boroughZoom);
+        break;
+      default:
+        // default to New York City settings
+        map.setCenter({ lat: newYorkLatLon.lat, lng: newYorkLatLon.lng, cityZoom });
+        centerMarker.setPosition( new google.maps.LatLng( newYorkLatLon.lat, newYorkLatLon.lng ));
+        map.setZoom(cityZoom);
+    }
+  })
 
   // add autocomplete to search bar element
   autocomplete = new google.maps.places.Autocomplete(
     inputEl,
     {
-      bounds: defaultBounds,
       componentRestrictions: { 'country': ['us'] },
       fields: ['place_id', 'geometry', 'name', 'adr_address'],
       types: ['restaurant', 'cafe'] // specific types: ['restaurant', 'cafe'], general type: ['establishment']
     });
 
-
+    // restric the bounds of the search to the area visible on the map
+    autocomplete.bindTo('bounds', map);
 
   // Listen for autocomplete selection  
   autocomplete.addListener('place_changed', () => {
     // store place data gathered from autocomplete
     var place = autocomplete.getPlace();
-    console.log(place)
+    console.log(place);
     placeMarker = new google.maps.Marker({
       placeId: place.place_id,
       address: place.adr_address,
@@ -131,7 +164,7 @@ function initGoogle() {
       title: place.name,
       map: map
     });
-    console.log(placeMarker)
+
     //removed content while I work on functionality may remove this infoWindow entirely
     var placeInfoWindow = new google.maps.InfoWindow({ 
       // content: 
