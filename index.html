@@ -30,7 +30,7 @@
     <div class="map-card" id="map-card">
       <div>
         <div id="title">Restaurant Finder</div>
-        <div id="type-selector" class="map-controls">
+        <div id="location-selector" class="map-controls">
           <input type="radio" name="type" id="changetype-all" class="radio-btn" checked="checked" />
           <label for="changetype-all">All</label>
 
@@ -43,7 +43,7 @@
           <input type="radio" name="type" id="changetype-queens" class="radio-btn" />
           <label for="changetype-queens">Queens</label>
         </div>
-        <div id="map-container">
+        <div id="search-container">
           <input id="map-input" type="text" placeholder="Search for local restaurants" />
         </div>
       </div>
@@ -58,9 +58,8 @@
   </div>
 
   <!-- Map Controls End -->
-  <div id="modalBox">
-    MODAL GOES HERE
-    <!-- <div class="cards">Modals may be placed here w/ flexbox container</div> -->
+  <div id="restaurant-container">
+    <!-- restaurant cards rendered here -->
   </div>
 
   
@@ -118,7 +117,7 @@
       <ul>
         <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
         <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
-        <li> <a href="#map"class="waves-effect waves-light btn">CONTACT</a></li>
+        <li> <a id="search-btn" class="waves-effect waves-light btn">Search</a></li>
       </ul>
   </div>
   </nav>
