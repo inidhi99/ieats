@@ -2,8 +2,6 @@
 var targetCity = 'New York City';
 var googleKey = 'AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg';
 var weatherKey = '66b15a5b3951d15de56c5d2c4e2ddcba';
-var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
-var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"
 var markers = [];
 var placeMarker;
 
@@ -36,7 +34,7 @@ async function getWeather(lat, lon) {
   <p>Temperature: ${temp}</p>
   <p>Feels Like: ${feelsLike}</p>
   <p>Weather Condition: ${weatherDesc}</p>
-  `;
+  `;add 
 }
 //get forecast function
 async function getForecast(lat, lon) {
@@ -47,7 +45,7 @@ async function getForecast(lat, lon) {
   var forecastData = [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
   document.getElementById('forecast').innerHTML =
   `
-  <h3>In 3 hours for ${forecastData[3]}</h3>
+  <h3>3 hours in ${forecastData[3]}</h3>
   <p>Temperature: ${forecastData[0]}</p>
   <p>Feels Like: ${forecastData[1]}</p>
   <p>Weather Conditions: ${forecastData[2]}</p>
