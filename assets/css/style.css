@@ -168,14 +168,15 @@ body {
   justify-content: space-around;
   height: 60px;
   /* min-height: 100vh; */
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   margin-top: 25px;
 }
 
 .nav {
   position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  bottom: 0;
+  /* z-index: 999; */
 }
 
 #modalBox {
