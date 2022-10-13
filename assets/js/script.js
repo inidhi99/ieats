@@ -163,3 +163,23 @@ getForecast(forecastUrl);
 
  //add modal for search menu when screen gets larger
 searchBtnEl.addEventListener('click', displayElement)
+
+
+// ABOUT
+var aboutModal = document.getElementById("aboutModal");
+var aboutModalButton = document.getElementById("aboutModalButton");
+var closeButton = document.getElementsByClassName("aboutModalCloseButton")
+
+aboutModalButton.onclick = function() {
+  aboutModal.style.display = "block";
+}
+
+closeButton.onclick = function() {
+  aboutModal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == aboutModal) {
+    aboutModal.style.display = "none"
+  }
+}
