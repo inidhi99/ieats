@@ -168,13 +168,13 @@ searchBtnEl.addEventListener('click', displayElement)
 // ABOUT
 var aboutModal = document.getElementById("aboutModal");
 var aboutModalButton = document.getElementById("aboutModalButton");
-var closeButton = document.getElementsByClassName("aboutModalCloseButton")
+var aboutModalCloseButton = document.getElementsByClassName("aboutModalCloseButton")
 
 aboutModalButton.onclick = function() {
   aboutModal.style.display = "block";
 }
 
-closeButton.onclick = function() {
+aboutModalCloseButton.onclick = function() {
   aboutModal.style.display = "none";
 }
 
