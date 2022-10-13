@@ -21,9 +21,16 @@
 
 .header {
   display: flex;
-  justify-content: center;
-  height: 60px;
+  justify-content:space-between;
+  min-height: 70px;
   margin-bottom: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.weatherwidget{
+  display:flex;
+  padding-right: 10px;
 }
 
 .header-title {
@@ -31,8 +38,8 @@
   font-size: 30px;
   font-weight: bold;
   color: white;
-  position: relative;
-  bottom: 40px;
+  margin:0px;
+  margin-top:9px;
 }
 
 html,
@@ -87,6 +94,7 @@ body {
   font-family: Roboto;
   border-radius: 15px;
   display:none;
+  max-width: 90%;
 }
 
 .map-card #title{
@@ -144,10 +152,10 @@ body {
 /* Map Card Styles End */
 
 
-#places {
+/* #places {
   display: flex;
   flex-direction: column;
-}
+} */
 
 #temp {
   display: block;
@@ -155,7 +163,7 @@ body {
 }
 
 #map {
-  height: 55%;
+  height: 75%;
   width: 95%;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -183,17 +191,13 @@ body {
 
 
 .widget {
-  /* block-size: fit-content; */
-  align-content:stretch;
   font-style: bold;
-  max-height: 80px;
-  min-width: 175px;
-  background-color: var(--ltblue);
+  max-height: 50px;
+  min-width: 125px;
   text-align: center;
-  color: black;
-  margin: auto;
+  color: white;
+  margin: 0;
   border-radius: 15px;
-  border: 2px solid black;
 }
 
 #weather h3{
@@ -219,17 +223,21 @@ font-size: 10px;
 }
 
 @media screen and (min-width: 400px) {
+  .header-title {
+    justify-content:space-between;
+  }
+  
+  .weatherwidget{
+    justify-content:flex-end;
+  }
 .map-card{
   display:block;
 }
 
-.widget{
 
-}
-
-  #places {
+  /* #places {
     flex-direction: row;
-  }
+  } */
 
 }
 
