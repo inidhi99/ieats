@@ -36,7 +36,11 @@ async function getWeather(lat, lon) {
   <p>Temperature: ${temp}</p>
   <p>Feels Like: ${feelsLike}</p>
   <p>Weather Condition: ${weatherDesc}</p>
+<<<<<<< HEAD
   `;
+=======
+  `; 
+>>>>>>> f45619f18f6b19994c0f7fcf2aa52a2334dcf4a7
 }
 //get forecast function
 async function getForecast(lat, lon) {
@@ -54,6 +58,7 @@ async function getForecast(lat, lon) {
   `;
 }
 
+<<<<<<< HEAD
 function getZoom() {
   var desktopQuery = window.matchMedia("(min-width: 992px)");
   var tabletQuery = window.matchMedia("(min-width: 768px)");
@@ -72,6 +77,18 @@ function getZoom() {
     boroughZoom = 12;
   }
 }
+=======
+//get time
+setInterval(function getTime(){
+var time = moment().format("hh:mm:ss");
+  $("#time").text(time);
+  document.getElementById('time').innerHTML=time.toString();
+}, 1000)
+
+
+// function initAutocomplete() { 
+// }
+>>>>>>> f45619f18f6b19994c0f7fcf2aa52a2334dcf4a7
 
 function initGoogle() {
   // variable for initial center of map
