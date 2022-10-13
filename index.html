@@ -8,28 +8,30 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>iEat</title>
+  <title>iEats</title>
 </head>
 
 <body>
 
   <header class="header section blue">
-    <h1 class="header-title">iEat</h1>
+    <h1 class="header-title">iEats</h1>
   </header>
+
+  <aside id="places">
+    <!-- weather widget will go here -->
+    <div class="widget" id="weather">Temp widget goes here</div>
+    <div class="widget" id="forecast"> Forecast pops up here</div>
+  </aside>
 
 
   <div class="container">
-    <aside id="places">
-      <!-- weather widget will go here -->
-      <div class="widget" id="weather">Temp widget goes here</div>
-      <div class="widget" id="forecast"> Forecast pops up here</div>
-    </aside>
     <!-- Map & Controls Start -->
     <div class="map-card" id="map-card">
       <div>
         <div id="title">Restaurant Finder</div>
-        <div id="type-selector" class="map-controls">
+        <div id="location-selector" class="map-controls">
           <input type="radio" name="type" id="changetype-all" class="radio-btn" checked="checked" />
           <label for="changetype-all">All</label>
 
@@ -42,7 +44,7 @@
           <input type="radio" name="type" id="changetype-queens" class="radio-btn" />
           <label for="changetype-queens">Queens</label>
         </div>
-        <div id="map-container">
+        <div id="search-container">
           <input id="map-input" type="text" placeholder="Search for local restaurants" />
         </div>
       </div>
@@ -55,53 +57,87 @@
     <span id="place-address"></span>
   </div>
   </div>
+
   <!-- Map Controls End -->
-  <div id="modalBox">
-    MODAL GOES HERE
-    <!-- <div class="cards">Modals may be placed here w/ flexbox container</div> -->
+  <div id="restaurant-container">
+    <!-- restaurant cards rendered here -->
   </div>
 
-  <footer>
-    <div class="nav-wrapper">
 
-      <!-- About modal -->
-      <div class="modal" id="about">
-        <div class="modal-content">
-
-          <h5 class="black-text">About</h5>
-          <p>Write about section</p>
-        </div>
+  <div class="nav-wrapper">
+    <!--about modal -->
+    <div class="modal" id="about">
+      <div class="modal-content">
+        <h5 class="black-text">About</h5>
+        <p>Write about section</p>
         <div class="modal-footer">
           <a href="" class="modal-close btn waves-light">Close</a>
         </div>
       </div>
 
-      <!-- rating form modal -->
-      <div class="modal" id="review">
-        <div class="modal-content">
-          <h5 class="black-text">Ratings</h5>
-          <p>Review</p>
-        </div>
-        <div class="modal-footer">
-          <a href="" class="modal-close btn waves-light">Close</a>
-        </div>
-      </div>
-      <nav class="nav blue">
-
-        <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a>
-        <a href="#ratings" class="waves-effect waves-light btn modal-trigger">Ratings</a>
-        <a class="waves-effect waves-light btn" href="#map">Search</a>
     </div>
-    </nav>
+    <!-- end of about modal  -->
+
+
+    <!--contact modal -->
+    <div class="modal" id="rating">
+      <div class="modal-content">
+
+        <!--rating  -->
+        <span class="heading">User Rating:</span>
+        <span class="fa fa-star checked "></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+
+        <div class="First-Name">
+          <div class="input-field col s6">
+            <i class="material-icons prefix ">account_circle</i>
+            <input id="icon_prefix" type="text" class="validate">
+            <label for="icon_prefix fa-text-size"> Name</label>
+          </div>
+        </div>
+
+        <div class="input-field col s6">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+          <label for="icon_prefix2">Review</label>
+        </div>
+        <!--end of rating  -->
+
+
+      </div>
+    </div>
+    <!-- end of review  modal  -->
+
+
+
+
+    <nav class="nav blue">
+      <ul>
+        <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
+        <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
+        <li> <a id="search-btn" class="waves-effect waves-light btn">Search</a></li>
+      </ul>
+  </div>
+  </nav>
+  </div>
+  </nav>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
+
+
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script
     src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
     </script>
+
   <script src="./assets/js/script.js"></script>
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
@@ -112,13 +148,6 @@
     });
   </script>
 
-
-  <section id="contact">
-    <h2>CONTACT</h2>
-    <form>
-
-    </form>
-  </section>
 
 </body>
 

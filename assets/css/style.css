@@ -15,7 +15,8 @@
 
 :root {
   --montserratfont: 'Montserrat Alternates', sans-serif;
-
+  --blue: #4d90fe;
+  --ltblue: lightblue;
 }
 
 .header {
@@ -37,6 +38,7 @@
 html,
 body {
   width: 100%;
+  /* overflow-y: hidden; */
   overflow-x: hidden;
   height: 100%;
   margin: 0;
@@ -51,6 +53,10 @@ body {
 } */
 
 /* Map Card Styles Start */
+.map-container {
+  margin: 5px 0;
+}
+
 #description {
   font-family: Roboto;
   font-size: 15px;
@@ -80,9 +86,14 @@ body {
   overflow: hidden;
   font-family: Roboto;
   border-radius: 15px;
+  display: none;
 }
 
-#map-container {
+.map-card #title {
+  font-size: 18px;
+}
+
+#search-container {
   padding-bottom: 12px;
   margin-right: 12px;
 }
@@ -110,12 +121,12 @@ body {
 }
 
 #map-input:focus {
-  border-color: #4d90fe;
+  border-color: var(--blue);
 }
 
 #title {
   color: #fff;
-  background-color: #4d90fe;
+  background-color: var(--blue);
   font-size: 1.75rem;
   font-weight: 500;
   padding: 6px 12px;
@@ -135,7 +146,7 @@ body {
 
 #places {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 #temp {
@@ -153,11 +164,13 @@ body {
 
 .nav {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
   height: 60px;
   /* min-height: 100vh; */
   margin-bottom: 20px;
   margin-top: 25px;
+
 }
 
 #modalBox {
@@ -168,30 +181,83 @@ body {
 
 }
 
-@media screen and (min-width: 390px) {
-  /* #map {
-    width: 300px;
-  } */
-}
 
 .widget {
-  font-size: 20px;
+  /* block-size: fit-content; */
+  align-content: stretch;
   font-style: bold;
-  height: 200px;
-  width: 400px;
-  background-color: lightblue;
+  max-height: 80px;
+  min-width: 175px;
+  background-color: var(--ltblue);
   text-align: center;
   color: black;
   margin: auto;
   border-radius: 15px;
+  border: 2px solid black;
 }
 
+#weather h3 {
+  margin: 2px;
+  font-size: 15px;
+  font-style: bold;
+  font-weight: 750;
+}
 
-/* #about {
-  position: absolute;
-  top: 0;
-} */
+#weather p {
+  font-size: 10px;
+}
 
-.nav-wrapper {
-  position: relative;
+#forecast h3 {
+  margin: 2px;
+  font-size: 15px;
+  font-style: bold;
+  font-weight: 750;
+}
+
+#forecast p {
+  font-size: 10px;
+}
+
+@media screen and (min-width: 400px) {
+  .map-card {
+    display: block;
+  }
+}
+
+/*(tablets and large phones, 600px and up) */
+@media only screen and (min-width: 768px) {
+  .map-card {
+    display: block;
+  }
+}
+
+/* (laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 992px) {
+  .map-card {
+    display: block;
+  }
+
+  #places {
+    flex-direction: row;
+  }
+
+
+  .heading {
+    font-size: 50px;
+    margin-right: 25px;
+  }
+
+  .fa {
+    font-size: 50px;
+  }
+
+  .checked {
+    color: orange;
+  }
+
+
+  .validate {
+    font-size: larger;
+    color: red;
+  }
 }
