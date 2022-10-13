@@ -53,6 +53,10 @@ body {
 } */
 
 /* Map Card Styles Start */
+.map-container {
+  margin: 5px 0;
+}
+
 #description {
   font-family: Roboto;
   font-size: 15px;
@@ -89,7 +93,7 @@ body {
   font-size: 18px;
 }
 
-#map-container {
+#search-container {
   padding-bottom: 12px;
   margin-right: 12px;
 }
@@ -160,11 +164,13 @@ body {
 
 .nav {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
   height: 60px;
   /* min-height: 100vh; */
   margin-bottom: 20px;
   margin-top: 25px;
+
 }
 
 #modalBox {
@@ -225,4 +231,23 @@ font-size: 10px;
     flex-direction: row;
   }
 
+}
+
+
+.heading {
+  font-size: 50px;
+  margin-right: 25px;
+}
+.fa{
+  font-size: 50px;
+}
+
+.checked{
+  color: orange;
+}
+
+
+.validate{
+  font-size: larger;
+  color: red;
 }
