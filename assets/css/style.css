@@ -246,7 +246,7 @@ body {
 }
 
 .tysmSubmit {
-  
+  display: grid;
 }
 /*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
