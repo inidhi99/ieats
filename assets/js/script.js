@@ -52,7 +52,6 @@ setInterval(function getTime() {
 
 
 // function initAutocomplete() { 
-// 
 
 //modal script 
 $(document).ready(function () {
