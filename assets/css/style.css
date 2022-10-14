@@ -27,7 +27,7 @@
   font-weight: bold;
   color: white;
   margin: 0px;
-  margin-top:13px;
+  margin-top: 13px;
 }
 
 main{
@@ -40,6 +40,8 @@ body {
   width: 100%;
   overflow-x: hidden;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* widget styling */
@@ -47,6 +49,7 @@ body {
   display: flex;
   padding-right: 10px;
 }
+
 .timewidget{
   display: none;
   color: white;
@@ -55,9 +58,11 @@ body {
   font-weight:550;
   font-family: var(--montserratfont)
 }
+
 .timewidget p{
 text-align:center;
 }
+
 .widget {
 font-style: bold;
 max-height: 50px;
@@ -95,6 +100,15 @@ font-size: 10px;
   margin: 5px 0;
 }
 
+#search-btn {
+  margin: 1rem;
+}
+
+.search-icon {
+  height: 1rem;
+  width: 1rem;
+}
+
 #description {
   font-family: Roboto;
   font-size: 15px;
@@ -122,11 +136,13 @@ font-size: 10px;
   padding: 0 0.5em;
   font: 400 18px Roboto, Arial, sans-serif;
   overflow: hidden;
+  font-family: Roboto;
   border-radius: 15px;
   display: none;
   max-width: 90%;
   padding:0px;
 }
+
 .map-card #title {
   font-size: 18px;
 }
@@ -240,6 +256,8 @@ font-size: 10px;
   z-index: 999;
 }
 
+
+
 #modalBox {
   display: flex;
   flex-wrap: wrap;
@@ -263,7 +281,7 @@ font-size: 10px;
 @media screen and (min-width: 400px) {
   .map-card {
     display: block;
-  } 
+  }
 }
 
 /*(tablets and large phones, 600px and up) */
@@ -271,9 +289,10 @@ font-size: 10px;
   .map-card {
     display: block;
   }
-  .timewidget{
+
+  .timewidget {
     display: block;
-}
+  }
 }
 
 /* (laptops and desktops, 1200px and up) */
@@ -309,8 +328,8 @@ font-size: 10px;
   }
 
 
-.validate{
-  font-size: larger;
-  color: red;
-}
+  .validate {
+    font-size: larger;
+    color: red;
+  }
 }
