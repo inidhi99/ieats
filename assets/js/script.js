@@ -249,10 +249,6 @@ $(document).ready(function () {
   $('input#input_text, textarea#textarea2').characterCounter();
 });
 
-$("#review-Submit").on('change', function () {
-  console.log($(this));
-});
-
 
 getWeather(40.7127281, -74.0060152);
 getForecast(40.7127281, -74.0060152);
