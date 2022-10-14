@@ -220,6 +220,7 @@ function initGoogle() {
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">${place.adr_address}<i class="material-icons right">close</i></span>
+      <p class= "price-range"> Feature coming soon! $$ </p>
       <p class="seating">Feature coming soon!</p>
     </div>
   </div>
