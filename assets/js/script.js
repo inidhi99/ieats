@@ -235,10 +235,10 @@ function initGoogle() {
 
 function toggleSearchCardDisplay() {
   var cardDisplay = mapContainerEl.style.display;
-  if (mapContainerEl.style.display === 'none')
-    mapContainerEl.style.display = 'block';
+  if (cardDisplay === 'none')
+    cardDisplay = 'block';
   else
-    mapContainerEl.style.display = 'none';
+  cardDisplay = 'none';
 }
 
 
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
 document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
-searchBtnEl.addEventListener('click', toggleSearchCardDisplay)
+searchBtnEl.addEventListener('click', toggleSearchCardDisplay);
 
 
 
