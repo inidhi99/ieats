@@ -54,7 +54,10 @@ async function getForecast(lat, lon) {
 
 //get time
 setInterval(function getTime(){
-var time = moment().format("hh:mm:ss");
+var time = moment().format(
+  `MMM Do, YYYY,
+  <p>hh:mm:ss</p>
+  `);
   $("#time").text(time);
   document.getElementById('time').innerHTML=time.toString();
 }, 1000)
