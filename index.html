@@ -12,9 +12,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>iEats</title>
 </head>
-
 <body>
-
   <header class="header section blue">
     <h1 class="header-title">iEats</h1>
     <div>
@@ -35,13 +33,10 @@
         <div id="location-selector" class="map-controls">
           <input type="radio" name="type" id="changetype-all" class="radio-btn" checked="checked" />
           <label for="changetype-all">All</label>
-
           <input type="radio" name="type" id="changetype-manhattan" value />
           <label for="changetype-manhattan">Manhattan</label>
-
           <input type="radio" name="type" id="changetype-brooklyn" class="radio-btn" />
           <label for="changetype-brooklyn">Brooklyn</label>
-
           <input type="radio" name="type" id="changetype-queens" class="radio-btn" />
           <label for="changetype-queens">Queens</label>
         </div>
@@ -58,13 +53,10 @@
     <span id="place-address"></span>
   </div>
   </div>
-
   <!-- Map Controls End -->
   <div id="restaurant-container">
     <!-- restaurant cards rendered here -->
   </div>
-
-
   <div class="nav-wrapper">
     <!--about modal -->
     <div class="modal" id="about">
@@ -75,11 +67,8 @@
           <a href="" class="modal-close btn waves-light">Close</a>
         </div>
       </div>
-
     </div>
     <!-- end of about modal  -->
-
-
     <!--rating modal -->
     <div class="modal" id="rating">
       <div class="modal-content">
@@ -99,7 +88,6 @@
             <label for="icon_prefix fa-text-size"> Name</label>
           </div>
         </div>
-
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
@@ -108,24 +96,10 @@
             <a href="" class="modal-close btn waves-light">Submit</a>
           </div>
         </div>
-
-       
-
-
         <!--end of rating  -->
-
-
       </div>
-
-      
-      
-      
-     
     </div>
     <!-- end of review  modal  -->
-
-
-
   <footer>
     <nav class="nav blue">
       <ul>
@@ -155,12 +129,6 @@
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
     </script>
-
-  <script>$(document).ready(function () {
-      $('.modal').modal();
-    });
-  </script>
-
 <footer class="footer">
   <nav class="nav blue">
     <ul>
@@ -168,10 +136,7 @@
       <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
       <li> <a id="search-btn" class="waves-effect waves-light btn">Search</a></li>
     </ul>
-</div>
 </nav>
 </footer>
-
-
 </body>
 </html>

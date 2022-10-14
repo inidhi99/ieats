@@ -104,11 +104,41 @@ body {
     font-size: 18px;
     font-style: bold;
     font-weight:550;
-    font-family: var(--montserratfont);
+    font-family: var(--montserratfont)
 }
-
 .timewidget p{
   text-align:center;
+}
+.widget {
+  font-style: bold;
+  max-height: 50px;
+  min-width: 125px;
+  text-align: center;
+  color: white;
+  margin: 0;
+  border-radius: 15px;
+}
+
+#weather h3 {
+  margin: 2px;
+  font-size: 15px;
+  font-style: bold;
+  font-weight: 750;
+}
+
+#weather p {
+  font-size: 10px;
+}
+
+#forecast h3 {
+  margin: 2px;
+  font-size: 15px;
+  font-style: bold;
+  font-weight: 750;
+}
+
+#forecast p {
+  font-size: 10px;
 }
 
 .map-card #title {
@@ -210,38 +240,6 @@ body {
 }
 
 
-.widget {
-  font-style: bold;
-  max-height: 50px;
-  min-width: 125px;
-  text-align: center;
-  color: white;
-  margin: 0;
-  border-radius: 15px;
-}
-
-#weather h3 {
-  margin: 2px;
-  font-size: 15px;
-  font-style: bold;
-  font-weight: 750;
-}
-
-#weather p {
-  font-size: 10px;
-}
-
-#forecast h3 {
-  margin: 2px;
-  font-size: 15px;
-  font-style: bold;
-  font-weight: 750;
-}
-
-#forecast p {
-  font-size: 10px;
-}
-
 #about h2 {
   background-color: #4d90fe;
   text-align: center;
@@ -309,5 +307,3 @@ body {
   color: red;
 }
 }
-
-
