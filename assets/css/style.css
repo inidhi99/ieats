@@ -103,7 +103,7 @@ body {
     color: white;
     font-size: 18px;
     font-style: bold;
-    font-weight:1000;
+    font-weight:550;
     font-family: var(--montserratfont);
 }
 
@@ -271,12 +271,6 @@ body {
   .map-card {
     display: block;
   }
-
-
-  /* #places {
-    flex-direction: row;
-  } */
-
 
   .heading {
     font-size: 50px;
