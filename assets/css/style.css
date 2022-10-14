@@ -239,6 +239,15 @@ body {
   font-weight: bold;
 }
 
+#rating h2 {
+  background-color: #4d90fe;
+  text-align: center;
+  font-weight: bold;
+}
+
+.tysmSubmit {
+  
+}
 /*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
   .map-card {
