@@ -32,7 +32,7 @@
 
 main{
   height:100%;
-  margin-bottom:30px;
+  margin-bottom: 300px;
 }
 
 html,
@@ -194,6 +194,7 @@ font-size: 10px;
   text-align:center;
   flex-direction: row;
   justify-content:flex-start;
+  flex-wrap:wrap;
 }
 
 .restaurant-card{
@@ -204,6 +205,8 @@ font-size: 10px;
   justify-content: space-evenly;
   width:30%;
   margin:0px;
+  margin-left: 17px;
+  margin-right: 17px;
 }
 #res-card-container .card{
   min-height:fit-content;
