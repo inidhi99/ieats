@@ -17,7 +17,8 @@ var weatherWidget = document.querySelector(".weather");
 var searchBtnEl = document.getElementById('search-btn');
 var mapContainerEl = document.querySelector('.map-card');
 var locationSelectorContainerEl = document.getElementById('location-selector');
-var restaurantContainerEl = document.getElementById('restaurant-container')
+var restaurantContainerEl = document.getElementById('restaurant-container');
+
 
 // FUNCTIONS
 
@@ -205,13 +206,24 @@ function initGoogle() {
     restaurantContainerEl.innerHTML +=
       `
     <div class="restaurant-card">
-      <figure class="img-container">
-          Photos Coming Soon!
-      </figure>
-      <h3>${place.name}</h3>
-      <p class="address">${place.adr_address}</p>
+
+    <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+    <figure class="img-container">
+    Photos Coming Soon!
+      </figure> 
+      <img class="activator" src="">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">${place.name}<i class="material-icons right">more_vert</i></span>
+      
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">${place.adr_address}<i class="material-icons right">close</i></span>
       <p class="seating">Feature coming soon!</p>
     </div>
+  </div>
+  </div>
     `;
   });
 }
@@ -238,4 +250,15 @@ getForecast(40.7127281, -74.0060152);
 //add modal for search menu when screen gets larger
 document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
+document.addEventListener('DOMContentLoaded', getZoom);
+// window.onresize(getZoom);
 searchBtnEl.addEventListener('click', toggleSearchCardDisplay)
+
+
+
+
+
+//modal script 
+$(document).ready(function () {
+  $('.modal').modal();
+});
