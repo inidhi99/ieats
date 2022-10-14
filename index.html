@@ -6,12 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>iEats</title>
 </head>
+
 <body>
   <header class="header section blue">
     <h1 class="header-title">iEats</h1>
@@ -25,9 +28,11 @@
       <div class="widget" id="forecast"> Forecast pops up here</div>
     </div>
   </header>
+ <main>
   <div class="container">
     <!-- Map & Controls Start -->
-    <button id="search-btn"><a class="waves-effect waves-light btn"><i class="fa-solid fa-magnifying-glass"></i></a></button>
+    <button id="search-btn"><a class="waves-effect waves-light btn"><i
+          class="fa-solid fa-magnifying-glass"></i></a></button>
     <div class="map-card" id="map-card">
       <div>
         <div id="title">Restaurant Finder</div>
@@ -47,12 +52,10 @@
       </div>
     </div>
   </div>
-  </div>
   <div id="map"></div>
   <div id="infowindow-content">
     <span id="place-name" class="title"></span><br />
     <span id="place-address"></span>
-  </div>
   </div>
   <!-- Map Controls End -->
   <div id="restaurant-container">
@@ -63,7 +66,9 @@
     <div class="modal" id="about">
       <div class="modal-content">
         <h2 class="white-text">About</h2>
-        <p>Rise or shine, iEats has you covered! Our developers curated this program to allow users to do 2 things: decide where they'd like to eat in Manhattan, Queens, or Brooklyn, and their seating arrangements based off of weather predictions in that area.</p>
+        <p>Rise or shine, iEats has you covered! Our developers curated this program to allow users to do 2 things:
+          decide where they'd like to eat in Manhattan, Queens, or Brooklyn, and their seating arrangements based off of
+          weather predictions in that area.</p>
         <div class="modal-footer">
           <a href="" class="modal-close btn waves-light">Close</a>
         </div>
@@ -82,54 +87,60 @@
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star checked"></span>
 
-        <div class="First-Name">
-          <div class="input-field col s6">
-            <i class="material-icons prefix ">account_circle</i>
-            <input id="icon_prefix" type="text" class="validate">
-            <label for="icon_prefix fa-text-size"> Name</label>
-          </div>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-          <label for="icon_prefix2">Review</label>
-          <div class="modal-footer">
-            <a href="" class="modal-close btn waves-light">Submit</a>
-          </div>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="input_text" type="text" data-length="10">
+                <label for="input_text">Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                <label for="textarea2">Add Review</label>
+              </div>
+            </div>
+            <button id="review-Submit" class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
         </div>
         <!--end of rating  -->
       </div>
     </div>
+ </main>   
     <!-- end of review  modal  -->
-  <footer>
-    <nav class="nav blue">
-      <ul>
-        <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
-        <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
-        <li> <a href="#contact" class="waves-effect waves-light btn">Search</a></li>
-      </ul>
-    </nav>
-  </footer>
+    <footer class="footer">
+      <nav class="nav blue">
+        <ul>
+          <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
+          <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
+          <li> <a id="search-btn" class="waves-effect waves-light btn">Search</a></li>
+        </ul>
+      </nav>
+    </footer>
 
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
-  </script>
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
-  </script>
-  <script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js">
-  </script>
-  <script
-    src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
-  </script>
-  <script src="./assets/js/map.js"></script>
-  <script src="./assets/js/script.js"></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+      </script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+      </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
     </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js">
+    </script>
+    <script
+      src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
+      </script>
+      <script src="./assets/js/map.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
+      </script>
+
 </body>
+
 </html>

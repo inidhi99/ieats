@@ -90,6 +90,7 @@ function initGoogle() {
         centerMarker.setPosition(new google.maps.LatLng(newYorkLatLon.lat, newYorkLatLon.lng));
         // zoom out for view of whole city
         map.setZoom(cityZoom);
+        getWeather(manhattanLatLon.lat, manhattanLatLon.lng);
         break;
       case 'changetype-manhattan':
         // move the center of the map to Manhattan's lattitude and longitude
