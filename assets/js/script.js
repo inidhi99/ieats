@@ -206,27 +206,26 @@ function initGoogle() {
     placeMarker.disabled = true; // didn't work as expexted need to improve or remove
 
     //render place data in flex-item cards
-    restaurantContainerEl.innerHTML +=
+    restaurantContainerEl.innerHTML+=
       `
-    <div class="restaurant-card">
-
-    <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-    <figure class="img-container">
-    Photos Coming Soon!
-      </figure> 
-      <img class="activator" src="">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">${place.name}<i class="material-icons right">more_vert</i></span>
-      
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">${place.adr_address}<i class="material-icons right">close</i></span>
-      <p class="seating">Feature coming soon!</p>
-    </div>
-  </div>
-  </div>
+        <div class="restaurant-card" id='res-card-container'>
+          <div class="card" >
+            <div class="card-image waves-effect waves-block waves-light">
+              <figure class="img-container">
+                  Photos Coming Soon!
+              </figure> 
+                <img class="activator" src="">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">${place.name}<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">${place.adr_address}<i class="material-icons right">close</i></span>
+              <p class="seating">Feature coming soon!</p>
+              <p class="price-range">Price range</p>
+            </div>
+          </div>
+        </div>
     `;
   });
 }
@@ -254,4 +253,4 @@ document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
 document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
-searchBtnEl.addEventListener('click', toggleSearchCardDisplay);
+// searchBtnEl.addEventListener('click', toggleSearchCardDisplay);

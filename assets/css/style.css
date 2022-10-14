@@ -2,14 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
-
-
-/* #map {
-  height: 50%;
-} */
-
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
 
@@ -28,11 +21,6 @@
   padding-left: 10px;
 }
 
-.weatherwidget {
-  display: flex;
-  padding-right: 10px;
-}
-
 .header-title {
   font-family: var(--montserratfont);
   font-size: 30px;
@@ -42,22 +30,65 @@
   margin-top:13px;
 }
 
+main{
+  height:100%;
+  margin-bottom:30px;
+}
+
 html,
 body {
   width: 100%;
-  /* overflow-y: hidden; */
   overflow-x: hidden;
   height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
-/* Evince, this is something you'll want to adjust, these settings are for my testing */
-/* body {
-  width: 80%;
-  margin: 0 auto;
+/* widget styling */
+.weatherwidget {
+  display: flex;
+  padding-right: 10px;
+}
+.timewidget{
+  display: none;
+  color: white;
+  font-size: 18px;
+  font-style: bold;
+  font-weight:550;
+  font-family: var(--montserratfont)
+}
+.timewidget p{
+text-align:center;
+}
+.widget {
+font-style: bold;
+max-height: 50px;
+min-width: 125px;
+text-align: center;
+color: white;
+margin: 0;
+border-radius: 15px;
+}
 
-} */
+#weather h3 {
+margin: 2px;
+font-size: 15px;
+font-style: bold;
+font-weight: 750;
+}
+
+#weather p {
+font-size: 10px;
+}
+
+#forecast h3 {
+margin: 2px;
+font-size: 15px;
+font-style: bold;
+font-weight: 750;
+}
+
+#forecast p {
+font-size: 10px;
+}
 
 /* Map Card Styles Start */
 .map-container {
@@ -91,56 +122,11 @@ body {
   padding: 0 0.5em;
   font: 400 18px Roboto, Arial, sans-serif;
   overflow: hidden;
-  font-family: Roboto;
   border-radius: 15px;
   display: none;
   max-width: 90%;
   padding:0px;
 }
-
-.timewidget{
-    display: none;
-    color: white;
-    font-size: 18px;
-    font-style: bold;
-    font-weight:550;
-    font-family: var(--montserratfont)
-}
-.timewidget p{
-  text-align:center;
-}
-.widget {
-  font-style: bold;
-  max-height: 50px;
-  min-width: 125px;
-  text-align: center;
-  color: white;
-  margin: 0;
-  border-radius: 15px;
-}
-
-#weather h3 {
-  margin: 2px;
-  font-size: 15px;
-  font-style: bold;
-  font-weight: 750;
-}
-
-#weather p {
-  font-size: 10px;
-}
-
-#forecast h3 {
-  margin: 2px;
-  font-size: 15px;
-  font-style: bold;
-  font-weight: 750;
-}
-
-#forecast p {
-  font-size: 10px;
-}
-
 .map-card #title {
   font-size: 18px;
 }
@@ -195,17 +181,6 @@ body {
 
 /* Map Card Styles End */
 
-
-/* #places {
-  display: flex;
-  flex-direction: column;
-} */
-
-#temp {
-  display: block;
-  margin: 0 auto;
-}
-
 #map {
   height: 75%;
   width: 95%;
@@ -213,18 +188,49 @@ body {
   margin-bottom: 10px;
   min-width: 360px;
 }
+/* Search result card styles */
+#restaurant-container{
+  display:flex;
+  text-align:center;
+  flex-direction: row;
+  justify-content:flex-start;
+}
+
+.restaurant-card{
+  text-align:center;
+}
+
+#res-card-container{
+  justify-content: space-evenly;
+  width:30%;
+  margin:0px;
+}
+#res-card-container .card{
+  min-height:fit-content;
+  border-radius:10px;
+  overflow:visible;
+  width:100%;
+
+  /* flex-direction:row; */
+}
+#res-card-container .card-reveal{
+ overflow:visible;
+}
+
+
+
+#card-image{
+  margin:0px;
+}
+
+/* End styling for result cards */
 
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 60px;
-  /* min-height: 100vh; */
-  margin-bottom: 0px;
-  margin-top: 25px;
-}
-
-.nav {
+  margin:0px;
   position: -webkit-sticky;
   position: fixed;
   bottom: 0;
@@ -235,8 +241,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
-
 }
 
 

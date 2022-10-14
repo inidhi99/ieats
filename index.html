@@ -25,6 +25,7 @@
       <div class="widget" id="forecast"> Forecast pops up here</div>
     </div>
   </header>
+ <main>
   <div class="container">
     <!-- Map & Controls Start -->
     <div class="map-card" id="map-card">
@@ -46,12 +47,10 @@
       </div>
     </div>
   </div>
-  </div>
   <div id="map"></div>
   <div id="infowindow-content">
     <span id="place-name" class="title"></span><br />
     <span id="place-address"></span>
-  </div>
   </div>
   <!-- Map Controls End -->
   <div id="restaurant-container">
@@ -99,8 +98,9 @@
         <!--end of rating  -->
       </div>
     </div>
+ </main>   
     <!-- end of review  modal  -->
-  <footer>
+  <footer class="footer">
     <nav class="nav blue">
       <ul>
         <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
@@ -129,14 +129,5 @@
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
     </script>
-<footer class="footer">
-  <nav class="nav blue">
-    <ul>
-      <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
-      <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
-      <li> <a id="search-btn" class="waves-effect waves-light btn">Search</a></li>
-    </ul>
-</nav>
-</footer>
 </body>
 </html>
