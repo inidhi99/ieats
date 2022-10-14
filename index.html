@@ -7,14 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>iEats</title>
 </head>
 
 <body>
-
   <header class="header section blue">
     <h1 class="header-title">iEats</h1>
     <div>
@@ -35,13 +34,10 @@
         <div id="location-selector" class="map-controls">
           <input type="radio" name="type" id="changetype-all" class="radio-btn" checked="checked" />
           <label for="changetype-all">All</label>
-
           <input type="radio" name="type" id="changetype-manhattan" value />
           <label for="changetype-manhattan">Manhattan</label>
-
           <input type="radio" name="type" id="changetype-brooklyn" class="radio-btn" />
           <label for="changetype-brooklyn">Brooklyn</label>
-
           <input type="radio" name="type" id="changetype-queens" class="radio-btn" />
           <label for="changetype-queens">Queens</label>
         </div>
@@ -58,13 +54,10 @@
     <span id="place-address"></span>
   </div>
   </div>
-
   <!-- Map Controls End -->
   <div id="restaurant-container">
     <!-- restaurant cards rendered here -->
   </div>
-
-
   <div class="nav-wrapper">
     <!--about modal -->
     <div class="modal" id="about">
@@ -77,11 +70,8 @@
           <a href="" class="modal-close btn waves-light">Close</a>
         </div>
       </div>
-
     </div>
     <!-- end of about modal  -->
-
-
     <!--rating modal -->
     <div class="modal" id="rating">
       <div class="modal-content">
@@ -94,49 +84,39 @@
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star checked"></span>
 
-        <div class="First-Name">
-          <div class="input-field col s6">
-            <i class="material-icons prefix ">account_circle</i>
-            <input id="icon_prefix" type="text" class="validate">
-            <label for="icon_prefix fa-text-size"> Name</label>
-          </div>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="input_text" type="text" data-length="10">
+                <label for="input_text">Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                <label for="textarea2">Add Review</label>
+              </div>
+            </div>
+            <button id="review-Submit" class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
         </div>
-
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-          <label for="icon_prefix2">Review</label>
-          <div class="modal-footer">
-            <a href="" class="modal-close btn waves-light">Submit</a>
-          </div>
-        </div>
-
-
-
-
         <!--end of rating  -->
-
-
       </div>
-
-
-
-
-
     </div>
     <!-- end of review  modal  -->
-
-
-
-    <footer>
+    <footer class="footer">
       <nav class="nav blue">
         <ul>
           <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
           <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
-          <li> <a href="#contact" class="waves-effect waves-light btn">Search</a></li>
+          <li> <a id="search-btn" class="waves-effect waves-light btn">Search</a></li>
         </ul>
       </nav>
     </footer>
+
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
@@ -155,23 +135,6 @@
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
       </script>
-
-    <script>$(document).ready(function () {
-        $('.modal').modal();
-      });
-    </script>
-
-    <footer class="footer">
-      <nav class="nav blue">
-        <ul>
-          <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
-          <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
-          <li> <a id="search-btn" class="waves-effect waves-light btn">Search</a></li>
-        </ul>
-  </div>
-  </nav>
-  </footer>
-
 
 </body>
 

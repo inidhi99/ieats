@@ -32,12 +32,12 @@ async function getWeather(lat, lon) {
   var feelsLike = data.main.feels_like;
   var weatherDesc = data.weather[0].main;
   document.getElementById('weather').innerHTML =
-  `
+    `
   <h3>${city}</h3>
   <p>Temperature: ${temp}</p>
   <p>Feels Like: ${feelsLike}</p>
   <p>Conditions: ${weatherDesc}</p>
-  `; 
+  `;
 }
 //get forecast function
 async function getForecast(lat, lon) {
@@ -47,7 +47,7 @@ async function getForecast(lat, lon) {
   var data = await response.json();
   var forecastData = [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
   document.getElementById('forecast').innerHTML =
-  `
+    `
   <h3>In 3 hours</h3>
   <p>Temperature: ${forecastData[0]}</p>
   <p>Feels Like: ${forecastData[1]}</p>
@@ -62,7 +62,7 @@ function getZoom() {
   // console.log("Is it tablet screen?", tabletQuery);
   if (desktopQuery.matches) {
     console.log(desktopQuery)
-    cityZoom = 12;
+    cityZoom = 13;
     boroughZoom = 14;
   } else if (tabletQuery.matches && (!desktopQuery.matches)) {
     console.log("Is it tablet screen?", tabletQuery);
@@ -74,21 +74,19 @@ function getZoom() {
   }
 }
 //get time
-setInterval(function getTime(){
-var time = moment().format(
-  `MMM Do, YYYY,
+setInterval(function getTime() {
+  var time = moment().format(
+    `MMM Do, YYYY,
   <p>hh:mm:ss</p>
   `);
   $("#time").text(time);
-  document.getElementById('time').innerHTML=time.toString();
+  document.getElementById('time').innerHTML = time.toString();
 }, 1000)
 
 
 // function initAutocomplete() { 
 // 
 function initGoogle() {
-  // get zoom variables for current display
-  getZoom();
   // variable for initial center of map
   var newYorkLatLon = { lat: 40.7127281, lng: -74.0060152 };
   // options for google map
@@ -235,17 +233,25 @@ function initGoogle() {
 
 function toggleSearchCardDisplay() {
   var cardDisplay = mapContainerEl.style.display;
-  if (mapContainerEl.style.display === 'none')
-    mapContainerEl.style.display = 'block';
+  if (cardDisplay === 'none')
+    cardDisplay = 'block';
   else
-    mapContainerEl.style.display = 'none';
+    cardDisplay = 'none';
 }
 
+//modal script 
+$(document).ready(function () {
+  $('.modal').modal();
+});
 
+// rating script
+$(document).ready(function () {
+  $('input#input_text, textarea#textarea2').characterCounter();
+});
 
-
-
-
+$("#review-Submit").on('change', function () {
+  console.log($(this));
+});
 
 
 getWeather(40.7127281, -74.0060152);
@@ -257,13 +263,4 @@ document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
 document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
-searchBtnEl.addEventListener('click', toggleSearchCardDisplay)
-
-
-
-
-
-//modal script 
-$(document).ready(function () {
-  $('.modal').modal();
-});
+searchBtnEl.addEventListener('click', toggleSearchCardDisplay);
