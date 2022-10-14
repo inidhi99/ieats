@@ -231,19 +231,18 @@ function initGoogle() {
   });
 }
 
-function toggleSearchCardDisplay() {
+function toggleSearchCardDisplay(){
   var cardDisplay = mapContainerEl.style.display;
-  if (mapContainerEl.style.display === 'none')
-    mapContainerEl.style.display = 'block';
+  if (cardDisplay === 'none')
+    cardDisplay = 'block';
   else
-    mapContainerEl.style.display = 'none';
+    cardDisplay = 'none';
 }
 
-
-
-
-
-
+//modal script 
+$(document).ready(function () {
+  $('.modal').modal();
+});
 
 
 getWeather(40.7127281, -74.0060152);
@@ -255,13 +254,4 @@ document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
 document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
-searchBtnEl.addEventListener('click', toggleSearchCardDisplay)
-
-
-
-
-
-//modal script 
-$(document).ready(function () {
-  $('.modal').modal();
-});
+searchBtnEl.addEventListener('click', toggleSearchCardDisplay);
