@@ -233,11 +233,17 @@ body {
   font-size: 10px;
 }
 
+#about h2 {
+  background-color: #4d90fe;
+  text-align: center;
+  font-weight: bold;
+}
+
 /*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
   .map-card {
     display: block;
-  }
+  } 
 }
 
 /*(tablets and large phones, 600px and up) */
@@ -290,3 +296,4 @@ body {
   font-size: larger;
   color: red;
 }
+
