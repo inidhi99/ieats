@@ -190,7 +190,7 @@ body {
   position: -webkit-sticky;
   position: fixed;
   bottom: 0;
-  /* z-index: 999; */
+  z-index: 999;
 }
 
 #modalBox {
@@ -246,9 +246,6 @@ body {
   font-weight: bold;
 }
 
-.tysmSubmit {
-  display: grid;
-}
 /*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
   .map-card {
