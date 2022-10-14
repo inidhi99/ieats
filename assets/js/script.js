@@ -58,16 +58,31 @@ $(document).ready(function () {
   $('.modal').modal();
 });
 
-// rating script
-$(document).ready(function () {
-  $('input#input_text, textarea#textarea2').characterCounter();
-});
-
-// rating script
-$(document).ready(function () {
-  $('input#input_text, textarea#textarea2').characterCounter();
-});
 
 
 getWeather(40.7127281, -74.0060152);
 getForecast(40.7127281, -74.0060152);
+
+// Review submit form and rating script
+$(document).ready(function () {
+  $('input#input_text, textarea#textarea2').characterCounter();
+});
+
+const nameEl = document.getElementById("input_text");
+const reviewEl = document.getElementById("textarea2");
+const reviewBtn = document.getElementById("subBtn");
+
+reviewBtn.onclick = function () {
+  const name = nameEl.value;
+  const review = reviewEl.value;
+
+  console.log(name);
+  console.log(review);
+
+  if (name && review) {
+    localStorage.setItem(name, review);
+    location.reload();
+  }
+};
+
+
