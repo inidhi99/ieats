@@ -36,7 +36,7 @@ async function getWeather(lat, lon) {
   <h3>${city}</h3>
   <p>Temperature: ${temp}</p>
   <p>Feels Like: ${feelsLike}</p>
-  <p>Weather Condition: ${weatherDesc}</p>
+  <p>Conditions: ${weatherDesc}</p>
   `; 
 }
 //get forecast function
@@ -48,10 +48,10 @@ async function getForecast(lat, lon) {
   var forecastData = [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
   document.getElementById('forecast').innerHTML =
   `
-  <h3>3 hours in ${forecastData[3]}</h3>
+  <h3>In 3 hours</h3>
   <p>Temperature: ${forecastData[0]}</p>
   <p>Feels Like: ${forecastData[1]}</p>
-  <p>Weather Conditions: ${forecastData[2]}</p>
+  <p>Conditions: ${forecastData[2]}</p>
   `;
 }
 
@@ -75,7 +75,10 @@ function getZoom() {
 }
 //get time
 setInterval(function getTime(){
-var time = moment().format("hh:mm:ss");
+var time = moment().format(
+  `MMM Do, YYYY,
+  <p>hh:mm:ss</p>
+  `);
   $("#time").text(time);
   document.getElementById('time').innerHTML=time.toString();
 }, 1000)
