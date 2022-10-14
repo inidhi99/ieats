@@ -90,26 +90,29 @@ function initGoogle() {
         centerMarker.setPosition(new google.maps.LatLng(newYorkLatLon.lat, newYorkLatLon.lng));
         // zoom out for view of whole city
         map.setZoom(cityZoom);
-        getWeather(manhattanLatLon.lat, manhattanLatLon.lng);
+        getWeather(newYorkLatLon.lat, newYorkLatLon.lng);
         break;
-      case 'changetype-manhattan':
-        // move the center of the map to Manhattan's lattitude and longitude
-        map.setCenter({ lat: manhattanLatLon.lat, lng: manhattanLatLon.lng, boroughZoom });
-        centerMarker.setPosition(new google.maps.LatLng(manhattanLatLon.lat, manhattanLatLon.lng));
-        // zoom in for view of individual boroughs
-        map.setZoom(boroughZoom);
+        case 'changetype-manhattan':
+          // move the center of the map to Manhattan's lattitude and longitude
+          map.setCenter({ lat: manhattanLatLon.lat, lng: manhattanLatLon.lng, boroughZoom });
+          centerMarker.setPosition(new google.maps.LatLng(manhattanLatLon.lat, manhattanLatLon.lng));
+          // zoom in for view of individual boroughs
+          map.setZoom(boroughZoom);
+          getWeather(manhattanLatLon.lat, manhattanLatLon.lng);
         break;
       case 'changetype-brooklyn':
         // move the center of the map to Brooklyn's lattitude and longitude
         map.setCenter({ lat: brooklynLatLon.lat, lng: brooklynLatLon.lng, boroughZoom });
         centerMarker.setPosition(new google.maps.LatLng(brooklynLatLon.lat, brooklynLatLon.lng));
         map.setZoom(boroughZoom);
+        getWeather(brooklynLatLon.lat, brooklynLatLon.lng);
         break;
       case 'changetype-queens':
         // move the center of the map to Queens' lattitude and longitude
         map.setCenter({ lat: queensLatLon.lat, lng: queensLatLon.lng, boroughZoom });
         centerMarker.setPosition(new google.maps.LatLng(queensLatLon.lat, queensLatLon.lng));
         map.setZoom(boroughZoom);
+        getWeather(queensLatLon.lat, queensLatLon.lng);
         break;
     }
   })
@@ -197,7 +200,5 @@ function displaySearchCard(){
 // EVENT LISTNERS
 //add modal for search menu when screen gets larger
 document.addEventListener('DOMContentLoaded', setMapDisplay);
-// window.onresize(getZoom);
-// document.addEventListener('DOMContentLoaded', getZoom);
-// window.onresize(getZoom);
+// call setMapDisplay on resize
 searchBtnEl.addEventListener('click', displaySearchCard);
