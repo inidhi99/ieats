@@ -62,7 +62,7 @@ function getZoom() {
   // console.log("Is it tablet screen?", tabletQuery);
   if (desktopQuery.matches) {
     console.log(desktopQuery)
-    cityZoom = 12;
+    cityZoom = 13;
     boroughZoom = 14;
   } else if (tabletQuery.matches && (!desktopQuery.matches)) {
     console.log("Is it tablet screen?", tabletQuery);
@@ -87,8 +87,6 @@ var time = moment().format(
 // function initAutocomplete() { 
 // 
 function initGoogle() {
-  // get zoom variables for current display
-  getZoom();
   // variable for initial center of map
   var newYorkLatLon = { lat: 40.7127281, lng: -74.0060152 };
   // options for google map
@@ -233,19 +231,22 @@ function initGoogle() {
   });
 }
 
-function toggleSearchCardDisplay() {
+function toggleSearchCardDisplay(){
   var cardDisplay = mapContainerEl.style.display;
   if (cardDisplay === 'none')
     cardDisplay = 'block';
   else
+<<<<<<< HEAD
   cardDisplay = 'none';
+=======
+    cardDisplay = 'none';
+>>>>>>> ec3763e1f5323cb388deb19088cfad323801dd13
 }
 
-
-
-
-
-
+//modal script 
+$(document).ready(function () {
+  $('.modal').modal();
+});
 
 
 getWeather(40.7127281, -74.0060152);
@@ -257,6 +258,7 @@ document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
 document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
+<<<<<<< HEAD
 searchBtnEl.addEventListener('click', toggleSearchCardDisplay);
 
 
@@ -267,3 +269,6 @@ searchBtnEl.addEventListener('click', toggleSearchCardDisplay);
 $(document).ready(function () {
   $('.modal').modal();
 });
+=======
+searchBtnEl.addEventListener('click', toggleSearchCardDisplay);
+>>>>>>> ec3763e1f5323cb388deb19088cfad323801dd13
