@@ -21,9 +21,16 @@
 
 .header {
   display: flex;
-  justify-content: center;
-  height: 60px;
+  justify-content: space-between;
+  min-height: 70px;
   margin-bottom: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.weatherwidget {
+  display: flex;
+  padding-right: 10px;
 }
 
 .header-title {
@@ -31,8 +38,8 @@
   font-size: 30px;
   font-weight: bold;
   color: white;
-  position: relative;
-  bottom: 40px;
+  margin: 0px;
+  margin-top: 9px;
 }
 
 html,
@@ -86,10 +93,16 @@ body {
   overflow: hidden;
   font-family: Roboto;
   border-radius: 15px;
-  display:none;
+  display: none;
+  max-width: 90%;
+  padding:0px;
 }
 
-.map-card #title{
+.timewidget{
+  display: none;
+}
+
+.map-card #title {
   font-size: 18px;
 }
 
@@ -126,7 +139,7 @@ body {
 
 #title {
   color: #fff;
-  background-color:var(--blue);
+  background-color: var(--blue);
   font-size: 1.75rem;
   font-weight: 500;
   padding: 6px 12px;
@@ -144,10 +157,10 @@ body {
 /* Map Card Styles End */
 
 
-#places {
+/* #places {
   display: flex;
   flex-direction: column;
-}
+} */
 
 #temp {
   display: block;
@@ -155,11 +168,11 @@ body {
 }
 
 #map {
-  height: 55%;
+  height: 75%;
   width: 95%;
   margin: 0 auto;
   margin-bottom: 10px;
-  min-width:360px;
+  min-width: 360px;
 }
 
 .nav {
@@ -189,20 +202,16 @@ body {
 
 
 .widget {
-  /* block-size: fit-content; */
-  align-content:stretch;
   font-style: bold;
-  max-height: 80px;
-  min-width: 175px;
-  background-color: var(--ltblue);
+  max-height: 50px;
+  min-width: 125px;
   text-align: center;
-  color: black;
-  margin: auto;
+  color: white;
+  margin: 0;
   border-radius: 15px;
-  border: 2px solid black;
 }
 
-#weather h3{
+#weather h3 {
   margin: 2px;
   font-size: 15px;
   font-style: bold;
@@ -213,42 +222,68 @@ body {
   font-size: 10px;
 }
 
-#forecast h3{
-margin: 2px;
-font-size: 15px;
-font-style: bold;
-font-weight: 750;
+#forecast h3 {
+  margin: 2px;
+  font-size: 15px;
+  font-style: bold;
+  font-weight: 750;
 }
 
-#forecast p{
-font-size: 10px;
+#forecast p {
+  font-size: 10px;
 }
 
+/*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
-.map-card{
-  display:block;
+  .map-card {
+    display: block;
+  }
 }
 
+/*(tablets and large phones, 600px and up) */
+@media only screen and (min-width: 768px) {
+  .map-card {
+    display: block;
+  }
+}
 
-
-  #places {
-    flex-direction: row;
+/* (laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 992px) {
+  .map-card {
+    display: block;
   }
 
-}
+
+  .header-title {
+    justify-content: space-between;
+  }
+
+  .weatherwidget {
+    justify-content: flex-end;
+  }
+
+  .map-card {
+    display: block;
+  }
 
 
-.heading {
-  font-size: 50px;
-  margin-right: 25px;
-}
-.fa{
-  font-size: 50px;
-}
+  /* #places {
+    flex-direction: row;
+  } */
 
-.checked{
-  color: orange;
-}
+
+  .heading {
+    font-size: 50px;
+    margin-right: 25px;
+  }
+
+  .fa {
+    font-size: 50px;
+  }
+
+  .checked {
+    color: orange;
+  }
 
 
 .validate{
