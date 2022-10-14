@@ -16,12 +16,12 @@ async function getWeather(lat, lon) {
   var feelsLike = data.main.feels_like;
   var weatherDesc = data.weather[0].main;
   document.getElementById('weather').innerHTML =
-  `
+    `
   <h3>${city}</h3>
   <p>Temperature: ${temp}</p>
   <p>Feels Like: ${feelsLike}</p>
   <p>Conditions: ${weatherDesc}</p>
-  `; 
+  `;
 }
 //get forecast function
 async function getForecast(lat, lon) {
@@ -31,7 +31,7 @@ async function getForecast(lat, lon) {
   var data = await response.json();
   var forecastData = [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
   document.getElementById('forecast').innerHTML =
-  `
+    `
   <h3>In 3 hours</h3>
   <p>Temperature: ${forecastData[0]}</p>
   <p>Feels Like: ${forecastData[1]}</p>
@@ -41,13 +41,13 @@ async function getForecast(lat, lon) {
 
 
 //get time
-setInterval(function getTime(){
-var time = moment().format(
-  `MMM Do, YYYY,
+setInterval(function getTime() {
+  var time = moment().format(
+    `MMM Do, YYYY,
   <p>hh:mm:ss</p>
   `);
   $("#time").text(time);
-  document.getElementById('time').innerHTML=time.toString();
+  document.getElementById('time').innerHTML = time.toString();
 }, 1000)
 
 
@@ -57,6 +57,16 @@ var time = moment().format(
 //modal script 
 $(document).ready(function () {
   $('.modal').modal();
+});
+
+// rating script
+$(document).ready(function () {
+  $('input#input_text, textarea#textarea2').characterCounter();
+});
+
+// rating script
+$(document).ready(function () {
+  $('input#input_text, textarea#textarea2').characterCounter();
 });
 
 

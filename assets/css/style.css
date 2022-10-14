@@ -39,7 +39,7 @@
   font-weight: bold;
   color: white;
   margin: 0px;
-  margin-top:13px;
+  margin-top: 13px;
 }
 
 html,
@@ -50,6 +50,9 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  /* sticky footer styling edit */
+  min-height: 100vh;
+
 }
 
 /* Evince, this is something you'll want to adjust, these settings are for my testing */
@@ -104,20 +107,22 @@ body {
   border-radius: 15px;
   display: none;
   max-width: 90%;
-  padding:0px;
+  padding: 0px;
 }
 
-.timewidget{
-    display: none;
-    color: white;
-    font-size: 18px;
-    font-style: bold;
-    font-weight:550;
-    font-family: var(--montserratfont)
+.timewidget {
+  display: none;
+  color: white;
+  font-size: 18px;
+  font-style: bold;
+  font-weight: 550;
+  font-family: var(--montserratfont)
 }
-.timewidget p{
-  text-align:center;
+
+.timewidget p {
+  text-align: center;
 }
+
 .widget {
   font-style: bold;
   max-height: 50px;
@@ -240,6 +245,8 @@ body {
   z-index: 999;
 }
 
+
+
 #modalBox {
   display: flex;
   flex-wrap: wrap;
@@ -265,7 +272,7 @@ body {
 @media screen and (min-width: 400px) {
   .map-card {
     display: block;
-  } 
+  }
 }
 
 /*(tablets and large phones, 600px and up) */
@@ -273,9 +280,10 @@ body {
   .map-card {
     display: block;
   }
-  .timewidget{
+
+  .timewidget {
     display: block;
-}
+  }
 }
 
 /* (laptops and desktops, 1200px and up) */
@@ -311,8 +319,8 @@ body {
   }
 
 
-.validate{
-  font-size: larger;
-  color: red;
-}
+  .validate {
+    font-size: larger;
+    color: red;
+  }
 }
