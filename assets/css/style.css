@@ -64,6 +64,15 @@ body {
   margin: 5px 0;
 }
 
+#search-btn {
+  margin: 1rem;
+}
+
+.search-icon {
+  height: 1rem;
+  width: 1rem;
+}
+
 #description {
   font-family: Roboto;
   font-size: 15px;

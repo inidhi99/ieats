@@ -14,10 +14,11 @@ var boroughZoom = 12;
 // DEPENDENCIES
 var autocomplete;
 var weatherWidget = document.querySelector(".weather");
-var searchBtnEl = document.getElementById('search-btn');
-var mapContainerEl = document.querySelector('.map-card');
 var locationSelectorContainerEl = document.getElementById('location-selector');
 var restaurantContainerEl = document.getElementById('restaurant-container');
+const searchBtnEl = document.getElementById('search-btn');
+// get the card with custom map controls and search bar
+const mapCardEl = document.getElementById('map-card');
 
 
 // FUNCTIONS
@@ -55,7 +56,7 @@ async function getForecast(lat, lon) {
   `;
 }
 
-function getZoom() {
+function setMapDisplay() {
   var desktopQuery = window.matchMedia("(min-width: 992px)");
   var tabletQuery = window.matchMedia("(min-width: 768px)");
   // console.log("Is it big screen?", desktopQuery);
@@ -64,10 +65,12 @@ function getZoom() {
     console.log(desktopQuery)
     cityZoom = 13;
     boroughZoom = 14;
+    searchBtnEl.style.display = 'none';
   } else if (tabletQuery.matches && (!desktopQuery.matches)) {
     console.log("Is it tablet screen?", tabletQuery);
     cityZoom = 13;
     boroughZoom = 14;
+    searchBtnEl.style.display = 'none';
   } else {
     cityZoom = 11;
     boroughZoom = 12;
@@ -93,6 +96,7 @@ function initGoogle() {
   var options = {
     zoom: cityZoom,
     center: newYorkLatLon,
+    disableDefaultUI: true,
     mapTypeControl: false, // remove Map/Satellite buttons
     zoomControl: false,
     fullscreenControl: false,
@@ -114,13 +118,12 @@ function initGoogle() {
     west: newYorkLatLon.lng - 0.1,
   };
 
-  // get the card with custom map controls and search bar
-  const card = document.getElementById('map-card');
   // get the search bar element
   const inputEl = document.getElementById('map-input');
 
   // put custom map controls inside the map
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(mapCardEl);
+  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(searchBtnEl);
 
 
   // Add marker at default center
@@ -231,16 +234,13 @@ function initGoogle() {
   });
 }
 
-function toggleSearchCardDisplay(){
-  var cardDisplay = mapContainerEl.style.display;
-  if (cardDisplay === 'none')
-    cardDisplay = 'block';
-  else
-<<<<<<< HEAD
-  cardDisplay = 'none';
-=======
-    cardDisplay = 'none';
->>>>>>> ec3763e1f5323cb388deb19088cfad323801dd13
+function displaySearchCard(){
+  var cardDisplay = mapCardEl.style.display;
+  
+  if (window.getComputedStyle(mapCardEl).display === 'none') {
+    mapCardEl.style.display = 'block';
+    searchBtnEl.style.display = 'none';
+  }
 }
 
 //modal script 
@@ -254,21 +254,8 @@ getForecast(40.7127281, -74.0060152);
 
 
 //add modal for search menu when screen gets larger
-document.addEventListener('DOMContentLoaded', getZoom);
+document.addEventListener('DOMContentLoaded', setMapDisplay);
 // window.onresize(getZoom);
-document.addEventListener('DOMContentLoaded', getZoom);
+// document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
-<<<<<<< HEAD
-searchBtnEl.addEventListener('click', toggleSearchCardDisplay);
-
-
-
-
-
-//modal script 
-$(document).ready(function () {
-  $('.modal').modal();
-});
-=======
-searchBtnEl.addEventListener('click', toggleSearchCardDisplay);
->>>>>>> ec3763e1f5323cb388deb19088cfad323801dd13
+searchBtnEl.addEventListener('click', displaySearchCard);
