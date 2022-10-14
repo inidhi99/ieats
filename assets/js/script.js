@@ -242,6 +242,10 @@ function toggleSearchCardDisplay() {
 
 
 
+
+
+
+
 getWeather(40.7127281, -74.0060152);
 getForecast(40.7127281, -74.0060152);
 
