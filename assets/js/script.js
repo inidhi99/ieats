@@ -62,7 +62,7 @@ function getZoom() {
   // console.log("Is it tablet screen?", tabletQuery);
   if (desktopQuery.matches) {
     console.log(desktopQuery)
-    cityZoom = 13;
+    cityZoom = 12;
     boroughZoom = 14;
   } else if (tabletQuery.matches && (!desktopQuery.matches)) {
     console.log("Is it tablet screen?", tabletQuery);
@@ -87,6 +87,8 @@ var time = moment().format(
 // function initAutocomplete() { 
 // 
 function initGoogle() {
+  // get zoom variables for current display
+  getZoom();
   // variable for initial center of map
   var newYorkLatLon = { lat: 40.7127281, lng: -74.0060152 };
   // options for google map
