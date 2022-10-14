@@ -181,9 +181,9 @@ function initGoogle() {
   });
 }
 
-function displaySearchCard(){
+function displaySearchCard() {
   var cardDisplay = mapCardEl.style.display;
-  
+
   if (window.getComputedStyle(mapCardEl).display === 'none') {
     mapCardEl.style.display = 'block';
     searchBtnEl.style.display = 'none';
