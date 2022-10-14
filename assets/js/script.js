@@ -215,7 +215,6 @@ function initGoogle() {
       <img class="activator" src="">
     </div>
     <div class="card-content">
-   
       <span class="card-title activator grey-text text-darken-4">${place.name}<i class="material-icons right">more_vert</i></span>
       
     </div>
@@ -247,4 +246,15 @@ getForecast(40.7127281, -74.0060152);
 //add modal for search menu when screen gets larger
 document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
+document.addEventListener('DOMContentLoaded', getZoom);
+// window.onresize(getZoom);
 searchBtnEl.addEventListener('click', toggleSearchCardDisplay)
+
+
+
+
+
+//modal script 
+$(document).ready(function () {
+  $('.modal').modal();
+});
