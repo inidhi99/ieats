@@ -22,7 +22,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  min-height: 70px;
+  min-height: 75px;
   margin-bottom: 10px;
   padding-top: 5px;
   padding-left: 10px;
@@ -39,7 +39,7 @@
   font-weight: bold;
   color: white;
   margin: 0px;
-  margin-top: 9px;
+  margin-top:13px;
 }
 
 html,
@@ -99,7 +99,16 @@ body {
 }
 
 .timewidget{
-  display: none;
+    display: none;
+    color: white;
+    font-size: 18px;
+    font-style: bold;
+    font-weight:550;
+    font-family: var(--montserratfont);
+}
+
+.timewidget p{
+  text-align:center;
 }
 
 .map-card #title {
@@ -181,9 +190,15 @@ body {
   justify-content: space-around;
   height: 60px;
   /* min-height: 100vh; */
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   margin-top: 25px;
+}
 
+.nav {
+  position: -webkit-sticky;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
 }
 
 #modalBox {
@@ -227,11 +242,23 @@ body {
   font-size: 10px;
 }
 
+#about h2 {
+  background-color: #4d90fe;
+  text-align: center;
+  font-weight: bold;
+}
+
+#rating h2 {
+  background-color: #4d90fe;
+  text-align: center;
+  font-weight: bold;
+}
+
 /*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
   .map-card {
     display: block;
-  }
+  } 
 }
 
 /*(tablets and large phones, 600px and up) */
@@ -239,6 +266,9 @@ body {
   .map-card {
     display: block;
   }
+  .timewidget{
+    display: block;
+}
 }
 
 /* (laptops and desktops, 1200px and up) */
@@ -260,12 +290,6 @@ body {
     display: block;
   }
 
-
-  /* #places {
-    flex-direction: row;
-  } */
-
-
   .heading {
     font-size: 50px;
     margin-right: 25px;
@@ -280,8 +304,10 @@ body {
   }
 
 
-  .validate {
-    font-size: larger;
-    color: red;
-  }
+.validate{
+  font-size: larger;
+  color: red;
 }
+
+
+
