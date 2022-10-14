@@ -3,6 +3,8 @@ This apps main goal is to provide an effective user interface when planning to e
 
 
 ## User Story 
+IF i want to find a restaurant near me, THEN i can search up restaurants near me
+IF i want to search up a restaurant, THEN i would like to see the weather and seating choices
 
 
 
