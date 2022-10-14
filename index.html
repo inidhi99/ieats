@@ -69,8 +69,8 @@
     <!--about modal -->
     <div class="modal" id="about">
       <div class="modal-content">
-        <h5 class="black-text">About</h5>
-        <p>Write about section</p>
+        <h2 class="white-text">About</h2>
+        <p>Rise or shine, iEats has you covered! Our developers curated this program to allow users to do 2 things: decide where they'd like to eat in Manhattan, Queens, or Brooklyn, and their seating arrangements based off of weather predictions in that area.</p>
         <div class="modal-footer">
           <a href="" class="modal-close btn waves-light">Close</a>
         </div>
@@ -80,10 +80,10 @@
     <!-- end of about modal  -->
 
 
-    <!--contact modal -->
+    <!--rating modal -->
     <div class="modal" id="rating">
       <div class="modal-content">
-
+        <h2 class="white-text">Rate Us</h2>
         <!--rating  -->
         <span class="heading">User Rating:</span>
         <span class="fa fa-star checked "></span>
@@ -104,11 +104,23 @@
           <i class="material-icons prefix">mode_edit</i>
           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
           <label for="icon_prefix2">Review</label>
+          <div class="modal-footer">
+            <a href="" class="modal-close btn waves-light">Submit</a>
+          </div>
         </div>
+
+       
+
+
         <!--end of rating  -->
 
 
       </div>
+
+      
+      
+      
+     
     </div>
     <!-- end of review  modal  -->
 
@@ -119,7 +131,7 @@
       <ul>
         <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
         <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
-        <li> <a id="search-btn" class="waves-effect waves-light btn">Search</a></li>
+        <li> <a href="#contact" class="waves-effect waves-light btn">Search</a></li>
       </ul>
     </nav>
   </footer>
@@ -144,8 +156,22 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
     </script>
 
+  <script>$(document).ready(function () {
+      $('.modal').modal();
+    });
+  </script>
+
+<footer class="footer">
+  <nav class="nav blue">
+    <ul>
+      <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
+      <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
+      <li> <a id="search-btn" class="waves-effect waves-light btn">Search</a></li>
+    </ul>
+</div>
+</nav>
+</footer>
 
 
 </body>
-
 </html>

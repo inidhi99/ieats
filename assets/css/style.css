@@ -190,9 +190,15 @@ body {
   justify-content: space-around;
   height: 60px;
   /* min-height: 100vh; */
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   margin-top: 25px;
+}
 
+.nav {
+  position: -webkit-sticky;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
 }
 
 #modalBox {
@@ -236,11 +242,23 @@ body {
   font-size: 10px;
 }
 
+#about h2 {
+  background-color: #4d90fe;
+  text-align: center;
+  font-weight: bold;
+}
+
+#rating h2 {
+  background-color: #4d90fe;
+  text-align: center;
+  font-weight: bold;
+}
+
 /*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
   .map-card {
     display: block;
-  }
+  } 
 }
 
 /*(tablets and large phones, 600px and up) */
@@ -286,9 +304,10 @@ body {
   }
 
 
-  .validate {
-    font-size: larger;
-    color: red;
-  }
+.validate{
+  font-size: larger;
+  color: red;
 }
+}
+
 
