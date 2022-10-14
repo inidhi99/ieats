@@ -17,7 +17,8 @@ var weatherWidget = document.querySelector(".weather");
 var searchBtnEl = document.getElementById('search-btn');
 var mapContainerEl = document.querySelector('.map-card');
 var locationSelectorContainerEl = document.getElementById('location-selector');
-var restaurantContainerEl = document.getElementById('restaurant-container')
+var restaurantContainerEl = document.getElementById('restaurant-container');
+
 
 // FUNCTIONS
 
@@ -35,7 +36,7 @@ async function getWeather(lat, lon) {
   <h3>${city}</h3>
   <p>Temperature: ${temp}</p>
   <p>Feels Like: ${feelsLike}</p>
-  <p>Weather Condition: ${weatherDesc}</p>
+  <p>Conditions: ${weatherDesc}</p>
   `; 
 }
 //get forecast function
@@ -47,10 +48,10 @@ async function getForecast(lat, lon) {
   var forecastData = [data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].main, data.city.name]
   document.getElementById('forecast').innerHTML =
   `
-  <h3>3 hours in ${forecastData[3]}</h3>
+  <h3>In 3 hours</h3>
   <p>Temperature: ${forecastData[0]}</p>
   <p>Feels Like: ${forecastData[1]}</p>
-  <p>Weather Conditions: ${forecastData[2]}</p>
+  <p>Conditions: ${forecastData[2]}</p>
   `;
 }
 
@@ -61,7 +62,7 @@ function getZoom() {
   // console.log("Is it tablet screen?", tabletQuery);
   if (desktopQuery.matches) {
     console.log(desktopQuery)
-    cityZoom = 13;
+    cityZoom = 12;
     boroughZoom = 14;
   } else if (tabletQuery.matches && (!desktopQuery.matches)) {
     console.log("Is it tablet screen?", tabletQuery);
@@ -74,7 +75,10 @@ function getZoom() {
 }
 //get time
 setInterval(function getTime(){
-var time = moment().format("hh:mm:ss");
+var time = moment().format(
+  `MMM Do, YYYY,
+  <p>hh:mm:ss</p>
+  `);
   $("#time").text(time);
   document.getElementById('time').innerHTML=time.toString();
 }, 1000)
@@ -83,6 +87,8 @@ var time = moment().format("hh:mm:ss");
 // function initAutocomplete() { 
 // 
 function initGoogle() {
+  // get zoom variables for current display
+  getZoom();
   // variable for initial center of map
   var newYorkLatLon = { lat: 40.7127281, lng: -74.0060152 };
   // options for google map
@@ -205,13 +211,24 @@ function initGoogle() {
     restaurantContainerEl.innerHTML +=
       `
     <div class="restaurant-card">
-      <figure class="img-container">
-          Photos Coming Soon!
-      </figure>
-      <h3>${place.name}</h3>
-      <p class="address">${place.adr_address}</p>
+
+    <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+    <figure class="img-container">
+    Photos Coming Soon!
+      </figure> 
+      <img class="activator" src="">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">${place.name}<i class="material-icons right">more_vert</i></span>
+      
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">${place.adr_address}<i class="material-icons right">close</i></span>
       <p class="seating">Feature coming soon!</p>
     </div>
+  </div>
+  </div>
     `;
   });
 }
@@ -227,6 +244,10 @@ function toggleSearchCardDisplay() {
 
 
 
+
+
+
+
 getWeather(40.7127281, -74.0060152);
 getForecast(40.7127281, -74.0060152);
 
@@ -234,4 +255,15 @@ getForecast(40.7127281, -74.0060152);
 //add modal for search menu when screen gets larger
 document.addEventListener('DOMContentLoaded', getZoom);
 // window.onresize(getZoom);
+document.addEventListener('DOMContentLoaded', getZoom);
+// window.onresize(getZoom);
 searchBtnEl.addEventListener('click', toggleSearchCardDisplay)
+
+
+
+
+
+//modal script 
+$(document).ready(function () {
+  $('.modal').modal();
+});
