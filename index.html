@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -28,6 +28,7 @@
   </header>
   <div class="container">
     <!-- Map & Controls Start -->
+    <button id="search-btn"><a class="waves-effect waves-light btn"><i class="fa-solid fa-magnifying-glass"></i></a></button>
     <div class="map-card" id="map-card">
       <div>
         <div id="title">Restaurant Finder</div>
@@ -118,6 +119,7 @@
     </footer>
 
 
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
       </script>
@@ -136,6 +138,37 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
       </script>
 
+=======
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+  </script>
+  <script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js">
+  </script>
+  <script
+    src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
+  </script>
+  <script src="./assets/js/map.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
+    </script>
+<footer class="footer">
+  <nav class="nav blue">
+    <ul>
+      <li> <a href="#about" class="waves-effect waves-light btn modal-trigger">About</a> </li>
+      <li><a href="#rating" class="waves-effect waves-light btn modal-trigger">Rating</a></li>
+      <li> <a id="contact" class="waves-effect waves-light btn">Search</a></li>
+    </ul>
+</nav>
+</footer>
+>>>>>>> c2898ef929f070c6f2051ca91d1ec8f8919cffef
 </body>
 
 </html>
