@@ -1,6 +1,7 @@
 // ASSIGNMENT CODE
 var googleKey = 'AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg';
 var markers = [];
+var place;
 var placeMarker;
 var cityZoom = 11;
 var boroughZoom = 12;
@@ -21,7 +22,6 @@ function setMapDisplay() {
   // console.log("Is it big screen?", desktopQuery);
   // console.log("Is it tablet screen?", tabletQuery);
   if (desktopQuery.matches) {
-    console.log(desktopQuery)
     cityZoom = 13;
     boroughZoom = 14;
     searchBtnEl.style.display = 'none';
@@ -90,6 +90,7 @@ function initGoogle() {
         centerMarker.setPosition(new google.maps.LatLng(newYorkLatLon.lat, newYorkLatLon.lng));
         // zoom out for view of whole city
         map.setZoom(cityZoom);
+        autocomplete.bindTo('bounds', map);
         getWeather(newYorkLatLon.lat, newYorkLatLon.lng);
         break;
         case 'changetype-manhattan':
@@ -98,6 +99,7 @@ function initGoogle() {
           centerMarker.setPosition(new google.maps.LatLng(manhattanLatLon.lat, manhattanLatLon.lng));
           // zoom in for view of individual boroughs
           map.setZoom(boroughZoom);
+          autocomplete.bindTo('bounds', map);
           getWeather(manhattanLatLon.lat, manhattanLatLon.lng);
         break;
       case 'changetype-brooklyn':
@@ -105,6 +107,7 @@ function initGoogle() {
         map.setCenter({ lat: brooklynLatLon.lat, lng: brooklynLatLon.lng, boroughZoom });
         centerMarker.setPosition(new google.maps.LatLng(brooklynLatLon.lat, brooklynLatLon.lng));
         map.setZoom(boroughZoom);
+        autocomplete.bindTo('bounds', map);
         getWeather(brooklynLatLon.lat, brooklynLatLon.lng);
         break;
       case 'changetype-queens':
@@ -112,6 +115,7 @@ function initGoogle() {
         map.setCenter({ lat: queensLatLon.lat, lng: queensLatLon.lng, boroughZoom });
         centerMarker.setPosition(new google.maps.LatLng(queensLatLon.lat, queensLatLon.lng));
         map.setZoom(boroughZoom);
+        autocomplete.bindTo('bounds', map);
         getWeather(queensLatLon.lat, queensLatLon.lng);
         break;
     }
@@ -122,7 +126,7 @@ function initGoogle() {
     inputEl,
     {
       componentRestrictions: { 'country': ['us'] },
-      fields: ['place_id', 'geometry', 'name', 'adr_address', 'photo'],
+      fields: ['place_id', 'geometry', 'name', 'adr_address'],
       types: ['restaurant', 'cafe'] // specific types: ['restaurant', 'cafe'], general type: ['establishment']
     });
 
@@ -132,8 +136,7 @@ function initGoogle() {
   // Listen for autocomplete selection  
   autocomplete.addListener('place_changed', () => {
     // store place data gathered from autocomplete
-    var place = autocomplete.getPlace();
-    console.log(place);
+    place = autocomplete.getPlace();
     placeMarker = new google.maps.Marker({
       placeId: place.place_id,
       address: place.adr_address,
@@ -158,6 +161,23 @@ function initGoogle() {
       placeInfoWindow.open(map, placeMarker);
     });
     placeMarker.disabled = true; // didn't work as expexted need to improve or remove
+
+    let request = {
+      placeId: place.place_id,
+      fields: ['geometry', 'name', 'adr_address', 'photo', 'price_level', 'dine_in']
+    }
+
+    var service = new google.maps.places.PlacesService(map);
+
+    service.getDetails(request, (placeInfo, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        console.log(placeInfo);
+      }
+    })
+
+    var detailsRequestURL = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place.place_id}&fields=dine_in&key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg`;
+
+    var seatingOptions = getSeatingOptions(detailsRequestURL);
 
     //render place data in flex-item cards
     restaurantContainerEl.innerHTML +=
@@ -194,6 +214,17 @@ function displaySearchCard(){
   }
 }
 
+function getSeatingOptions(url) {
+  var outdoorSeating
+  fetch(url).then(response => {
+    if (response.ok) {
+      throw new Error("Whoops something went wrong");
+    }
+    return response;
+  }).then(seatingData => {
+    console.log(seatingData);
+  })
+}
 
 // get name, ratings, reviews, seating options, price-range
 
