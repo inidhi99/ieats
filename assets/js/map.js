@@ -71,6 +71,7 @@ function initGoogle() {
   // put custom map controls inside the map
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(mapCardEl);
   map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(searchBtnEl);
+  displayElement(searchBtnEl);
 
 
   // Add marker at default center
@@ -167,14 +168,20 @@ function initGoogle() {
       fields: ['geometry', 'name', 'adr_address', 'photo', 'price_level', 'dine_in']
     }
 
-    var service = new google.maps.places.PlacesService(map);
+    // var service = new google.maps.places.PlacesService(map);
+    // service.getDetails(request, (placeInfo, status) => {
+    //   if (status === google.maps.places.PlacesServiceStatus.OK) {
+    //     console.log(placeInfo);
+    //   }
+    // })
 
-    service.getDetails(request, (placeInfo, status) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        console.log(placeInfo);
-      }
-    })
+    // google.maps.places.PlaceDetailsRequest(request, (placeInfo, status) => {
+    //   if (status === google.maps.places.PlacesServiceStatus.OK) {
+    //     console.log(placeInfo);
+    //   }
+    // })
 
+    console.log(place.place_id);
     var detailsRequestURL = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place.place_id}&fields=dine_in&key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg`;
 
     var seatingOptions = getSeatingOptions(detailsRequestURL);
@@ -205,18 +212,21 @@ function initGoogle() {
   });
 }
 
-function displaySearchCard(){
-  var cardDisplay = mapCardEl.style.display;
-  
-  if (window.getComputedStyle(mapCardEl).display === 'none') {
-    mapCardEl.style.display = 'block';
-    searchBtnEl.style.display = 'none';
-  }
+function displayElement(element){
+  if (window.getComputedStyle(element).display === 'none') {
+    element.style.display = 'block';
+    if (element === mapCardEl)
+      searchBtnEl.style.display = 'none';
+  } 
 }
 
 function getSeatingOptions(url) {
   var outdoorSeating
-  fetch(url).then(response => {
+  fetch(url, {
+    method: 'GET',
+    mode: "no-cors"
+  }).then(response => {
+    console.log(response);
     if (response.ok) {
       throw new Error("Whoops something went wrong");
     }
@@ -231,5 +241,7 @@ function getSeatingOptions(url) {
 // EVENT LISTNERS
 //add modal for search menu when screen gets larger
 document.addEventListener('DOMContentLoaded', setMapDisplay);
-// call setMapDisplay on resize
-searchBtnEl.addEventListener('click', displaySearchCard);
+// call display element with mapCardEl argument on click
+searchBtnEl.addEventListener('click', () => {
+  displayElement(mapCardEl);
+});
