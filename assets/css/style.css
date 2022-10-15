@@ -44,6 +44,10 @@ body {
   padding: 0;
 }
 
+.header {
+  position: relative;
+}
+
 /* widget styling */
 .weatherwidget {
   display: flex;
@@ -277,6 +281,12 @@ font-size: 10px;
   font-weight: bold;
 }
 
+#contact h2 {
+  background-color: #4d90fe;
+  text-align: center;
+  font-weight: bold;
+}
+
 /*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
   .map-card {
@@ -328,11 +338,8 @@ font-size: 10px;
   }
 
 
-  .validate {
-    font-size: larger;
-    color: red;
-  }
-
-
-
+.validate{
+  font-size: larger;
+  color: red;
+}
 }
