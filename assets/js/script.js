@@ -64,6 +64,22 @@ getWeather(40.7127281, -74.0060152);
 getForecast(40.7127281, -74.0060152);
 
 // Review submit form and rating script
+const disableStar = document.querySelectorAll(`.heading`);
+const stars = document.querySelectorAll(`.heading a`);
+
+
+stars.forEach((star, clickedIdx) => {
+  star.addEventListener("click", () => {
+    disableStar.classList.add("disabled");
+    stars.forEach((otherStar, otherIdx) => {
+      if (otherIdx <= clickedIdx) {
+        otherStar.classList.add("active");
+      }
+    });
+    console.log(`star of index ${clickedIdx} was clicked`);
+  });
+});
+
 $(document).ready(function () {
   $('input#input_text, textarea#textarea2').characterCounter();
 });
