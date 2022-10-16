@@ -28,88 +28,88 @@
       <div class="widget" id="forecast"> Forecast pops up here</div>
     </div>
   </header>
- <main>
-  <div class="container">
-    <!-- Map & Controls Start -->
-    <button id="search-btn"><a class="waves-effect waves-light btn"><i
-          class="fa-solid fa-magnifying-glass"></i></a></button>
-    <div class="map-card" id="map-card">
-      <div>
-        <div id="title">Restaurant Finder</div>
-        <div id="location-selector" class="map-controls">
-          <input type="radio" name="type" id="changetype-all" class="radio-btn" checked="checked" />
-          <label for="changetype-all">All</label>
-          <input type="radio" name="type" id="changetype-manhattan" value />
-          <label for="changetype-manhattan">Manhattan</label>
-          <input type="radio" name="type" id="changetype-brooklyn" class="radio-btn" />
-          <label for="changetype-brooklyn">Brooklyn</label>
-          <input type="radio" name="type" id="changetype-queens" class="radio-btn" />
-          <label for="changetype-queens">Queens</label>
-        </div>
-        <div id="search-container">
-          <input id="map-input" type="text" placeholder="Search for local restaurants" />
+  <main>
+    <div class="controls-container">
+      <!-- Map & Controls Start -->
+      <div class="map-card" id="map-card">
+        <div>
+          <div id="title">Restaurant Finder</div>
+          <div id="location-selector" class="map-controls">
+            <input type="radio" name="type" id="changetype-all" class="radio-btn" checked="checked" />
+            <label for="changetype-all">All</label>
+            <input type="radio" name="type" id="changetype-manhattan" value />
+            <label for="changetype-manhattan">Manhattan</label>
+            <input type="radio" name="type" id="changetype-brooklyn" class="radio-btn" />
+            <label for="changetype-brooklyn">Brooklyn</label>
+            <input type="radio" name="type" id="changetype-queens" class="radio-btn" />
+            <label for="changetype-queens">Queens</label>
+          </div>
+          <div id="search-container">
+            <input id="map-input" type="text" placeholder="Search for local restaurants" />
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div id="map"></div>
-  <div id="infowindow-content">
-    <span id="place-name" class="title"></span><br />
-    <span id="place-address"></span>
-  </div>
-  <!-- Map Controls End -->
-  <div id="restaurant-container">
-    <!-- restaurant cards rendered here -->
-  </div>
-  <div class="nav-wrapper">
-    <!--about modal -->
-    <div class="modal" id="about">
+      <button id="search-btn"><a class="waves-effect waves-light btn"><i
+        class="fa-solid fa-magnifying-glass"></i></a></button>
+      </div>
+      <div id="map"></div>
+      <div id="infowindow-content">
+        <span id="place-name" class="title"></span><br />
+        <span id="place-address"></span>
+      </div>
+      <!-- Map Controls End -->
+      <div id="restaurant-container">
+        <!-- restaurant cards rendered here -->
+      </div>
+      <div class="nav-wrapper">
+        <!--about modal -->
+        <div class="modal" id="about">
       <div class="modal-content">
         <h2 class="white-text">About</h2>
         <p>Rise or shine, iEats has you covered! Our developers curated this program to allow users to do 2 things:
           decide where they'd like to eat in Manhattan, Queens, or Brooklyn, and their seating arrangements based off of
           weather predictions in that area.</p>
-        <div class="modal-footer">
-          <a href="" class="modal-close btn waves-light">Close</a>
+          <div class="modal-footer">
+            <a href="" class="modal-close btn waves-light">Close</a>
+          </div>
+        </div>
+      </div>
+      <!-- end of about modal  -->
+      <!--rating modal -->
+      <div class="modal" id="rating">
+        <div class="modal-content">
+          <h2 class="white-text">Rate Us</h2>
+          <!--rating  -->
+          <span class="heading">User Rating:</span>
+          <span class="fa fa-star checked "></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="input_text" type="text" data-length="10">
+                  <label for="input_text">Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                  <label for="textarea2">Add Review</label>
+                </div>
+              </div>
+              <button id="review-Submit" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </form>
         </div>
       </div>
     </div>
-    <!-- end of about modal  -->
-    <!--rating modal -->
-    <div class="modal" id="rating">
-      <div class="modal-content">
-        <h2 class="white-text">Rate Us</h2>
-        <!--rating  -->
-        <span class="heading">User Rating:</span>
-        <span class="fa fa-star checked "></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-
-        <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s6">
-                <input id="input_text" type="text" data-length="10">
-                <label for="input_text">Name</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
-                <label for="textarea2">Add Review</label>
-              </div>
-            </div>
-            <button id="review-Submit" class="btn waves-effect waves-light" type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
-            </button>
-          </form>
-        </div>
-        <!--end of rating  -->
-      </div>
-    </div>
- </main>   
+    <!--end of rating  -->
+  </main>   
     <!-- end of review  modal  -->
     <footer class="footer">
       <nav class="nav blue">
