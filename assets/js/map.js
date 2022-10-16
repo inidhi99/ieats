@@ -1,6 +1,4 @@
 // ASSIGNMENT CODE
-var googleKey = 'AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg';
-var markers = [];
 var place;
 var placeMarker;
 var cityZoom = 11;
@@ -15,6 +13,8 @@ var restaurantContainerEl = document.getElementById('restaurant-container');
 const searchBtnEl = document.getElementById('search-btn');
 // get the card with custom map controls and search bar
 const mapCardEl = document.getElementById('map-card');
+  // get the search bar element
+const inputEl = document.getElementById('map-input');
 
 // FUNCTIONS
 
@@ -52,6 +52,7 @@ function initGoogle() {
     east: newYorkLatLon.lng + 0.15,
     west: newYorkLatLon.lng - 0.05,
   };
+  
   // options for google map
   var options = {
     zoom: cityZoom,
@@ -63,11 +64,9 @@ function initGoogle() {
     // fullscreenControl: false,
     // gestureHandling: 'none'
   };
+
   // New map
   const map = new google.maps.Map(document.getElementById("map"), options);
-
-  // get the search bar element
-  const inputEl = document.getElementById('map-input');
 
   // put custom map controls inside the map
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(mapCardEl);
@@ -144,7 +143,7 @@ function initGoogle() {
 
   autocompleteOptions = {
     componentRestrictions: { 'country': ['us'] },
-    fields: ['place_id', 'geometry', 'name', 'adr_address'],
+    fields: ['place_id', 'geometry', 'name', 'adr_address', 'photo'],
     types: ['restaurant', 'cafe'] // specific types: ['restaurant', 'cafe'], general type: ['establishment']
   }
 
@@ -205,7 +204,6 @@ function initGoogle() {
       });
 
     setServiceOptionsStrings(serviceOptions);
-    
     // render place data in flex-item cards
     restaurantContainerEl.innerHTML +=
     `
@@ -214,9 +212,8 @@ function initGoogle() {
     <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
     <figure class="img-container">
-    Photos Coming Soon!
+      <img class="activator" src="${place.photos[0].getUrl()}">
     </figure> 
-    <img class="activator" src="">
     </div>
     <div class="card-content">
     <span class="card-title activator grey-text text-darken-4">${place.name}<i class="material-icons right">more_vert</i></span>
@@ -260,6 +257,11 @@ function setServiceOptionsStrings(serciveOptionsObj) {
   }
 }
 
+/**
+ * 
+ * @param {Map} map the google map object
+ * @returns LatLng object
+ */
 function getNewBounds(map) {
   var bounds = {
     north: map.getCenter().lat() + 0.07,
