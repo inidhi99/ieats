@@ -325,35 +325,6 @@ body {
     margin-right: 25px;
   }
 
-  .heading.disabled {
-    pointer-events: none;
-  }
-
-  .heading a {
-    opacity: 50%;
-    cursor: pointer;
-    padding: 5px;
-  }
-
-  .heading:hover a {
-    opacity: 100%;
-  }
-
-  .heading a:hover {
-    opacity: 100%;
-  }
-
-  .heading a:hover~a {
-    opacity: 50%;
-  }
-
-  .heading a.active {
-    opacity: 100%;
-  }
-
-  .fa {
-    font-size: 50px;
-  }
 
   .checked {
     color: orange;
