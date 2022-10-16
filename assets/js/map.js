@@ -172,35 +172,31 @@ function initGoogle() {
         console.error('There has been a problem:', error);
       });
 
-    if (serviceOptions.dineIn === true) {
-      var diningString = 'Dine in available!';
-    } else {
-      var diningString = 'Dine in unavailable';
-    }
-
-    //render place data in flex-item cards
+    setServiceOptionsStrings(serviceOptions);
+    
+    // render place data in flex-item cards
     restaurantContainerEl.innerHTML +=
-      `
+    `
     <div class="restaurant-card">
-
+    
     <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
     <figure class="img-container">
     Photos Coming Soon!
-      </figure> 
-      <img class="activator" src="">
+    </figure> 
+    <img class="activator" src="">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">${place.name}<i class="material-icons right">more_vert</i></span>
-      
+    <span class="card-title activator grey-text text-darken-4">${place.name}<i class="material-icons right">more_vert</i></span>
+    
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">${place.adr_address}<i class="material-icons right">close</i></span>
-      <p class="seating">${diningString}</p>
-      <p class="delivery">${deliveryString}</p>
+    <span class="card-title grey-text text-darken-4">${place.adr_address}<i class="material-icons right">close</i></span>
+    <p class="seating">${diningString}</p>
+    <p class="delivery">${deliveryString}</p>
     </div>
-  </div>
-  </div>
+    </div>
+    </div>
     `;
   });
 }
@@ -213,6 +209,22 @@ function displayElement(element){
     }
   } else if (element === mapCardEl && element.style.display === 'block') {
     element.style.display = 'none';
+  }
+}
+
+function setServiceOptionsStrings(serciveOptionsObj) {
+  if (serciveOptionsObj.dineIn === true) {
+    // global string to be rendered in restaurantContainerElement innerHTML
+    diningString = 'Dine in available!';
+  } else {
+    diningString = 'Dine in unavailable';
+  }
+
+  if (serciveOptionsObj.delivery === true) {
+    // global string to be rendered in restaurantContainerElement innerHTML
+    deliveryString = 'Dine in available!';
+  } else {
+    deliveryString = 'Dine in unavailable';
   }
 }
 
