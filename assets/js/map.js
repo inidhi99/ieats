@@ -35,6 +35,10 @@ function setMapDisplay() {
   }
 }
 
+// function setNewBounds(e) {
+//   console.log(this);
+// }
+
 function initGoogle() {
   // variable for initial center of map
   var newYorkLatLon = { lat: 40.7127281, lng: -74.0060152 };
@@ -42,7 +46,7 @@ function initGoogle() {
   var manhattanLatLon = { lat: 40.7831, lng: -73.9712 };
   var brooklynLatLon = { lat: 40.6782, lng: -73.9442 };
   var queensLatLon = { lat: 40.7282, lng: -73.7949 };
-  var cityBounds = {
+  var defaultBounds = {
     north: newYorkLatLon.lat + 0.15,
     south: newYorkLatLon.lat - 0.05,
     east: newYorkLatLon.lng + 0.15,
@@ -52,7 +56,7 @@ function initGoogle() {
   var options = {
     zoom: cityZoom,
     center: newYorkLatLon,
-    LatLngBounds: cityBounds,
+    LatLngBounds: defaultBounds,
     disableDefaultUI: true,
     mapTypeControl: false // remove Map/Satellite buttons
     // zoomControl: false,
@@ -62,10 +66,6 @@ function initGoogle() {
   // New map
   const map = new google.maps.Map(document.getElementById("map"), options);
 
-  console.log(map.getCenter());
-
-
-
   // get the search bar element
   const inputEl = document.getElementById('map-input');
 
@@ -74,73 +74,74 @@ function initGoogle() {
   map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(searchBtnEl);
   displayElement(searchBtnEl);
 
-
   // Add marker at default center
   var centerMarker = new google.maps.Marker({
     position: newYorkLatLon,
     map: map,
     icon: './assets/images/icons/blue-dot.png'
   });
-
+  
   // click event for radio buttons on custom map controls
   locationSelectorContainerEl.addEventListener('click', (e) => {
+    var newBounds;
     switch (e.target.id) {
       case 'changetype-all':
         // move the center of the map to New York City's lattitude and longitude
-        console.log(map.getCenter().lat());
         map.setCenter({ lat: newYorkLatLon.lat, lng: newYorkLatLon.lng });
-        console.log(map.getCenter());
+
         // match the marker location with the new map center
         centerMarker.setPosition(new google.maps.LatLng(newYorkLatLon.lat, newYorkLatLon.lng));
+
+        // reset the bounds to their original settings
+        map.LatLngBounds = defaultBounds;
+        autocomplete.bindTo('bounds', map);
+
         // zoom out for view of whole city
         map.setZoom(cityZoom);
-        console.log(map.getBounds());
-        // map.setBounds();
         getWeather(newYorkLatLon.lat, newYorkLatLon.lng);
         break;
-        case 'changetype-manhattan':
-          // move the center of the map to Manhattan's lattitude and longitude
-          map.setCenter({ lat: manhattanLatLon.lat, lng: manhattanLatLon.lng, boroughZoom });
-          centerMarker.setPosition(new google.maps.LatLng(manhattanLatLon.lat, manhattanLatLon.lng));
-          // zoom in for view of individual boroughs
-          map.setZoom(boroughZoom);
-          console.log(map.getBounds());
-          
-          // map.setBounds();
-          getWeather(manhattanLatLon.lat, manhattanLatLon.lng);
-          break;
-          case 'changetype-brooklyn':
-            // move the center of the map to Brooklyn's lattitude and longitude
-            map.setCenter({ lat: brooklynLatLon.lat, lng: brooklynLatLon.lng, boroughZoom });
-            centerMarker.setPosition(new google.maps.LatLng(brooklynLatLon.lat, brooklynLatLon.lng));
-            map.setZoom(boroughZoom);
-            console.log(map.getBounds());
-            // map.setBounds();
-            getWeather(brooklynLatLon.lat, brooklynLatLon.lng);
-            break;
-            case 'changetype-queens':
-              // move the center of the map to Queens' lattitude and longitude
-              map.setCenter({ lat: queensLatLon.lat, lng: queensLatLon.lng, boroughZoom });
-              centerMarker.setPosition(new google.maps.LatLng(queensLatLon.lat, queensLatLon.lng));
-              map.setZoom(boroughZoom);
-              console.log(map.getBounds());
-              // map.setBounds();
-              getWeather(queensLatLon.lat, queensLatLon.lng);
-              break;
-            }
-            var newBounds = {
-              north: map.getCenter().lat() + 0.07,
-              south: map.getCenter().lat() - 0.07,
-              east: map.getCenter().lng() + 0.7,
-              west: map.getCenter().lng() - 0.7,
-            }
-            console.log(map.getBounds());
-            // map.setBounds(newBounds);
-            autocomplete.bindTo('bounds', map);
-          });
-          
-          
-          
+      case 'changetype-manhattan':
+        // move the center of the map to Manhattan's lattitude and longitude
+        map.setCenter({ lat: manhattanLatLon.lat, lng: manhattanLatLon.lng, boroughZoom });
+        centerMarker.setPosition(new google.maps.LatLng(manhattanLatLon.lat, manhattanLatLon.lng));
+
+        // zoom in for view of individual boroughs
+        map.setZoom(boroughZoom);
+        
+        newBounds = getNewBounds(map);
+        map.LatLngBounds = newBounds;
+        autocomplete.bindTo('bounds', map);
+
+        getWeather(manhattanLatLon.lat, manhattanLatLon.lng);
+        break;
+      case 'changetype-brooklyn':
+        // move the center of the map to Brooklyn's lattitude and longitude
+        map.setCenter({ lat: brooklynLatLon.lat, lng: brooklynLatLon.lng, boroughZoom });
+        centerMarker.setPosition(new google.maps.LatLng(brooklynLatLon.lat, brooklynLatLon.lng));
+
+        map.setZoom(boroughZoom);
+
+        newBounds = getNewBounds(map);
+        map.LatLngBounds = newBounds;
+        autocomplete.bindTo('bounds', map);
+
+        getWeather(brooklynLatLon.lat, brooklynLatLon.lng);
+        break;
+      case 'changetype-queens':
+        // move the center of the map to Queens' lattitude and longitude
+        map.setCenter({ lat: queensLatLon.lat, lng: queensLatLon.lng, boroughZoom });
+        centerMarker.setPosition(new google.maps.LatLng(queensLatLon.lat, queensLatLon.lng));
+        map.setZoom(boroughZoom);
+
+        newBounds = getNewBounds(map);
+        map.LatLngBounds = newBounds;
+        autocomplete.bindTo('bounds', map);
+
+        getWeather(queensLatLon.lat, queensLatLon.lng);
+        break;
+    }
+  });
+
   autocompleteOptions = {
     componentRestrictions: { 'country': ['us'] },
     fields: ['place_id', 'geometry', 'name', 'adr_address'],
@@ -257,6 +258,16 @@ function setServiceOptionsStrings(serciveOptionsObj) {
   } else {
     deliveryString = 'Delivery unavailable';
   }
+}
+
+function getNewBounds(map) {
+  var bounds = {
+    north: map.getCenter().lat() + 0.07,
+    south: map.getCenter().lat() - 0.07,
+    east: map.getCenter().lng() + 0.7,
+    west: map.getCenter().lng() - 0.7,
+  }
+  return bounds;
 }
 
 // get name, ratings, reviews, seating options, price-range
