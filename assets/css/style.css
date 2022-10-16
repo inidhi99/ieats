@@ -318,10 +318,6 @@ font-size: 10px;
     justify-content: flex-end;
   }
 
-  .map-card {
-    display: block;
-  }
-
   .heading {
     font-size: 50px;
     margin-right: 25px;
