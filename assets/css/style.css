@@ -2,14 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
-
-
-/* #map {
-  height: 50%;
-} */
-
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
 
@@ -28,40 +21,92 @@
   padding-left: 10px;
 }
 
-.weatherwidget {
-  display: flex;
-  padding-right: 10px;
-}
-
 .header-title {
   font-family: var(--montserratfont);
   font-size: 30px;
   font-weight: bold;
   color: white;
   margin: 0px;
-  margin-top:13px;
+  margin-top: 13px;
+}
+
+main{
+  height:100%;
+  margin-bottom: 300px;
 }
 
 html,
 body {
   width: 100%;
-  /* overflow-y: hidden; */
   overflow-x: hidden;
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* Evince, this is something you'll want to adjust, these settings are for my testing */
-/* body {
-  width: 80%;
-  margin: 0 auto;
+/* widget styling */
+.weatherwidget {
+  display: flex;
+  padding-right: 10px;
+}
 
-} */
+.timewidget{
+  display: none;
+  color: white;
+  font-size: 18px;
+  font-style: bold;
+  font-weight:550;
+  font-family: var(--montserratfont)
+}
+
+.timewidget p{
+text-align:center;
+}
+
+.widget {
+font-style: bold;
+max-height: 50px;
+min-width: 125px; 
+text-align: center;
+color: white;
+margin: 0;
+border-radius: 15px;
+}
+
+#weather h3 {
+margin: 2px;
+font-size: 15px;
+font-style: bold;
+font-weight: 750;
+}
+
+#weather p {
+font-size: 10px;
+}
+
+#forecast h3 {
+margin: 2px;
+font-size: 15px;
+font-style: bold;
+font-weight: 750;
+}
+
+#forecast p {
+font-size: 10px;
+}
 
 /* Map Card Styles Start */
 .map-container {
   margin: 5px 0;
+}
+
+#search-btn {
+  margin: 1rem;
+}
+
+.search-icon {
+  height: 1rem;
+  width: 1rem;
 }
 
 #description {
@@ -96,49 +141,6 @@ body {
   display: none;
   max-width: 90%;
   padding:0px;
-}
-
-.timewidget{
-    display: none;
-    color: white;
-    font-size: 18px;
-    font-style: bold;
-    font-weight:550;
-    font-family: var(--montserratfont)
-}
-.timewidget p{
-  text-align:center;
-}
-.widget {
-  font-style: bold;
-  max-height: 50px;
-  min-width: 125px;
-  text-align: center;
-  color: white;
-  margin: 0;
-  border-radius: 15px;
-}
-
-#weather h3 {
-  margin: 2px;
-  font-size: 15px;
-  font-style: bold;
-  font-weight: 750;
-}
-
-#weather p {
-  font-size: 10px;
-}
-
-#forecast h3 {
-  margin: 2px;
-  font-size: 15px;
-  font-style: bold;
-  font-weight: 750;
-}
-
-#forecast p {
-  font-size: 10px;
 }
 
 .map-card #title {
@@ -195,17 +197,6 @@ body {
 
 /* Map Card Styles End */
 
-
-/* #places {
-  display: flex;
-  flex-direction: column;
-} */
-
-#temp {
-  display: block;
-  margin: 0 auto;
-}
-
 #map {
   height: 75%;
   width: 95%;
@@ -213,30 +204,64 @@ body {
   margin-bottom: 10px;
   min-width: 360px;
 }
+/* Search result card styles */
+#restaurant-container{
+  display:flex;
+  text-align:center;
+  flex-direction: row;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+}
+
+.restaurant-card{
+  text-align:center;
+}
+
+#res-card-container{
+  justify-content: space-evenly;
+  width:30%;
+  margin:0px;
+  margin-left: 17px;
+  margin-right: 17px;
+}
+#res-card-container .card{
+  min-height:fit-content;
+  border-radius:10px;
+  overflow:visible;
+  width:100%;
+
+  /* flex-direction:row; */
+}
+#res-card-container .card-reveal{
+ overflow:visible;
+}
+
+
+
+#card-image{
+  margin:0px;
+}
+
+/* End styling for result cards */
 
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 60px;
-  /* min-height: 100vh; */
-  margin-bottom: 0px;
-  margin-top: 25px;
-}
-
-.nav {
+  margin:0px;
   position: -webkit-sticky;
   position: fixed;
   bottom: 0;
   z-index: 999;
 }
 
+
+
 #modalBox {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
-
 }
 
 
@@ -256,7 +281,7 @@ body {
 @media screen and (min-width: 400px) {
   .map-card {
     display: block;
-  } 
+  }
 }
 
 /*(tablets and large phones, 600px and up) */
@@ -264,9 +289,10 @@ body {
   .map-card {
     display: block;
   }
-  .timewidget{
+
+  .timewidget {
     display: block;
-}
+  }
 }
 
 /* (laptops and desktops, 1200px and up) */
@@ -302,8 +328,8 @@ body {
   }
 
 
-.validate{
-  font-size: larger;
-  color: red;
-}
+  .validate {
+    font-size: larger;
+    color: red;
+  }
 }
