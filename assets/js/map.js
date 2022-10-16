@@ -6,6 +6,8 @@ var placeMarker;
 var cityZoom = 11;
 var boroughZoom = 12;
 var autocomplete;
+var diningString = '';
+var deliveryString = '';
 
 // DEPENENCIES 
 var locationSelectorContainerEl = document.getElementById('location-selector');
@@ -19,14 +21,11 @@ const mapCardEl = document.getElementById('map-card');
 function setMapDisplay() {
   var desktopQuery = window.matchMedia("(min-width: 992px)");
   var tabletQuery = window.matchMedia("(min-width: 768px)");
-  // console.log("Is it big screen?", desktopQuery);
-  // console.log("Is it tablet screen?", tabletQuery);
   if (desktopQuery.matches) {
     cityZoom = 13;
     boroughZoom = 14;
     searchBtnEl.style.display = 'none';
   } else if (tabletQuery.matches && (!desktopQuery.matches)) {
-    console.log("Is it tablet screen?", tabletQuery);
     cityZoom = 13;
     boroughZoom = 14;
     searchBtnEl.style.display = 'none';
@@ -47,7 +46,7 @@ function initGoogle() {
     mapTypeControl: false, // remove Map/Satellite buttons
     zoomControl: false,
     fullscreenControl: false,
-    draggable: false
+    gestureHandling: 'none'
   };
   // New map
   const map = new google.maps.Map(document.getElementById("map"), options);
@@ -56,14 +55,6 @@ function initGoogle() {
   var manhattanLatLon = { lat: 40.7831, lng: -73.9712 };
   var brooklynLatLon = { lat: 40.6782, lng: -73.9442 };
   var queensLatLon = { lat: 40.7282, lng: -73.7949 };
-
-  // need function to change default bounds based on which LatLon variable is passed
-  var defaultBounds = {
-    north: newYorkLatLon.lat + 0.1,
-    south: newYorkLatLon.lat - 0.1,
-    east: newYorkLatLon.lng + 0.1,
-    west: newYorkLatLon.lng - 0.1,
-  };
 
   // get the search bar element
   const inputEl = document.getElementById('map-input');
@@ -135,7 +126,7 @@ function initGoogle() {
   autocomplete.bindTo('bounds', map);
 
   // Listen for autocomplete selection  
-  autocomplete.addListener('place_changed', () => {
+  autocomplete.addListener('place_changed', async ()  => { // ascync arrow function awaits dining options fetch request 
     // store place data gathered from autocomplete
     place = autocomplete.getPlace();
     placeMarker = new google.maps.Marker({
@@ -158,33 +149,34 @@ function initGoogle() {
     })
     // may remove this entirely
     placeMarker.addListener('click', function () {
-      toggleSearchCardDisplay();
+      displayElement(mapCardEl);
       placeInfoWindow.open(map, placeMarker);
     });
-    placeMarker.disabled = true; // didn't work as expexted need to improve or remove
+    
+    // routes request through API proxy server
+    var detailsRequestURL = `http://45.79.160.76:5001/api/google/?place_id=${place.place_id}&fields=dine_in,delivery`;
+    
+    // get and store the 
+    var serviceOptions = await fetch(detailsRequestURL)
+      .then(response => {
+        if(!response.ok) {
+          throw new Error('API response was bad');
+        }
+        return response.json()
+      })
+      .then(data => {
+        var serviceOptions = {dineIn: data.result.dine_in, delivery: data.result.delivery}
+        return serviceOptions;
+      })
+      .catch((error) => {
+        console.error('There has been a problem:', error);
+      });
 
-    let request = {
-      placeId: place.place_id,
-      fields: ['geometry', 'name', 'adr_address', 'photo', 'price_level', 'dine_in']
+    if (serviceOptions.dineIn === true) {
+      var diningString = 'Dine in available!';
+    } else {
+      var diningString = 'Dine in unavailable';
     }
-
-    // var service = new google.maps.places.PlacesService(map);
-    // service.getDetails(request, (placeInfo, status) => {
-    //   if (status === google.maps.places.PlacesServiceStatus.OK) {
-    //     console.log(placeInfo);
-    //   }
-    // })
-
-    // google.maps.places.PlaceDetailsRequest(request, (placeInfo, status) => {
-    //   if (status === google.maps.places.PlacesServiceStatus.OK) {
-    //     console.log(placeInfo);
-    //   }
-    // })
-
-    console.log(place.place_id);
-    var detailsRequestURL = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place.place_id}&fields=dine_in&key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg`;
-
-    var seatingOptions = getSeatingOptions(detailsRequestURL);
 
     //render place data in flex-item cards
     restaurantContainerEl.innerHTML +=
@@ -204,7 +196,8 @@ function initGoogle() {
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">${place.adr_address}<i class="material-icons right">close</i></span>
-      <p class="seating">Feature coming soon!</p>
+      <p class="seating">${diningString}</p>
+      <p class="delivery">${deliveryString}</p>
     </div>
   </div>
   </div>
@@ -215,25 +208,12 @@ function initGoogle() {
 function displayElement(element){
   if (window.getComputedStyle(element).display === 'none') {
     element.style.display = 'block';
-    if (element === mapCardEl)
+    if (element === mapCardEl) {
       searchBtnEl.style.display = 'none';
-  } 
-}
-
-function getSeatingOptions(url) {
-  var outdoorSeating
-  fetch(url, {
-    method: 'GET',
-    mode: "no-cors"
-  }).then(response => {
-    console.log(response);
-    if (response.ok) {
-      throw new Error("Whoops something went wrong");
     }
-    return response;
-  }).then(seatingData => {
-    console.log(seatingData);
-  })
+  } else if (element === mapCardEl && element.style.display === 'block') {
+    element.style.display = 'none';
+  }
 }
 
 // get name, ratings, reviews, seating options, price-range
