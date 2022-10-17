@@ -252,7 +252,6 @@ body {
   justify-content: space-evenly;
   padding-left: 5px;
   width: auto;
-  
 }
 
 #res-card-container .card-reveal{
@@ -265,6 +264,12 @@ body {
 
 #reveal{
   font-size: 20px;
+}
+.img-container{
+  min-width: 200px;
+  max-width: 400px;
+  max-height: 200px;
+
 }
 
 /*  styling for nav bar */
@@ -298,6 +303,11 @@ body {
   font-weight: bold;
 }
 
+#contact h2 {
+  background-color: #4d90fe;
+  text-align: center;
+  font-weight: bold;
+}
 
 /*  styling for different screen sizes */
 /*(phones, 400px and up) */
@@ -349,5 +359,8 @@ body {
   .validate {
     font-size: larger;
     color: red;
+  }
+  .search-btn{
+    display:hidden;
   }
 }
