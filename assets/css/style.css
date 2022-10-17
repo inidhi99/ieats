@@ -332,4 +332,7 @@ font-size: 10px;
     font-size: larger;
     color: red;
   }
+  .search-btn{
+    display:hidden;
+  }
 }
