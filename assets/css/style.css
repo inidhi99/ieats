@@ -255,6 +255,13 @@ body {
 #reveal{
   font-size: 20px;
 }
+.img-container{
+  min-width: 200px;
+  max-width: 400px;
+  
+  max-height: 200px;
+
+}
 
 /*  styling for nav bar */
 .nav {
@@ -341,8 +348,5 @@ body {
     font-size: 20px;
     
   }
-  .img-container{
-    max-width: 400px;
-    max-height: 400px;
-  }
+  
 }
