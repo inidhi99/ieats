@@ -17,7 +17,7 @@ Some challenges which were faced while producing this project was implementing d
 ## Links
 
 
-## Credits
+## Contributors
 
 Evince Edouard 
 Hasan Noor 

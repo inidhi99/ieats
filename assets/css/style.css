@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
@@ -30,9 +31,9 @@
   margin-top: 13px;
 }
 
-main {
-  height: 100%;
-  margin-bottom: 300px;
+main{
+  height:100%;
+  /* margin-bottom: 300px; */
 }
 
 html,
@@ -42,6 +43,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  /* height:auto; */
 }
 
 /* widget styling */
@@ -141,6 +143,7 @@ body {
   display: none;
   max-width: 90%;
   padding: 0px;
+  max-height:fit-content;
 }
 
 .map-card #title {
@@ -198,7 +201,7 @@ body {
 /* Map Card Styles End */
 
 #map {
-  height: 75%;
+  height: 78%;
   width: 95%;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -210,39 +213,47 @@ body {
   display: flex;
   text-align: center;
   flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding-bottom:60px;
+  padding-left:10px;
 }
 
-.restaurant-card {
-  text-align: center;
+.restaurant-card{
+  text-align:center;
+  padding-right: 17px;
 }
 
-#res-card-container {
-  justify-content: space-evenly;
-  width: 30%;
-  margin: 0px;
-  margin-left: 17px;
-  margin-right: 17px;
+#res-card-container{
+  /* width:30%; */
+  margin:0px;
+  padding-left: 17px;
+  padding-right: 17px;
 }
 
-#res-card-container .card {
-  min-height: fit-content;
+#res-card-container .card{
+  border-radius:10px;
+  overflow:visible;
+  width:100%;
+  flex-direction:row;
+}
+
+.card {
   border-radius: 10px;
-  overflow: visible;
-  width: 100%;
-
-  /* flex-direction:row; */
+  justify-content: space-evenly;
+  padding-left: 5px;
+  width: auto;
+  
 }
 
-#res-card-container .card-reveal {
-  overflow: visible;
+#res-card-container .card-reveal{
+ overflow:visible;
 }
 
 
 
-#card-image {
-  margin: 0px;
+#card-image{
+  margin:0px;
 }
 
 /* End styling for result cards */
@@ -290,22 +301,17 @@ body {
 
 /*(tablets and large phones, 600px and up) */
 @media only screen and (min-width: 768px) {
-  .map-card {
-    display: block;
-  }
 
   .timewidget {
     display: block;
+  }
+  #restaurant-container{
+    justify-content:flex-start;
   }
 }
 
 /* (laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 992px) {
-  .map-card {
-    display: block;
-  }
-
-
   .header-title {
     justify-content: space-between;
   }
@@ -314,17 +320,15 @@ body {
     justify-content: flex-end;
   }
 
-  .map-card {
-    display: block;
-  }
-
-  /* Star rating font awesome feature begins */
   .heading {
     display: flex;
     font-size: 50px;
     margin-right: 25px;
   }
 
+  .fa {
+    font-size: 50px;
+  }
 
   .checked {
     color: orange;
