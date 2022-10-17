@@ -58,17 +58,73 @@ $(document).ready(function () {
   $('.modal').modal();
 });
 
-// rating script
-$(document).ready(function () {
-  $('input#input_text, textarea#textarea2').characterCounter();
-});
-
-// rating script
-$(document).ready(function () {
-  $('input#input_text, textarea#textarea2').characterCounter();
-});
 
 
 getWeather(40.7127281, -74.0060152);
 getForecast(40.7127281, -74.0060152);
 
+<<<<<<< HEAD
+=======
+// Review submit form and rating script
+var stars = document.querySelectorAll(`.fa-star`);
+var totalStars = 0;
+
+stars.forEach((star, index) => {
+  star.dataset.rating = index + 1;
+  star.addEventListener('mouseover', onMouseOver);
+  star.addEventListener('click', onClick);
+  star.addEventListener('mouseleave', onMouseLeave);
+});
+
+function onMouseOver(e) {
+  const ratingVal = e.target.dataset.rating;
+  if (!ratingVal) {
+    return;
+  } else {
+    fill(ratingVal);
+  }
+}
+function fill(ratingVal) {
+  for (let i = 0; i < 5; i++) {
+    if (i < ratingVal) {
+      stars[i].classList.replace('fa-star-o', 'fa-star');
+    } else {
+      stars[i].classList.replace('fa-star', 'fa-star-o');
+    }
+  }
+}
+
+function onMouseLeave(e) {
+  fill(totalStars);
+}
+
+function onClick(e) {
+  const ratingVal = e.target.dataset.rating;
+  totalStars = ratingVal;
+  fill(totalStars);
+  heading.innerHTML = ratingVal;
+}
+$(document).ready(function () {
+  $('input#input_text, textarea#textarea2').characterCounter();
+});
+
+var nameEl = document.getElementById("input_text");
+var reviewEl = document.getElementById("textarea2");
+var reviewBtn = document.getElementById("subBtn");
+
+reviewBtn.onclick = function () {
+  var name = nameEl.value;
+  var review = reviewEl.value;
+
+  console.log(name);
+  console.log(review);
+
+  if (name && review) {
+    localStorage.setItem(name, review);
+    location.reload();
+
+  }
+};
+
+
+>>>>>>> 31ecebb9604d9cc87cc2280cc1bb9c269112a166
