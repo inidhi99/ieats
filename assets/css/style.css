@@ -17,7 +17,8 @@
   display: flex;
   justify-content: space-between;
   min-height: 75px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  margin-bottom: 0px;
   padding-top: 5px;
   padding-left: 10px;
 }
@@ -106,6 +107,7 @@ body {
 }
 
 /* Map Card Styles Start */
+
 .map-container {
   margin: 5px 0;
 }
@@ -265,7 +267,7 @@ body {
 }
 
 /* End styling for result cards */
-
+/* NAVIGATION BAR */
 .nav {
   display: flex;
   align-items: center;
@@ -278,6 +280,27 @@ body {
   z-index: 999;
 }
 
+/* #nav {
+  overflow: hidden;
+  /* position: fixed;
+  top: 0px; 
+} */ 
+
+/* .content {
+  padding: 16px;
+}  */
+
+/* .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+} */
+
+/* NAVIGATION BAR ENDS */
 
 
 #modalBox {
@@ -310,6 +333,7 @@ body {
   .map-card {
     display: block;
   }
+
 }
 
 /*(tablets and large phones, 600px and up) */
@@ -353,4 +377,24 @@ body {
   font-size: larger;
   color: red;
 }
+/* 
+ #nav {
+  overflow: hidden;
+  position: fixed;
+  top: 0px; 
+} 
+
+.content {
+  padding: 16px;
+}  
+
+ .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+} */
 }
