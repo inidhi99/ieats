@@ -218,13 +218,13 @@ function initGoogle() {
     <img class="activator" src="">
     </div>
     <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">${place.name}<i class="material-icons right">more_vert</i></span>
+    <span class="card-title activator">${place.name}<i class="material-icons right">more_vert</i></span>
     
     </div>
-    <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4">${place.adr_address}<i class="material-icons right">close</i></span>
-    <p class="seating">${diningString}</p>
-    <p class="delivery">${deliveryString}</p>
+    <div class="card-reveal" id="reveal">
+    <span class="card-title">${place.adr_address}<i class="material-icons right">close</i></span>
+    <span class="seating ">${diningString}</span><br>
+    <spanclass="delivery">${deliveryString}</spanclass=>
     </div>
     </div>
     </div>

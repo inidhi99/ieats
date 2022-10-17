@@ -1,3 +1,4 @@
+/* universal styling */
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +14,7 @@
   --ltblue: lightblue;
 }
 
+/* header styling */
 .header {
   display: flex;
   justify-content: space-between;
@@ -77,7 +79,7 @@ body {
 .widget {
   font-style: bold;
   max-height: 50px;
-  min-width: 125px;
+  min-width: 125px; 
   text-align: center;
   color: white;
   margin: 0;
@@ -208,8 +210,6 @@ body {
   pointer-events: all;
 }
 
-/* Map Card Styles End */
-
 #map {
   height: 78%;
   width: 95%;
@@ -218,7 +218,7 @@ body {
   min-width: 360px;
 }
 
-/* Search result card styles */
+/* Search restaurant card styles */
 #restaurant-container {
   display: flex;
   text-align: center;
@@ -235,7 +235,6 @@ body {
 }
 
 #res-card-container{
-  /* width:30%; */
   margin:0px;
   padding-left: 17px;
   padding-right: 17px;
@@ -243,7 +242,7 @@ body {
 
 #res-card-container .card{
   border-radius:10px;
-  overflow:visible;
+  overflow: visible;
   width:100%;
   flex-direction:row;
 }
@@ -260,14 +259,15 @@ body {
  overflow:visible;
 }
 
-
-
 #card-image{
   margin:0px;
 }
 
-/* End styling for result cards */
-/* NAVIGATION BAR */
+#reveal{
+  font-size: 20px;
+}
+
+/*  styling for nav bar */
 .nav {
   display: flex;
   align-items: center;
@@ -280,14 +280,11 @@ body {
   z-index: 999;
 }
 
-
-
 #modalBox {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 
 #about h2 {
   background-color: #4d90fe;
@@ -301,12 +298,8 @@ body {
   font-weight: bold;
 }
 
-#contact h2 {
-  background-color: #4d90fe;
-  text-align: center;
-  font-weight: bold;
-}
 
+/*  styling for different screen sizes */
 /*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
   .map-card {
@@ -346,14 +339,15 @@ body {
     font-size: 50px;
   }
 
-  .checked {
-    color: orange;
+  #reveal{
+    font-size: 20px;
+    
   }
 
   /* Star rating font awesome feature ends */
 
-.validate{
-  font-size: larger;
-  color: red;
-}
+  .validate {
+    font-size: larger;
+    color: red;
+  }
 }

@@ -1,9 +1,7 @@
 // ASSIGNMENT CODE
 var weatherKey = '66b15a5b3951d15de56c5d2c4e2ddcba';
-
 // DEPENDENCIES
 var weatherWidget = document.querySelector(".weather");
-
 // FUNCTIONS
 
 // function to get weather 
@@ -52,11 +50,6 @@ setInterval(function getTime() {
 
 
 // function initAutocomplete() { 
-
-//modal script 
-$(document).ready(function () {
-  $('.modal').modal();
-});
 
 
 
@@ -123,4 +116,11 @@ reviewBtn.onclick = function () {
 
   }
 };
+
+
+//modal script 
+$(document).ready(function () {
+  $('.modal').modal();
+});
+
 
