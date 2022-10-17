@@ -23,7 +23,7 @@ Some challenges which were faced while producing this project was implementing d
 ## Links
 https://inidhi99.github.io/project-1/
 
-## Credits
+## Contributors
 Evince Edouard 
 Hasan Noor 
 Igor Korman 
