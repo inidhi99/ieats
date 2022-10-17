@@ -195,8 +195,6 @@ body {
   pointer-events: all;
 }
 
-/* Map Card Styles End */
-
 #map {
   height: 75%;
   width: 95%;
@@ -231,15 +229,11 @@ body {
   border-radius: 10px;
   overflow: visible;
   width: 100%;
-
-  /* flex-direction:row; */
 }
 
 #res-card-container .card-reveal {
   overflow: visible;
 }
-
-
 
 #card-image {
   margin: 0px;
@@ -247,6 +241,7 @@ body {
 
 /* End styling for result cards */
 
+/*  styling for nav bar */
 .nav {
   display: flex;
   align-items: center;
@@ -259,14 +254,11 @@ body {
   z-index: 999;
 }
 
-
-
 #modalBox {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 
 #about h2 {
   background-color: #4d90fe;
@@ -280,7 +272,18 @@ body {
   font-weight: bold;
 }
 
+.heading {
+  display: flex;
+  font-size: 50px;
+  margin-right: 25px;
+  }
 
+.checked {
+  color: orange;
+  }
+
+
+/*  styling for different screen sizes */
 /*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
   .map-card {
@@ -305,7 +308,6 @@ body {
     display: block;
   }
 
-
   .header-title {
     justify-content: space-between;
   }
@@ -316,24 +318,5 @@ body {
 
   .map-card {
     display: block;
-  }
-
-  /* Star rating font awesome feature begins */
-  .heading {
-    display: flex;
-    font-size: 50px;
-    margin-right: 25px;
-  }
-
-
-  .checked {
-    color: orange;
-  }
-
-  /* Star rating font awesome feature ends */
-
-  .validate {
-    font-size: larger;
-    color: red;
   }
 }
