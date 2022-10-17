@@ -93,7 +93,6 @@ function initGoogle() {
 
         // reset the bounds to their original settings
         map.LatLngBounds = defaultBounds;
-        autocomplete.bindTo('bounds', map);
 
         // zoom out for view of whole city
         map.setZoom(cityZoom);
@@ -109,7 +108,6 @@ function initGoogle() {
         
         newBounds = getNewBounds(map);
         map.LatLngBounds = newBounds;
-        autocomplete.bindTo('bounds', map);
 
         getWeather(manhattanLatLon.lat, manhattanLatLon.lng);
         break;
@@ -122,7 +120,6 @@ function initGoogle() {
 
         newBounds = getNewBounds(map);
         map.LatLngBounds = newBounds;
-        autocomplete.bindTo('bounds', map);
 
         getWeather(brooklynLatLon.lat, brooklynLatLon.lng);
         break;
@@ -134,7 +131,6 @@ function initGoogle() {
 
         newBounds = getNewBounds(map);
         map.LatLngBounds = newBounds;
-        autocomplete.bindTo('bounds', map);
 
         getWeather(queensLatLon.lat, queensLatLon.lng);
         break;
@@ -205,6 +201,9 @@ function initGoogle() {
       });
 
     setServiceOptionsStrings(serviceOptions);
+    
+    checkContents(restaurantContainerEl);
+
     // render place data in flex-item cards
     restaurantContainerEl.innerHTML +=
       `
@@ -231,17 +230,28 @@ function initGoogle() {
   });
 }
 
+/**
+ * Displays element in DOM
+ * 
+ * @param {HTML element} element the element whose display property is being altered
+ */
 function displayElement(element) {
+  // check if object is currently being displayed in DOM
   if (window.getComputedStyle(element).display === 'none') {
-    element.style.display = 'block';
+    element.style.display = 'block'; //display element in DOM
     if (element === mapCardEl) {
-      searchBtnEl.style.display = 'none';
+      searchBtnEl.style.display = 'none'; // when searchBtnEl click displays map card, hide searchBtnEl
     }
   } else if (element === mapCardEl && element.style.display === 'block') {
     element.style.display = 'none';
   }
 }
 
+/**
+ * Set values for string objects to be rendered in the DOM
+ * 
+ * @param {object} serciveOptionsObj place details request data: dine_in, delivery
+ */
 function setServiceOptionsStrings(serciveOptionsObj) {
   if (serciveOptionsObj.dineIn === true) {
     // global string to be rendered in restaurantContainerElement innerHTML
@@ -259,7 +269,7 @@ function setServiceOptionsStrings(serciveOptionsObj) {
 }
 
 /**
- * 
+ * Get new map bounds based on current center
  * @param {Map} map the google map object
  * @returns LatLng object
  */
@@ -273,7 +283,15 @@ function getNewBounds(map) {
   return bounds;
 }
 
-// get name, ratings, reviews, seating options, price-range
+/**
+ * Ensure number of restaurant cards displayed never exceeds 3
+ * 
+ * @param {HTML element} element container element for rendered restaurant cards
+ */
+function checkContents(element) {
+  if (element.childElementCount === 3)
+    element.removeChild(element.firstElementChild);
+}
 
 // EVENT LISTNERS
 //add modal for search menu when screen gets larger
