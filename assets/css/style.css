@@ -340,4 +340,7 @@ body {
     font-size: larger;
     color: red;
   }
+  .search-btn{
+    display:hidden;
+  }
 }
