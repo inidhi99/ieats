@@ -39,7 +39,6 @@ The goal for this app is to hold a high standard for those willing to choose us 
 
 
 ## Contributors
-
 Evince Edouard 
 Hasan Noor 
 Igor Korman 

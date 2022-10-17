@@ -1,3 +1,4 @@
+/* universal styling */
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +14,7 @@
   --ltblue: lightblue;
 }
 
+/* header styling */
 .header {
   display: flex;
   justify-content: space-between;
@@ -68,7 +70,7 @@ body {
 .widget {
   font-style: bold;
   max-height: 50px;
-  min-width: 125px;
+  min-width: 125px; 
   text-align: center;
   color: white;
   margin: 0;
@@ -198,8 +200,6 @@ body {
   pointer-events: all;
 }
 
-/* Map Card Styles End */
-
 #map {
   height: 78%;
   width: 95%;
@@ -208,7 +208,7 @@ body {
   min-width: 360px;
 }
 
-/* Search result card styles */
+/* Search restaurant card styles */
 #restaurant-container {
   display: flex;
   text-align: center;
@@ -225,7 +225,6 @@ body {
 }
 
 #res-card-container{
-  /* width:30%; */
   margin:0px;
   padding-left: 17px;
   padding-right: 17px;
@@ -233,7 +232,7 @@ body {
 
 #res-card-container .card{
   border-radius:10px;
-  overflow:visible;
+  overflow: visible;
   width:100%;
   flex-direction:row;
 }
@@ -250,14 +249,15 @@ body {
  overflow:visible;
 }
 
-
-
 #card-image{
   margin:0px;
 }
 
-/* End styling for result cards */
+#reveal{
+  font-size: 20px;
+}
 
+/*  styling for nav bar */
 .nav {
   display: flex;
   align-items: center;
@@ -270,14 +270,11 @@ body {
   z-index: 999;
 }
 
-
-
 #modalBox {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 
 #about h2 {
   background-color: #4d90fe;
@@ -291,7 +288,18 @@ body {
   font-weight: bold;
 }
 
+.heading {
+  display: flex;
+  font-size: 50px;
+  margin-right: 25px;
+  }
 
+.checked {
+  color: orange;
+  }
+
+
+/*  styling for different screen sizes */
 /*(phones, 400px and up) */
 @media screen and (min-width: 400px) {
   .map-card {
@@ -330,10 +338,13 @@ body {
     font-size: 50px;
   }
 
-  .checked {
-    color: orange;
+  #reveal{
+    font-size: 20px;
+    
   }
 
+<<<<<<< HEAD
+=======
   /* Star rating font awesome feature ends */
 
   .validate {
@@ -343,4 +354,5 @@ body {
   .search-btn{
     display:hidden;
   }
+>>>>>>> 2865de461455f4bd67a7cdcef7063dab70accc95
 }

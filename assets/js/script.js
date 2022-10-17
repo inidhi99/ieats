@@ -51,11 +51,6 @@ setInterval(function getTime() {
 
 // function initAutocomplete() { 
 
-//modal script 
-$(document).ready(function () {
-  $('.modal').modal();
-});
-
 
 
 getWeather(40.7127281, -74.0060152);
@@ -121,5 +116,11 @@ reviewBtn.onclick = function () {
 
   }
 };
+
+
+//modal script 
+$(document).ready(function () {
+  $('.modal').modal();
+});
 
 
