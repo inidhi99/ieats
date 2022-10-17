@@ -63,8 +63,6 @@ $(document).ready(function () {
 getWeather(40.7127281, -74.0060152);
 getForecast(40.7127281, -74.0060152);
 
-<<<<<<< HEAD
-=======
 // Review submit form and rating script
 var stars = document.querySelectorAll(`.fa-star`);
 var totalStars = 0;
@@ -127,4 +125,3 @@ reviewBtn.onclick = function () {
 };
 
 
->>>>>>> 31ecebb9604d9cc87cc2280cc1bb9c269112a166
