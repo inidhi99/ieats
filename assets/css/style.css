@@ -258,7 +258,6 @@ body {
 .img-container{
   min-width: 200px;
   max-width: 400px;
-  
   max-height: 200px;
 
 }
@@ -348,5 +347,8 @@ body {
     font-size: 20px;
     
   }
-  
+
+  .search-btn{
+    display:hidden;
+  }
 }
