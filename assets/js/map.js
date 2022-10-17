@@ -53,7 +53,7 @@ function initGoogle() {
     west: newYorkLatLon.lng - 0.05,
   };
   
-  // options for google map
+  // options for Map constructor
   var options = {
     zoom: cityZoom,
     center: newYorkLatLon,
@@ -141,6 +141,7 @@ function initGoogle() {
     }
   });
 
+  // options for the Autocomplete constructor
   autocompleteOptions = {
     componentRestrictions: { 'country': ['us'] },
     fields: ['place_id', 'geometry', 'name', 'adr_address', 'photo'],
@@ -187,7 +188,7 @@ function initGoogle() {
     // routes request through API proxy server
     var detailsRequestURL = `http://45.79.160.76:5001/api/google/?place_id=${place.place_id}&fields=dine_in,delivery`;
     
-    // get and store the 
+    // store data from places details request
     var serviceOptions = await fetch(detailsRequestURL)
       .then(response => {
         if(!response.ok) {
