@@ -124,34 +124,3 @@ reviewBtn.onclick = function () {
   }
 };
 
-// NAV BAR 
-
-// window.onscroll = function() {myFunction()};
-
-// var navbar = document.getElementById("navbar");
-// var sticky = navbar.offsetTop;
-
-// function myFunction() {
-//   if (window.pageYOffset >= sticky) {
-//     navbar.classList.add("sticky")
-//   } else {
-//     navbar.classList.remove("sticky");
-//   }
-// }
-
-// this is a different code, both codes aren't working.
-
-// let navbar = document.getElementById("navbar");
-
-// let navPos = navbar.getBoundingClientRect().top;
-
-// window.addEventListener("scroll", e => {
-//   let scrollPos = window.scrollY;
-//   if (scrollPos > navPos) {
-//     navbar.classList.add('sticky');
-//     header.classList.add('navbarOffsetMargin');
-//   } else {
-//     navbar.classList.remove('sticky');
-//     header.classList.remove('navbarOffsetMargin');
-//   }
-// });

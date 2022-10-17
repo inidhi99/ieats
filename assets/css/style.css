@@ -280,27 +280,6 @@ body {
   z-index: 999;
 }
 
-/* #nav {
-  overflow: hidden;
-  /* position: fixed;
-  top: 0px; 
-} */ 
-
-/* .content {
-  padding: 16px;
-}  */
-
-/* .sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.sticky + .content {
-  padding-top: 60px;
-} */
-
-/* NAVIGATION BAR ENDS */
 
 
 #modalBox {
@@ -377,24 +356,4 @@ body {
   font-size: larger;
   color: red;
 }
-/* 
- #nav {
-  overflow: hidden;
-  position: fixed;
-  top: 0px; 
-} 
-
-.content {
-  padding: 16px;
-}  
-
- .sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.sticky + .content {
-  padding-top: 60px;
-} */
 }
