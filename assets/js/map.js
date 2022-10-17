@@ -59,10 +59,10 @@ function initGoogle() {
     center: newYorkLatLon,
     LatLngBounds: defaultBounds,
     disableDefaultUI: true,
-    mapTypeControl: false // remove Map/Satellite buttons
-    // zoomControl: false,
-    // fullscreenControl: false,
-    // gestureHandling: 'none'
+    mapTypeControl: false, // remove Map/Satellite buttons
+    zoomControl: false, // prevent user changing zoom
+    fullscreenControl: false, // prevent full screen map
+    gestureHandling: 'none' //prevent user from moving the map's viewport
   };
 
   // New map
@@ -105,9 +105,10 @@ function initGoogle() {
 
         // zoom in for view of individual boroughs
         map.setZoom(boroughZoom);
-        
+
+        // set new north, south, east, west lattitude and longitude
         newBounds = getNewBounds(map);
-        map.LatLngBounds = newBounds;
+        map.LatLngBounds = newBounds; // apply new lattitudes and longitudes to the map bounds
 
         getWeather(manhattanLatLon.lat, manhattanLatLon.lng);
         break;
@@ -118,8 +119,9 @@ function initGoogle() {
 
         map.setZoom(boroughZoom);
 
+        // set new north, south, east, west lattitude and longitude
         newBounds = getNewBounds(map);
-        map.LatLngBounds = newBounds;
+        map.LatLngBounds = newBounds; // apply new lattitudes and longitudes to the map bounds
 
         getWeather(brooklynLatLon.lat, brooklynLatLon.lng);
         break;
@@ -129,8 +131,9 @@ function initGoogle() {
         centerMarker.setPosition(new google.maps.LatLng(queensLatLon.lat, queensLatLon.lng));
         map.setZoom(boroughZoom);
 
+        // set new north, south, east, west lattitude and longitude
         newBounds = getNewBounds(map);
-        map.LatLngBounds = newBounds;
+        map.LatLngBounds = newBounds; // apply new lattitudes and longitudes to the map bounds
 
         getWeather(queensLatLon.lat, queensLatLon.lng);
         break;
@@ -175,7 +178,7 @@ function initGoogle() {
         </div>
       `
     })
-    // may remove this entirely
+    // display placeInfoWindow when marker is clicked
     placeMarker.addListener('click', function () {
       displayElement(mapCardEl);
       placeInfoWindow.open(map, placeMarker);
@@ -200,8 +203,10 @@ function initGoogle() {
         console.error('There has been a problem:', error);
       });
 
+    // set strings for rendering
     setServiceOptionsStrings(serviceOptions);
     
+    // check if there are already 3 restaurant cards displayed in the restaurantContainerEl
     checkContents(restaurantContainerEl);
 
     // render place data in flex-item cards
