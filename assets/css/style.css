@@ -1,3 +1,4 @@
+/* universal styling */
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +14,7 @@
   --ltblue: lightblue;
 }
 
+/* header styling */
 .header {
   display: flex;
   justify-content: space-between;
@@ -206,7 +208,7 @@ body {
   min-width: 360px;
 }
 
-/* Search result card styles */
+/* Search restaurant card styles */
 #restaurant-container {
   display: flex;
   text-align: center;
@@ -230,7 +232,7 @@ body {
 
 #res-card-container .card{
   border-radius:10px;
-  overflow:visible;
+  overflow: visible;
   width:100%;
   flex-direction:row;
 }
@@ -249,6 +251,10 @@ body {
 
 #card-image{
   margin:0px;
+}
+
+#reveal{
+  font-size: 20px;
 }
 
 /*  styling for nav bar */
@@ -331,4 +337,10 @@ body {
   .fa {
     font-size: 50px;
   }
+
+  #reveal{
+    font-size: 20px;
+    
+  }
+
 }
