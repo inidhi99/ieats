@@ -5,29 +5,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--styling sheets-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <!--title-->
   <title>iEats</title>
 </head>
 
 <body>
+  <!-- header -->
   <header class="header section blue">
     <h1 class="header-title">iEats</h1>
     <div>
-      <!-- timewidget goes here -->
+      <!-- timewidget -->
       <div class="timewidget" id="time">Time widget goes here</div>
     </div>
-    <!-- Weather widget goes here -->
+    <!-- Weather widget -->
     <div class="weatherwidget">
       <div class="widget" id="weather">Temp widget goes here</div>
       <div class="widget" id="forecast"> Forecast pops up here</div>
     </div>
   </header>
+   <!--end of header -->
+
+   <!-- main section -->
   <main>
     <div class="controls-container">
       <!-- Map & Controls Start -->
@@ -52,15 +58,20 @@
       <button id="search-btn"><a class="waves-effect waves-light btn"><i
             class="fa-solid fa-magnifying-glass"></i></a></button>
     </div>
+
     <div id="map"></div>
     <div id="infowindow-content">
       <span id="place-name" class="title"></span><br />
       <span id="place-address"></span>
     </div>
     <!-- Map Controls End -->
-    <div id="restaurant-container">
-      <!-- restaurant cards rendered here -->
-    </div>
+
+    <!--restaurant card -->
+    <div id="restaurant-container"> </div>
+     <!--end of restaurant card -->
+
+
+    <!--nav bar-->
     <div class="nav-wrapper">
       <!--about modal -->
       <div class="modal" id="about">
@@ -76,11 +87,12 @@
         </div>
       </div>
       <!-- end of about modal  -->
-      <!--rating modal -->
+
+        <!--rating modal -->
       <div class="modal" id="rating">
         <div class="modal-content">
           <h2 class="white-text">Rate Us</h2>
-          <!--rating  -->
+          <!--rating- stars  -->
           <span class="heading">User Rating:</span>
           <span class="fa fa-star checked "></span>
           <span class="fa fa-star checked"></span>
@@ -88,6 +100,7 @@
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
 
+          <!--Name and review-->
           <div class="row">
             <form class="col s12">
               <div class="row">
@@ -102,16 +115,20 @@
                   <label for="textarea2">Add Review</label>
                 </div>
               </div>
-              <a id="subBtn" class="btn waves-effect waves-light" type="submit" name="action">Submit
-                <i class="material-icons right">send</i>
-              </a>
+              <a id="subBtn" class="btn waves-effect waves-light" type="submit" name="action">Submit </a>
             </form>
           </div>
         </div>
       </div>
-      <!--end of rating  -->
+       <!--rating modal -->
+
+    </div>
+      <!--end of nav bar-->
   </main>
-  <!-- end of review  modal  -->
+  <!--end of main section-->
+
+
+  <!--Footer-->
   <footer class="footer">
     <nav class="nav blue">
       <ul>
@@ -121,27 +138,18 @@
       </ul>
     </nav>
   </footer>
+  <!--end of footer -->
 
 
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
-    </script>
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
-    </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
-  </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js">
-  </script>
-  <script
-    src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial">
-    </script>
+  <!--script-->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"> </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"> </script>
+  <script src="https://api.openweathermap.org/data/2.5/weather?lat=40.7127281&lon=-74.0060152&appid=66b15a5b3951d15de56c5d2c4e2ddcba&units=imperial"> </script>
   <script src="./assets/js/map.js"></script>
   <script src="./assets/js/script.js"></script>
   <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle">
-    </script>
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2jcs3sWSy_5L5y-hdC0bryjDAjOEZTg&libraries=places&callback=initAutocomplete&callback=initGoogle"> </script>
 
 </body>
-
 </html>
