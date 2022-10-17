@@ -158,7 +158,7 @@ function initGoogle() {
   autocomplete.bindTo('bounds', map);
 
   // Listen for autocomplete selection  
-  autocomplete.addListener('place_changed', async ()  => { // ascync arrow function awaits dining options fetch request 
+  autocomplete.addListener('place_changed', async () => { // ascync arrow function awaits dining options fetch request 
     // store place data gathered from autocomplete
     place = autocomplete.getPlace();
     placeMarker = new google.maps.Marker({
@@ -184,20 +184,20 @@ function initGoogle() {
       displayElement(mapCardEl);
       placeInfoWindow.open(map, placeMarker);
     });
-    
+
     // routes request through API proxy server
     var detailsRequestURL = `http://45.79.160.76:5001/api/google/?place_id=${place.place_id}&fields=dine_in,delivery`;
     
     // store data from places details request
     var serviceOptions = await fetch(detailsRequestURL)
       .then(response => {
-        if(!response.ok) {
+        if (!response.ok) {
           throw new Error('API response was bad');
         }
         return response.json()
       })
       .then(data => {
-        var serviceOptions = {dineIn: data.result.dine_in, delivery: data.result.delivery}
+        var serviceOptions = { dineIn: data.result.dine_in, delivery: data.result.delivery }
         return serviceOptions;
       })
       .catch((error) => {
@@ -207,7 +207,7 @@ function initGoogle() {
     setServiceOptionsStrings(serviceOptions);
     // render place data in flex-item cards
     restaurantContainerEl.innerHTML +=
-    `
+      `
     <div class="restaurant-card">
     
     <div class="card">
@@ -231,7 +231,7 @@ function initGoogle() {
   });
 }
 
-function displayElement(element){
+function displayElement(element) {
   if (window.getComputedStyle(element).display === 'none') {
     element.style.display = 'block';
     if (element === mapCardEl) {
