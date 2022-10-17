@@ -262,14 +262,14 @@ function setServiceOptionsStrings(serciveOptionsObj) {
     // global string to be rendered in restaurantContainerElement innerHTML
     diningString = 'Dine in available!';
   } else {
-    diningString = 'Dine in unavailable';
+    diningString = 'Dine in unavailable!';
   }
 
   if (serciveOptionsObj.delivery === true) {
     // global string to be rendered in restaurantContainerElement innerHTML
     deliveryString = 'Delivery available!';
   } else {
-    deliveryString = 'Delivery unavailable';
+    deliveryString = 'Delivery unavailable!';
   }
 }
 

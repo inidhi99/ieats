@@ -242,7 +242,6 @@ body {
   justify-content: space-evenly;
   padding-left: 5px;
   width: auto;
-  
 }
 
 #res-card-container .card-reveal{
@@ -255,6 +254,12 @@ body {
 
 #reveal{
   font-size: 20px;
+}
+.img-container{
+  min-width: 200px;
+  max-width: 400px;
+  max-height: 200px;
+
 }
 
 /*  styling for nav bar */
@@ -343,12 +348,6 @@ body {
     
   }
 
-  /* Star rating font awesome feature ends */
-
-  .validate {
-    font-size: larger;
-    color: red;
-  }
   .search-btn{
     display:hidden;
   }
