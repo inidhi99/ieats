@@ -185,7 +185,7 @@ function initGoogle() {
     });
 
     // routes request through API proxy server
-    var detailsRequestURL = `http://45.79.160.76:5001/api/google/?place_id=${place.place_id}&fields=dine_in,delivery`;
+    var detailsRequestURL = `https://ieats-proxy-server.herokuapp.com/api/google?place_id=${place.place_id}&fields=dine_in,delivery`;
     
     // store data from places details request
     var serviceOptions = await fetch(detailsRequestURL)
